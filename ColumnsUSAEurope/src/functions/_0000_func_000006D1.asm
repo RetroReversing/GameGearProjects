@@ -1,3 +1,4 @@
+
 .BANK 0000 SLOT 0
 .ORGA $000006D1
 	ld a, (hl) ;000006D1

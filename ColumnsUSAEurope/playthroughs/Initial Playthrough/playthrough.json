@@ -1,9 +1,9 @@
 {
   "current_state": {
-    "frame": 377,
-    "name": "columns"
+    "frame": 493,
+    "name": "original or flash"
   },
-  "last_frame": 377,
+  "last_frame": 493,
   "name": "Initial Playthrough",
   "states": [
     {
@@ -13,6 +13,10 @@
     {
       "frame": 377,
       "name": "columns"
+    },
+    {
+      "frame": 493,
+      "name": "original or flash"
     }
   ]
 }

@@ -1,3 +1,4 @@
+
 .BANK 0001 SLOT 1
 .ORGA $000066C8
 	ld c, a ;000066C8

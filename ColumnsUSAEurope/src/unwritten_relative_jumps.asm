@@ -2,6 +2,7 @@
 
 
 ; Unwritten relative jump:LAB_0001_0000640A
+
 .BANK 0001 SLOT 1
 .ORGA $0000640A
 ; Called by: 0001_000063F2
@@ -30,6 +31,7 @@ LAB_0001_0000642C:
 
 
 ; Unwritten relative jump:entry
+
 .BANK 0000 SLOT 0
 .ORGA $00000000
 ; Called by: 0000_00000000

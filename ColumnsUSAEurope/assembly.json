@@ -2755,6 +2755,122 @@
         "bytes_length": 1
       }
     },
+    "00000620": {
+      "label_name": "LAB_0000_00000620",
+      "meta": {
+        "label_callers": {
+          "0000_00000634": true
+        }
+      },
+      "rst $08": {
+        "bytes": "CF",
+        "bytes_length": 1
+      }
+    },
+    "00000621": {
+      "push bc": {
+        "bytes": "C5",
+        "bytes_length": 1
+      }
+    },
+    "00000622": {
+      "ld b, c": {
+        "bytes": "41",
+        "bytes_length": 1
+      }
+    },
+    "00000623": {
+      "ld c, $00BE": {
+        "bytes": "000E",
+        "bytes_length": 2
+      }
+    },
+    "00000625": {
+      "OUTI": {
+        "bytes": "ED00",
+        "bytes_length": 2
+      },
+      "label_name": "LAB_0000_00000625",
+      "meta": {
+        "label_callers": {
+          "0000_0000062B": true
+        }
+      }
+    },
+    "00000627": {
+      "jr LAB_0000_00000629": {
+        "bytes": "0000",
+        "bytes_length": 2
+      }
+    },
+    "00000629": {
+      "OUTI": {
+        "bytes": "ED00",
+        "bytes_length": 2
+      },
+      "label_name": "LAB_0000_00000629",
+      "meta": {
+        "label_callers": {
+          "0000_00000627": true
+        }
+      }
+    },
+    "0000062B": {
+      "jr nz, LAB_0000_00000625": {
+        "bytes": "0000",
+        "bytes_length": 2
+      },
+      "z_UNTAKEN_JUMP_2": {
+        "bytes": "0000",
+        "bytes_length": 2
+      }
+    },
+    "0000062D": {
+      "ex de, hl": {
+        "bytes": "EB",
+        "bytes_length": 1
+      }
+    },
+    "0000062E": {
+      "ld bc, $0040": {
+        "bytes": "000001",
+        "bytes_length": 3
+      }
+    },
+    "00000631": {
+      "add hl, bc": {
+        "bytes": "09",
+        "bytes_length": 1
+      }
+    },
+    "00000632": {
+      "ex de, hl": {
+        "bytes": "EB",
+        "bytes_length": 1
+      }
+    },
+    "00000633": {
+      "pop bc": {
+        "bytes": "C1",
+        "bytes_length": 1
+      }
+    },
+    "00000634": {
+      "djnz LAB_0000_00000620": {
+        "bytes": "0000",
+        "bytes_length": 2
+      },
+      "z_UNTAKEN_JUMP_2": {
+        "bytes": "0000",
+        "bytes_length": 2
+      }
+    },
+    "00000636": {
+      "ret": {
+        "bytes": "C9",
+        "bytes_length": 1
+      }
+    },
     "00000652": {
       "ld de, $C05F": {
         "bytes": "000011",
@@ -5313,6 +5429,42 @@
         "bytes_length": 1
       }
     },
+    "00000C55": {
+      "ld a, ($C005)": {
+        "bytes": "00003A",
+        "bytes_length": 3
+      }
+    },
+    "00000C58": {
+      "bit 1, a": {
+        "bytes": "CB4F",
+        "bytes_length": 2
+      }
+    },
+    "00000C5A": {
+      "ret z": {
+        "bytes": "C8",
+        "bytes_length": 1
+      }
+    },
+    "00000CCA": {
+      "ld a, ($C005)": {
+        "bytes": "00003A",
+        "bytes_length": 3
+      }
+    },
+    "00000CCD": {
+      "bit 1, a": {
+        "bytes": "CB4F",
+        "bytes_length": 2
+      }
+    },
+    "00000CCF": {
+      "ret z": {
+        "bytes": "C8",
+        "bytes_length": 1
+      }
+    },
     "00000CD8": {
       "ld a, ($C09F)": {
         "bytes": "00003A",
@@ -5423,6 +5575,60 @@
     },
     "00000D0C": {
       "jp $070B": {
+        "bytes": "0000C3",
+        "bytes_length": 3
+      }
+    },
+    "00000D0F": {
+      "ld hl, $CD00": {
+        "bytes": "000021",
+        "bytes_length": 3
+      }
+    },
+    "00000D12": {
+      "ld de, $CD01": {
+        "bytes": "000011",
+        "bytes_length": 3
+      }
+    },
+    "00000D15": {
+      "ld (hl), $0000": {
+        "bytes": "0036",
+        "bytes_length": 2
+      }
+    },
+    "00000D17": {
+      "call $0AC0": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "00000D1A": {
+      "call $0AC0": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "00000D1D": {
+      "call $0AC0": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "00000D20": {
+      "call $0AC0": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "00000D23": {
+      "call $0AC0": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "00000D26": {
+      "jp $0AC0": {
         "bytes": "0000C3",
         "bytes_length": 3
       }
@@ -6110,6 +6316,10 @@
       }
     },
     "000010C4": {
+      "jr nz, LAB_0000_000010EE": {
+        "bytes": "0000",
+        "bytes_length": 2
+      },
       "z_UNTAKEN_JUMP_2": {
         "bytes": "0000",
         "bytes_length": 2
@@ -6136,6 +6346,282 @@
     "000010CF": {
       "jp nz, $01FF": {
         "bytes": "000000",
+        "bytes_length": 3
+      }
+    },
+    "000010EE": {
+      "label_name": "LAB_0000_000010EE",
+      "ld a, ($C10E)": {
+        "bytes": "00003A",
+        "bytes_length": 3
+      },
+      "meta": {
+        "label_callers": {
+          "0000_000010C4": true
+        }
+      }
+    },
+    "000010F1": {
+      "or a": {
+        "bytes": "B7",
+        "bytes_length": 1
+      }
+    },
+    "000010F2": {
+      "z_UNTAKEN_JUMP_2": {
+        "bytes": "0000",
+        "bytes_length": 2
+      }
+    },
+    "000010F4": {
+      "add a, a": {
+        "bytes": "87",
+        "bytes_length": 1
+      }
+    },
+    "000010F5": {
+      "ld ($C005), a": {
+        "bytes": "000032",
+        "bytes_length": 3
+      }
+    },
+    "000010F8": {
+      "ld a, $0001": {
+        "bytes": "003E",
+        "bytes_length": 2
+      }
+    },
+    "000010FA": {
+      "ld ($C00B), a": {
+        "bytes": "000032",
+        "bytes_length": 3
+      }
+    },
+    "000010FD": {
+      "ld a, $00FF": {
+        "bytes": "003E",
+        "bytes_length": 2
+      }
+    },
+    "000010FF": {
+      "out ($0002), a": {
+        "bytes": "00D3",
+        "bytes_length": 2
+      }
+    },
+    "00001101": {
+      "ld a, $0006": {
+        "bytes": "003E",
+        "bytes_length": 2
+      }
+    },
+    "00001103": {
+      "ld ($C018), a": {
+        "bytes": "000032",
+        "bytes_length": 3
+      }
+    },
+    "00001106": {
+      "jp $01FF": {
+        "bytes": "0000C3",
+        "bytes_length": 3
+      }
+    },
+    "0000139A": {
+      "ld d, $0008": {
+        "bytes": "0016",
+        "bytes_length": 2
+      }
+    },
+    "0000139C": {
+      "call $0CCA": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "0000139F": {
+      "call $0C55": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "000013A2": {
+      "call $05AD": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "000013A5": {
+      "call $0D0F": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "000013A8": {
+      "ld a, $0005": {
+        "bytes": "003E",
+        "bytes_length": 2
+      }
+    },
+    "000013AA": {
+      "ld de, $CD0A": {
+        "bytes": "000011",
+        "bytes_length": 3
+      }
+    },
+    "000013AD": {
+      "call $2183": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "000013B0": {
+      "ld a, $0006": {
+        "bytes": "003E",
+        "bytes_length": 2
+      }
+    },
+    "000013B2": {
+      "ld de, $CD5E": {
+        "bytes": "000011",
+        "bytes_length": 3
+      }
+    },
+    "000013B5": {
+      "call $2183": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "000013B8": {
+      "ld a, $0007": {
+        "bytes": "003E",
+        "bytes_length": 2
+      }
+    },
+    "000013BA": {
+      "ld de, $CDB0": {
+        "bytes": "000011",
+        "bytes_length": 3
+      }
+    },
+    "000013BD": {
+      "call $2183": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "000013C0": {
+      "ld hl, $2CED": {
+        "bytes": "000021",
+        "bytes_length": 3
+      }
+    },
+    "000013C3": {
+      "ld ($C100), hl": {
+        "bytes": "000022",
+        "bytes_length": 3
+      }
+    },
+    "000013C6": {
+      "call $01FF": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "000013C9": {
+      "ld de, $3B4C": {
+        "bytes": "000011",
+        "bytes_length": 3
+      }
+    },
+    "000013CC": {
+      "ld hl, $CD00": {
+        "bytes": "000021",
+        "bytes_length": 3
+      }
+    },
+    "000013CF": {
+      "ld bc, $0728": {
+        "bytes": "000001",
+        "bytes_length": 3
+      }
+    },
+    "000013D2": {
+      "call $0620": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "000013D5": {
+      "ld a, $0008": {
+        "bytes": "003E",
+        "bytes_length": 2
+      }
+    },
+    "000013D7": {
+      "ld ($C018), a": {
+        "bytes": "000032",
+        "bytes_length": 3
+      }
+    },
+    "000013DA": {
+      "jp $01FF": {
+        "bytes": "0000C3",
+        "bytes_length": 3
+      }
+    },
+    "0000143F": {
+      "ld a, ($C00B)": {
+        "bytes": "00003A",
+        "bytes_length": 3
+      }
+    },
+    "00001442": {
+      "or a": {
+        "bytes": "B7",
+        "bytes_length": 1
+      }
+    },
+    "00001443": {
+      "z_UNTAKEN_JUMP_2": {
+        "bytes": "0000",
+        "bytes_length": 2
+      }
+    },
+    "00001445": {
+      "ld a, ($C00D)": {
+        "bytes": "00003A",
+        "bytes_length": 3
+      }
+    },
+    "00001448": {
+      "and $00B0": {
+        "bytes": "00E6",
+        "bytes_length": 2
+      }
+    },
+    "0000144A": {
+      "z_UNTAKEN_JUMP_2": {
+        "bytes": "0000",
+        "bytes_length": 2
+      }
+    },
+    "0000144C": {
+      "call $04C6": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "0000144F": {
+      "call $1D60": {
+        "bytes": "0000C4",
+        "bytes_length": 3
+      }
+    },
+    "00001452": {
+      "jp $01FF": {
+        "bytes": "0000C3",
         "bytes_length": 3
       }
     },
@@ -6833,6 +7319,144 @@
         "bytes_length": 1
       }
     },
+    "00002183": {
+      "ld c, a": {
+        "bytes": "4F",
+        "bytes_length": 1
+      }
+    },
+    "00002184": {
+      "ex af, af'": {
+        "bytes": "08",
+        "bytes_length": 1
+      }
+    },
+    "00002185": {
+      "ld b, $0000": {
+        "bytes": "0006",
+        "bytes_length": 2
+      }
+    },
+    "00002187": {
+      "ld hl, $21A5": {
+        "bytes": "000021",
+        "bytes_length": 3
+      }
+    },
+    "0000218A": {
+      "add hl, bc": {
+        "bytes": "09",
+        "bytes_length": 1
+      }
+    },
+    "0000218B": {
+      "add hl, bc": {
+        "bytes": "09",
+        "bytes_length": 1
+      }
+    },
+    "0000218C": {
+      "ld a, (hl)": {
+        "bytes": "7E",
+        "bytes_length": 1
+      }
+    },
+    "0000218D": {
+      "inc hl": {
+        "bytes": "23",
+        "bytes_length": 1
+      }
+    },
+    "0000218E": {
+      "ld h, (hl)": {
+        "bytes": "66",
+        "bytes_length": 1
+      }
+    },
+    "0000218F": {
+      "ld l, a": {
+        "bytes": "6F",
+        "bytes_length": 1
+      }
+    },
+    "00002190": {
+      "ld c, (hl)": {
+        "bytes": "4E",
+        "bytes_length": 1
+      }
+    },
+    "00002191": {
+      "ld b, $0000": {
+        "bytes": "0006",
+        "bytes_length": 2
+      }
+    },
+    "00002193": {
+      "inc hl": {
+        "bytes": "23",
+        "bytes_length": 1
+      }
+    },
+    "00002194": {
+      "push hl": {
+        "bytes": "E5",
+        "bytes_length": 1
+      }
+    },
+    "00002195": {
+      "ld hl, $0BC0": {
+        "bytes": "000021",
+        "bytes_length": 3
+      }
+    },
+    "00002198": {
+      "xor a": {
+        "bytes": "AF",
+        "bytes_length": 1
+      }
+    },
+    "00002199": {
+      "SBC  HL,BC": {
+        "bytes": "ED00",
+        "bytes_length": 2
+      }
+    },
+    "0000219B": {
+      "SBC  HL,BC": {
+        "bytes": "ED00",
+        "bytes_length": 2
+      }
+    },
+    "0000219D": {
+      "push hl": {
+        "bytes": "E5",
+        "bytes_length": 1
+      }
+    },
+    "0000219E": {
+      "POP  IY": {
+        "bytes": "FDE1",
+        "bytes_length": 2
+      }
+    },
+    "000021A0": {
+      "pop hl": {
+        "bytes": "E1",
+        "bytes_length": 1
+      }
+    },
+    "000021A1": {
+      "ld c, $00BE": {
+        "bytes": "000E",
+        "bytes_length": 2
+      }
+    },
+    "000021A3": {
+      "JP   (IY)": {
+        "bytes": "FDE9",
+        "bytes_length": 2
+      }
+    },
     "00002753": {
       "ld a, ($C6C2)": {
         "bytes": "00003A",
@@ -7094,6 +7718,72 @@
     "00002CEC": {
       "ret": {
         "bytes": "C9",
+        "bytes_length": 1
+      }
+    },
+    "00002CED": {
+      "LD   (IX+$0002),$0001": {
+        "bytes": "0000DD00",
+        "bytes_length": 4
+      }
+    },
+    "00002CF1": {
+      "LD   (IX+$0003),$0001": {
+        "bytes": "0000DD00",
+        "bytes_length": 4
+      }
+    },
+    "00002CF5": {
+      "LD   (IX+$000E),$0000": {
+        "bytes": "0000DD00",
+        "bytes_length": 4
+      }
+    },
+    "00002CF9": {
+      "LD   (IX+$000F),$0002": {
+        "bytes": "0000DD00",
+        "bytes_length": 4
+      }
+    },
+    "00002CFD": {
+      "LD   (IX+$0006),$0078": {
+        "bytes": "0000DD00",
+        "bytes_length": 4
+      }
+    },
+    "00002D01": {
+      "LD   (IX+$0009),$0058": {
+        "bytes": "0000DD00",
+        "bytes_length": 4
+      }
+    },
+    "00002D05": {
+      "ld hl, $2D0B": {
+        "bytes": "000021",
+        "bytes_length": 3
+      }
+    },
+    "00002D08": {
+      "jp $3996": {
+        "bytes": "0000C3",
+        "bytes_length": 3
+      }
+    },
+    "00002D0B": {
+      "ld a, ($C00D)": {
+        "bytes": "00003A",
+        "bytes_length": 3
+      }
+    },
+    "00002D0E": {
+      "and $0003": {
+        "bytes": "00E6",
+        "bytes_length": 2
+      }
+    },
+    "00002D10": {
+      "ret z": {
+        "bytes": "C8",
         "bytes_length": 1
       }
     },
