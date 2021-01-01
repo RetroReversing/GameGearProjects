@@ -1,0 +1,260 @@
+{
+  "00000008": {
+    "first_frame_access": 3,
+    "last_frame_access": 11,
+    "number_of_calls_per_frame": 1,
+    "number_of_frames": 8
+  },
+  "00000028": {
+    "first_frame_access": 12,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 136
+  },
+  "00000030": {
+    "first_frame_access": 3,
+    "last_frame_access": 6,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 2
+  },
+  "000001FF": {
+    "first_frame_access": 5,
+    "last_frame_access": 5,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 1
+  },
+  "0000022F": {
+    "first_frame_access": 12,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 136
+  },
+  "00000423": {
+    "first_frame_access": 6,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 137
+  },
+  "00000439": {
+    "first_frame_access": 6,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 137
+  },
+  "00000445": {
+    "first_frame_access": 6,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 137
+  },
+  "00000464": {
+    "first_frame_access": 5,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 137
+  },
+  "000004B9": {
+    "first_frame_access": 5,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 137
+  },
+  "000004E4": {
+    "first_frame_access": 11,
+    "last_frame_access": 11,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 1
+  },
+  "00000521": {
+    "first_frame_access": 5,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 137
+  },
+  "00000548": {
+    "first_frame_access": 13,
+    "last_frame_access": 43,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 16
+  },
+  "00000589": {
+    "first_frame_access": 3,
+    "last_frame_access": 3,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 1
+  },
+  "000005F1": {
+    "first_frame_access": 3,
+    "last_frame_access": 6,
+    "number_of_calls_per_frame": 2,
+    "number_of_frames": 3
+  },
+  "0000060B": {
+    "first_frame_access": 10,
+    "last_frame_access": 10,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 1
+  },
+  "00000652": {
+    "first_frame_access": 11,
+    "last_frame_access": 11,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 1
+  },
+  "00000674": {
+    "first_frame_access": 3,
+    "last_frame_access": 5,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 2
+  },
+  "00000685": {
+    "first_frame_access": 6,
+    "last_frame_access": 44,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 18
+  },
+  "00000694": {
+    "first_frame_access": 8,
+    "last_frame_access": 8,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 1
+  },
+  "000006AB": {
+    "first_frame_access": 8,
+    "last_frame_access": 10,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 3
+  },
+  "000006D1": {
+    "first_frame_access": 10,
+    "last_frame_access": 10,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 1
+  },
+  "000006E8": {
+    "first_frame_access": 10,
+    "last_frame_access": 10,
+    "number_of_calls_per_frame": 1,
+    "number_of_frames": 1
+  },
+  "00000930": {
+    "first_frame_access": 6,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 137
+  },
+  "000009B0": {
+    "first_frame_access": 6,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 137
+  },
+  "00000AC0": {
+    "first_frame_access": 5,
+    "last_frame_access": 7,
+    "number_of_calls_per_frame": 2,
+    "number_of_frames": 2
+  },
+  "00000AC2": {
+    "first_frame_access": 5,
+    "last_frame_access": 7,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 2
+  },
+  "00000B42": {
+    "first_frame_access": 3,
+    "last_frame_access": 11,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 3
+  },
+  "00000C1D": {
+    "first_frame_access": 12,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 136
+  },
+  "00000CD8": {
+    "first_frame_access": 5,
+    "last_frame_access": 5,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 1
+  },
+  "00000CE1": {
+    "first_frame_access": 5,
+    "last_frame_access": 5,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 1
+  },
+  "00000CF0": {
+    "first_frame_access": 7,
+    "last_frame_access": 7,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 1
+  },
+  "00002753": {
+    "first_frame_access": 4,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 144
+  },
+  "0000296A": {
+    "first_frame_access": 5,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 7,
+    "number_of_frames": 143
+  },
+  "00002AD5": {
+    "first_frame_access": 5,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 137
+  },
+  "00006342": {
+    "first_frame_access": 4,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 144
+  },
+  "0000635B": {
+    "first_frame_access": 4,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 144
+  },
+  "00006364": {
+    "first_frame_access": 4,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 1,
+    "number_of_frames": 144
+  },
+  "00006382": {
+    "first_frame_access": 4,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 144
+  },
+  "000063E8": {
+    "first_frame_access": 4,
+    "last_frame_access": 147,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 144
+  },
+  "000066A1": {
+    "first_frame_access": 0,
+    "last_frame_access": 0,
+    "number_of_calls_per_frame": 2,
+    "number_of_frames": 0
+  },
+  "000066C8": {
+    "first_frame_access": 6,
+    "last_frame_access": 6,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 1
+  },
+  "000066D2": {
+    "first_frame_access": 6,
+    "last_frame_access": 6,
+    "number_of_calls_per_frame": 0,
+    "number_of_frames": 1
+  }
+}
