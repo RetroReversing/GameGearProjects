@@ -1,0 +1,30 @@
+.BANK 0001 SLOT 1
+.ORGA $00006479
+	ld c, $0039 ;00006479
+	push de ;0000647B
+	POP  IX ;0000647C
+	LDI ;0000647E
+	LDI ;00006480
+	LDI ;00006482
+	LDI ;00006484
+	LDI ;00006486
+	LDI ;00006488
+	LDI ;0000648A
+	LDI ;0000648C
+	LDI ;0000648E
+	ld a, c ;00006490
+	ld (de),a ;00006491
+	inc de ;00006492
+	xor a ;00006493
+	LD   (IX+$0027),A ;00006494
+	LD   (IX+$0028),A ;00006497
+	LD   (IX+$0029),A ;0000649A
+	inc a ;0000649D
+	ld (de),a ;0000649E
+	push hl ;0000649F
+	ld hl, $0026 ;000064A0
+	add hl, de ;000064A3
+	ex de, hl ;000064A4
+	pop hl ;000064A5
+	ret ;000064A6
+;stopped writing due to overlap with another section

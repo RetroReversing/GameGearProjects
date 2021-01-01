@@ -1,14 +1,18 @@
 {
   "current_state": {
-    "frame": 147,
-    "name": "sega screen"
+    "frame": 377,
+    "name": "columns"
   },
-  "last_frame": 147,
+  "last_frame": 377,
   "name": "Initial Playthrough",
   "states": [
     {
       "frame": 147,
       "name": "sega screen"
+    },
+    {
+      "frame": 377,
+      "name": "columns"
     }
   ]
 }

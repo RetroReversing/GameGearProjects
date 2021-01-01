@@ -2,15 +2,14 @@
 .ORGA $00000548
 	ld a, ($C09F) ;00000548
 	dec a ;0000054B
-	z_UNTAKEN_JUMP_2 ;0000054C
+	jr nz, LAB_0000_00000557 ;z_UNTAKEN_JUMP_2 ;0000054C
 	ld a, ($C0A1) ;0000054E
 	ld d, a ;00000551
 	ld a, $000F ;00000552
 	sub d ;00000554
 	jr LAB_0000_0000055A ;00000555
-	nop ; not executed offset: 00000557
-	nop ; not executed offset: 00000558
-	nop ; not executed offset: 00000559
+LAB_0000_00000557:
+	ld a, ($C0A1) ;00000557
 LAB_0000_0000055A:
 	ld c, a ;0000055A
 	ld de, $C05F ;0000055B

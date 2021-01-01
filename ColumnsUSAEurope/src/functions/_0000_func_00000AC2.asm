@@ -63,5 +63,4 @@
 	LDI ;00000B3A
 	LDI ;00000B3C
 	LDI ;00000B3E
-	LDI ;00000B40
 ;stopped writing due to overlap with another section

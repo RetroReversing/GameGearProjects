@@ -14,31 +14,4 @@
 	xor a ;00000501
 	ld ($C0A1), a ;00000502
 	ret ;00000505
-	nop ; not executed offset: 00000506
-	nop ; not executed offset: 00000507
-	nop ; not executed offset: 00000508
-	nop ; not executed offset: 00000509
-	nop ; not executed offset: 0000050A
-	nop ; not executed offset: 0000050B
-	nop ; not executed offset: 0000050C
-	nop ; not executed offset: 0000050D
-	nop ; not executed offset: 0000050E
-	nop ; not executed offset: 0000050F
-	nop ; not executed offset: 00000510
-	nop ; not executed offset: 00000511
-	nop ; not executed offset: 00000512
-	nop ; not executed offset: 00000513
-	nop ; not executed offset: 00000514
-	nop ; not executed offset: 00000515
-	nop ; not executed offset: 00000516
-	nop ; not executed offset: 00000517
-	nop ; not executed offset: 00000518
-	nop ; not executed offset: 00000519
-	nop ; not executed offset: 0000051A
-	nop ; not executed offset: 0000051B
-	nop ; not executed offset: 0000051C
-	nop ; not executed offset: 0000051D
-	nop ; not executed offset: 0000051E
-	nop ; not executed offset: 0000051F
-	nop ; not executed offset: 00000520
 ;stopped writing due to overlap with another section

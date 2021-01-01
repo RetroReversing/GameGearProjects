@@ -307,8 +307,12 @@ LAB_0000_000001F2:
 ;stopped writing due to overlap with another section
 .BANK 0000 SLOT 0
 .ORGA $000001FF
+; Called by: 0000::00000CDE
 ; Called by: 0000::00001000
 ; Called by: 0000::00001015
+; Called by: 0000::00001021
+; Called by: 0000::000010B0
+; Called by: 0000::000010D2
 ; Address Also defined as function
 .BANK 0000 SLOT 0
 .ORGA $00000273
@@ -336,6 +340,7 @@ LAB_0000_000001F2:
 ;stopped writing due to overlap with another section
 .BANK 0000 SLOT 0
 .ORGA $0000029F
+; Called by: 0000::000001FE
 ; Called by: 0000::000002E8
 	ld hl, $02AD ;0000029F
 	push hl ;000002A2
@@ -365,6 +370,10 @@ LAB_0000_000002C0:
 	pop af ;000002C5
 	ei ;000002C6
 	ret ;000002C7
+;stopped writing due to overlap with another section
+.BANK 0000 SLOT 0
+.ORGA $000002C8
+; Called by: 0000::000001FE
 	call $0423 ;000002C8
 	call $0439 ;000002CB
 	call $0445 ;000002CE
@@ -710,13 +719,8 @@ LAB_0000_000002D3:
 .BANK 0000 SLOT 0
 .ORGA $0000070B
 ; Called by: 0000::00000CF8
-	ld ($C0FD), a ;0000070B
-	rst $08 ;0000070E
-	ld c, (hl) ;0000070F
-	inc hl ;00000710
-	ld b, (hl) ;00000711
-	inc hl ;00000712
-;stopped writing due to overlap with another section
+; Called by: 0000::00000D0C
+; Address Also defined as function
 .BANK 0000 SLOT 0
 .ORGA $00000713
 ; Called by: 0000::0000072F
@@ -729,9 +733,8 @@ LAB_0000_000002D3:
 LAB_0000_0000071D:
 	rra ;0000071D
 	ld d, h ;0000071E
-	jr c, LAB_0000_00000723 ;0000071F
-	nop ; not executed offset: 00000721
-	nop ; not executed offset: 00000722
+	jr c, LAB_0000_00000723 ;z_UNTAKEN_JUMP_2 ;0000071F
+	ld d, $0000 ;00000721
 LAB_0000_00000723:
 	OUT  (C),D ;00000723
 	djnz LAB_0000_0000071D ;z_UNTAKEN_JUMP_2 ;00000725
@@ -1259,6 +1262,3283 @@ LAB_0000_00000723:
 .ORGA $000009B0
 ; Called by: 0000::00000691
 ; Address Also defined as function
+.BANK 0000 SLOT 0
+.ORGA $00000AC2
+; Called by: 0000::00000EED
+; Address Also defined as function
+.BANK 0000 SLOT 0
+.ORGA $00000FAB
+; Called by: 0000::000001FE
+	call $0CD8 ;00000FAB
+	ld a, $00A1 ;00000FAE
+	ld ($DD04), a ;00000FB0
+	call $0CE1 ;00000FB3
+	call $0CF0 ;00000FB6
+	ld hl, $41E9 ;00000FB9
+	ld de, $0000 ;00000FBC
+	call $0694 ;00000FBF
+	ld hl, $41BA ;00000FC2
+	ld de, $CD00 ;00000FC5
+	call $06D1 ;00000FC8
+	ld hl, $CD00 ;00000FCB
+	ld de, $3AD8 ;00000FCE
+	ld bc, $0312 ;00000FD1
+	call $060B ;00000FD4
+	ld hl, $41E1 ;00000FD7
+	call $04E4 ;00000FDA
+	ld a, $0002 ;00000FDD
+	ld ($C014), a ;00000FDF
+	xor a ;00000FE2
+	ld ($C0A8), a ;00000FE3
+	ld ($C0A7), a ;00000FE6
+	ld ($C002), a ;00000FE9
+	ei ;00000FEC
+	ld a, $00FC ;00000FED
+	out ($0002), a ;00000FEF
+	ld a, $0001 ;00000FF1
+	out ($0001), a ;00000FF3
+	ld hl, $00F0 ;00000FF5
+	ld ($C012), hl ;00000FF8
+	ld a, $0001 ;00000FFB
+	ld ($C018), a ;00000FFD
+	jp $01FF ;00001000
+;stopped writing due to overlap with another section
+.BANK 0000 SLOT 0
+.ORGA $00001003
+; Called by: 0000::000001FE
+	ld d, $0008 ;00001003
+	call $0C1D ;00001005
+	ld a, ($C00D) ;00001008
+	and $0080 ;0000100B
+	z_UNTAKEN_JUMP_2 ;0000100D
+	call $022F ;0000100F
+	jp nz, $01FF ;z_UNTAKEN_JUMP_3 ;00001012
+	call $0506 ;00001015
+	xor a ;00001018
+	ld ($C0A4), a ;00001019
+	ld a, $0002 ;0000101C
+	ld ($C018), a ;0000101E
+	jp $01FF ;00001021
+;stopped writing due to overlap with another section
+.BANK 0000 SLOT 0
+.ORGA $00001024
+; Called by: 0000::000001FE
+	call $0CD8 ;00001024
+	call $0EDC ;00001027
+	call $0CE1 ;0000102A
+	call $0CF0 ;0000102D
+	call $0D04 ;00001030
+	ld hl, $3D79 ;00001033
+	ld de, $32A0 ;00001036
+	ld a, $000E ;00001039
+	call $070B ;0000103B
+	ld de, $0000 ;0000103E
+	ld hl, $4377 ;00001041
+	call $0694 ;00001044
+	ld de, $CD00 ;00001047
+	ld hl, $503E ;0000104A
+	call $06D1 ;0000104D
+	ld hl, $CD00 ;00001050
+	ld de, $390C ;00001053
+	ld bc, $0828 ;00001056
+	call $060B ;00001059
+	xor a ;0000105C
+	ld de, $3B4E ;0000105D
+	call $216B ;00001060
+	ld a, $0001 ;00001063
+	ld de, $3BDA ;00001065
+	call $216B ;00001068
+	ld a, $0002 ;0000106B
+	ld de, $3C5C ;0000106D
+	call $216B ;00001070
+	ld a, $0004 ;00001073
+	ld de, $3D1E ;00001075
+	call $216B ;00001078
+	ld hl, $3D37 ;0000107B
+	call $0652 ;0000107E
+	ld hl, $4335 ;00001081
+	call $04E4 ;00001084
+	xor a ;00001087
+	ld ($D000), a ;00001088
+	ld ($C00B), a ;0000108B
+	ld hl, $2C80 ;0000108E
+	ld ($C100), hl ;00001091
+	ld hl, $2CC7 ;00001094
+	ld ($C120), hl ;00001097
+	ld a, $0002 ;0000109A
+	ld ($C014), a ;0000109C
+	ei ;0000109F
+	ld a, $0081 ;000010A0
+	ld ($DD04), a ;000010A2
+	ld hl, $0258 ;000010A5
+	ld ($C012), hl ;000010A8
+	ld a, $0003 ;000010AB
+	ld ($C018), a ;000010AD
+	jp $01FF ;000010B0
+;stopped writing due to overlap with another section
+.BANK 0000 SLOT 0
+.ORGA $000010B3
+; Called by: 0000::000001FE
+	ld d, $0008 ;000010B3
+	call $0C1D ;000010B5
+	ld hl, ($C012) ;000010B8
+	ld a, l ;000010BB
+	or h ;000010BC
+	z_UNTAKEN_JUMP_2 ;000010BD
+	ld a, ($C00D) ;000010BF
+	and $0080 ;000010C2
+	z_UNTAKEN_JUMP_2 ;000010C4
+	call $04C6 ;000010C6
+	call $1D60 ;000010C9
+	call $022F ;000010CC
+	jp nz, $01FF ;000010CF
+	nop ; not executed offset: 000010D2
+	nop ; not executed offset: 000010D3
+	nop ; not executed offset: 000010D4
+	nop ; not executed offset: 000010D5
+	nop ; not executed offset: 000010D6
+	nop ; not executed offset: 000010D7
+	nop ; not executed offset: 000010D8
+	nop ; not executed offset: 000010D9
+	nop ; not executed offset: 000010DA
+	nop ; not executed offset: 000010DB
+	nop ; not executed offset: 000010DC
+	nop ; not executed offset: 000010DD
+	nop ; not executed offset: 000010DE
+	nop ; not executed offset: 000010DF
+	nop ; not executed offset: 000010E0
+	nop ; not executed offset: 000010E1
+	nop ; not executed offset: 000010E2
+	nop ; not executed offset: 000010E3
+	nop ; not executed offset: 000010E4
+	nop ; not executed offset: 000010E5
+	nop ; not executed offset: 000010E6
+	nop ; not executed offset: 000010E7
+	nop ; not executed offset: 000010E8
+	nop ; not executed offset: 000010E9
+	nop ; not executed offset: 000010EA
+	nop ; not executed offset: 000010EB
+	nop ; not executed offset: 000010EC
+	nop ; not executed offset: 000010ED
+	nop ; not executed offset: 000010EE
+	nop ; not executed offset: 000010EF
+	nop ; not executed offset: 000010F0
+	nop ; not executed offset: 000010F1
+	nop ; not executed offset: 000010F2
+	nop ; not executed offset: 000010F3
+	nop ; not executed offset: 000010F4
+	nop ; not executed offset: 000010F5
+	nop ; not executed offset: 000010F6
+	nop ; not executed offset: 000010F7
+	nop ; not executed offset: 000010F8
+	nop ; not executed offset: 000010F9
+	nop ; not executed offset: 000010FA
+	nop ; not executed offset: 000010FB
+	nop ; not executed offset: 000010FC
+	nop ; not executed offset: 000010FD
+	nop ; not executed offset: 000010FE
+	nop ; not executed offset: 000010FF
+	nop ; not executed offset: 00001100
+	nop ; not executed offset: 00001101
+	nop ; not executed offset: 00001102
+	nop ; not executed offset: 00001103
+	nop ; not executed offset: 00001104
+	nop ; not executed offset: 00001105
+	nop ; not executed offset: 00001106
+	nop ; not executed offset: 00001107
+	nop ; not executed offset: 00001108
+	nop ; not executed offset: 00001109
+	nop ; not executed offset: 0000110A
+	nop ; not executed offset: 0000110B
+	nop ; not executed offset: 0000110C
+	nop ; not executed offset: 0000110D
+	nop ; not executed offset: 0000110E
+	nop ; not executed offset: 0000110F
+	nop ; not executed offset: 00001110
+	nop ; not executed offset: 00001111
+	nop ; not executed offset: 00001112
+	nop ; not executed offset: 00001113
+	nop ; not executed offset: 00001114
+	nop ; not executed offset: 00001115
+	nop ; not executed offset: 00001116
+	nop ; not executed offset: 00001117
+	nop ; not executed offset: 00001118
+	nop ; not executed offset: 00001119
+	nop ; not executed offset: 0000111A
+	nop ; not executed offset: 0000111B
+	nop ; not executed offset: 0000111C
+	nop ; not executed offset: 0000111D
+	nop ; not executed offset: 0000111E
+	nop ; not executed offset: 0000111F
+	nop ; not executed offset: 00001120
+	nop ; not executed offset: 00001121
+	nop ; not executed offset: 00001122
+	nop ; not executed offset: 00001123
+	nop ; not executed offset: 00001124
+	nop ; not executed offset: 00001125
+	nop ; not executed offset: 00001126
+	nop ; not executed offset: 00001127
+	nop ; not executed offset: 00001128
+	nop ; not executed offset: 00001129
+	nop ; not executed offset: 0000112A
+	nop ; not executed offset: 0000112B
+	nop ; not executed offset: 0000112C
+	nop ; not executed offset: 0000112D
+	nop ; not executed offset: 0000112E
+	nop ; not executed offset: 0000112F
+	nop ; not executed offset: 00001130
+	nop ; not executed offset: 00001131
+	nop ; not executed offset: 00001132
+	nop ; not executed offset: 00001133
+	nop ; not executed offset: 00001134
+	nop ; not executed offset: 00001135
+	nop ; not executed offset: 00001136
+	nop ; not executed offset: 00001137
+	nop ; not executed offset: 00001138
+	nop ; not executed offset: 00001139
+	nop ; not executed offset: 0000113A
+	nop ; not executed offset: 0000113B
+	nop ; not executed offset: 0000113C
+	nop ; not executed offset: 0000113D
+	nop ; not executed offset: 0000113E
+	nop ; not executed offset: 0000113F
+	nop ; not executed offset: 00001140
+	nop ; not executed offset: 00001141
+	nop ; not executed offset: 00001142
+	nop ; not executed offset: 00001143
+	nop ; not executed offset: 00001144
+	nop ; not executed offset: 00001145
+	nop ; not executed offset: 00001146
+	nop ; not executed offset: 00001147
+	nop ; not executed offset: 00001148
+	nop ; not executed offset: 00001149
+	nop ; not executed offset: 0000114A
+	nop ; not executed offset: 0000114B
+	nop ; not executed offset: 0000114C
+	nop ; not executed offset: 0000114D
+	nop ; not executed offset: 0000114E
+	nop ; not executed offset: 0000114F
+	nop ; not executed offset: 00001150
+	nop ; not executed offset: 00001151
+	nop ; not executed offset: 00001152
+	nop ; not executed offset: 00001153
+	nop ; not executed offset: 00001154
+	nop ; not executed offset: 00001155
+	nop ; not executed offset: 00001156
+	nop ; not executed offset: 00001157
+	nop ; not executed offset: 00001158
+	nop ; not executed offset: 00001159
+	nop ; not executed offset: 0000115A
+	nop ; not executed offset: 0000115B
+	nop ; not executed offset: 0000115C
+	nop ; not executed offset: 0000115D
+	nop ; not executed offset: 0000115E
+	nop ; not executed offset: 0000115F
+	nop ; not executed offset: 00001160
+	nop ; not executed offset: 00001161
+	nop ; not executed offset: 00001162
+	nop ; not executed offset: 00001163
+	nop ; not executed offset: 00001164
+	nop ; not executed offset: 00001165
+	nop ; not executed offset: 00001166
+	nop ; not executed offset: 00001167
+	nop ; not executed offset: 00001168
+	nop ; not executed offset: 00001169
+	nop ; not executed offset: 0000116A
+	nop ; not executed offset: 0000116B
+	nop ; not executed offset: 0000116C
+	nop ; not executed offset: 0000116D
+	nop ; not executed offset: 0000116E
+	nop ; not executed offset: 0000116F
+	nop ; not executed offset: 00001170
+	nop ; not executed offset: 00001171
+	nop ; not executed offset: 00001172
+	nop ; not executed offset: 00001173
+	nop ; not executed offset: 00001174
+	nop ; not executed offset: 00001175
+	nop ; not executed offset: 00001176
+	nop ; not executed offset: 00001177
+	nop ; not executed offset: 00001178
+	nop ; not executed offset: 00001179
+	nop ; not executed offset: 0000117A
+	nop ; not executed offset: 0000117B
+	nop ; not executed offset: 0000117C
+	nop ; not executed offset: 0000117D
+	nop ; not executed offset: 0000117E
+	nop ; not executed offset: 0000117F
+	nop ; not executed offset: 00001180
+	nop ; not executed offset: 00001181
+	nop ; not executed offset: 00001182
+	nop ; not executed offset: 00001183
+	nop ; not executed offset: 00001184
+	nop ; not executed offset: 00001185
+	nop ; not executed offset: 00001186
+	nop ; not executed offset: 00001187
+	nop ; not executed offset: 00001188
+	nop ; not executed offset: 00001189
+	nop ; not executed offset: 0000118A
+	nop ; not executed offset: 0000118B
+	nop ; not executed offset: 0000118C
+	nop ; not executed offset: 0000118D
+	nop ; not executed offset: 0000118E
+	nop ; not executed offset: 0000118F
+	nop ; not executed offset: 00001190
+	nop ; not executed offset: 00001191
+	nop ; not executed offset: 00001192
+	nop ; not executed offset: 00001193
+	nop ; not executed offset: 00001194
+	nop ; not executed offset: 00001195
+	nop ; not executed offset: 00001196
+	nop ; not executed offset: 00001197
+	nop ; not executed offset: 00001198
+	nop ; not executed offset: 00001199
+	nop ; not executed offset: 0000119A
+	nop ; not executed offset: 0000119B
+	nop ; not executed offset: 0000119C
+	nop ; not executed offset: 0000119D
+	nop ; not executed offset: 0000119E
+	nop ; not executed offset: 0000119F
+	nop ; not executed offset: 000011A0
+	nop ; not executed offset: 000011A1
+	nop ; not executed offset: 000011A2
+	nop ; not executed offset: 000011A3
+	nop ; not executed offset: 000011A4
+	nop ; not executed offset: 000011A5
+	nop ; not executed offset: 000011A6
+	nop ; not executed offset: 000011A7
+	nop ; not executed offset: 000011A8
+	nop ; not executed offset: 000011A9
+	nop ; not executed offset: 000011AA
+	nop ; not executed offset: 000011AB
+	nop ; not executed offset: 000011AC
+	nop ; not executed offset: 000011AD
+	nop ; not executed offset: 000011AE
+	nop ; not executed offset: 000011AF
+	nop ; not executed offset: 000011B0
+	nop ; not executed offset: 000011B1
+	nop ; not executed offset: 000011B2
+	nop ; not executed offset: 000011B3
+	nop ; not executed offset: 000011B4
+	nop ; not executed offset: 000011B5
+	nop ; not executed offset: 000011B6
+	nop ; not executed offset: 000011B7
+	nop ; not executed offset: 000011B8
+	nop ; not executed offset: 000011B9
+	nop ; not executed offset: 000011BA
+	nop ; not executed offset: 000011BB
+	nop ; not executed offset: 000011BC
+	nop ; not executed offset: 000011BD
+	nop ; not executed offset: 000011BE
+	nop ; not executed offset: 000011BF
+	nop ; not executed offset: 000011C0
+	nop ; not executed offset: 000011C1
+	nop ; not executed offset: 000011C2
+	nop ; not executed offset: 000011C3
+	nop ; not executed offset: 000011C4
+	nop ; not executed offset: 000011C5
+	nop ; not executed offset: 000011C6
+	nop ; not executed offset: 000011C7
+	nop ; not executed offset: 000011C8
+	nop ; not executed offset: 000011C9
+	nop ; not executed offset: 000011CA
+	nop ; not executed offset: 000011CB
+	nop ; not executed offset: 000011CC
+	nop ; not executed offset: 000011CD
+	nop ; not executed offset: 000011CE
+	nop ; not executed offset: 000011CF
+	nop ; not executed offset: 000011D0
+	nop ; not executed offset: 000011D1
+	nop ; not executed offset: 000011D2
+	nop ; not executed offset: 000011D3
+	nop ; not executed offset: 000011D4
+	nop ; not executed offset: 000011D5
+	nop ; not executed offset: 000011D6
+	nop ; not executed offset: 000011D7
+	nop ; not executed offset: 000011D8
+	nop ; not executed offset: 000011D9
+	nop ; not executed offset: 000011DA
+	nop ; not executed offset: 000011DB
+	nop ; not executed offset: 000011DC
+	nop ; not executed offset: 000011DD
+	nop ; not executed offset: 000011DE
+	nop ; not executed offset: 000011DF
+	nop ; not executed offset: 000011E0
+	nop ; not executed offset: 000011E1
+	nop ; not executed offset: 000011E2
+	nop ; not executed offset: 000011E3
+	nop ; not executed offset: 000011E4
+	nop ; not executed offset: 000011E5
+	nop ; not executed offset: 000011E6
+	nop ; not executed offset: 000011E7
+	nop ; not executed offset: 000011E8
+	nop ; not executed offset: 000011E9
+	nop ; not executed offset: 000011EA
+	nop ; not executed offset: 000011EB
+	nop ; not executed offset: 000011EC
+	nop ; not executed offset: 000011ED
+	nop ; not executed offset: 000011EE
+	nop ; not executed offset: 000011EF
+	nop ; not executed offset: 000011F0
+	nop ; not executed offset: 000011F1
+	nop ; not executed offset: 000011F2
+	nop ; not executed offset: 000011F3
+	nop ; not executed offset: 000011F4
+	nop ; not executed offset: 000011F5
+	nop ; not executed offset: 000011F6
+	nop ; not executed offset: 000011F7
+	nop ; not executed offset: 000011F8
+	nop ; not executed offset: 000011F9
+	nop ; not executed offset: 000011FA
+	nop ; not executed offset: 000011FB
+	nop ; not executed offset: 000011FC
+	nop ; not executed offset: 000011FD
+	nop ; not executed offset: 000011FE
+	nop ; not executed offset: 000011FF
+	nop ; not executed offset: 00001200
+	nop ; not executed offset: 00001201
+	nop ; not executed offset: 00001202
+	nop ; not executed offset: 00001203
+	nop ; not executed offset: 00001204
+	nop ; not executed offset: 00001205
+	nop ; not executed offset: 00001206
+	nop ; not executed offset: 00001207
+	nop ; not executed offset: 00001208
+	nop ; not executed offset: 00001209
+	nop ; not executed offset: 0000120A
+	nop ; not executed offset: 0000120B
+	nop ; not executed offset: 0000120C
+	nop ; not executed offset: 0000120D
+	nop ; not executed offset: 0000120E
+	nop ; not executed offset: 0000120F
+	nop ; not executed offset: 00001210
+	nop ; not executed offset: 00001211
+	nop ; not executed offset: 00001212
+	nop ; not executed offset: 00001213
+	nop ; not executed offset: 00001214
+	nop ; not executed offset: 00001215
+	nop ; not executed offset: 00001216
+	nop ; not executed offset: 00001217
+	nop ; not executed offset: 00001218
+	nop ; not executed offset: 00001219
+	nop ; not executed offset: 0000121A
+	nop ; not executed offset: 0000121B
+	nop ; not executed offset: 0000121C
+	nop ; not executed offset: 0000121D
+	nop ; not executed offset: 0000121E
+	nop ; not executed offset: 0000121F
+	nop ; not executed offset: 00001220
+	nop ; not executed offset: 00001221
+	nop ; not executed offset: 00001222
+	nop ; not executed offset: 00001223
+	nop ; not executed offset: 00001224
+	nop ; not executed offset: 00001225
+	nop ; not executed offset: 00001226
+	nop ; not executed offset: 00001227
+	nop ; not executed offset: 00001228
+	nop ; not executed offset: 00001229
+	nop ; not executed offset: 0000122A
+	nop ; not executed offset: 0000122B
+	nop ; not executed offset: 0000122C
+	nop ; not executed offset: 0000122D
+	nop ; not executed offset: 0000122E
+	nop ; not executed offset: 0000122F
+	nop ; not executed offset: 00001230
+	nop ; not executed offset: 00001231
+	nop ; not executed offset: 00001232
+	nop ; not executed offset: 00001233
+	nop ; not executed offset: 00001234
+	nop ; not executed offset: 00001235
+	nop ; not executed offset: 00001236
+	nop ; not executed offset: 00001237
+	nop ; not executed offset: 00001238
+	nop ; not executed offset: 00001239
+	nop ; not executed offset: 0000123A
+	nop ; not executed offset: 0000123B
+	nop ; not executed offset: 0000123C
+	nop ; not executed offset: 0000123D
+	nop ; not executed offset: 0000123E
+	nop ; not executed offset: 0000123F
+	nop ; not executed offset: 00001240
+	nop ; not executed offset: 00001241
+	nop ; not executed offset: 00001242
+	nop ; not executed offset: 00001243
+	nop ; not executed offset: 00001244
+	nop ; not executed offset: 00001245
+	nop ; not executed offset: 00001246
+	nop ; not executed offset: 00001247
+	nop ; not executed offset: 00001248
+	nop ; not executed offset: 00001249
+	nop ; not executed offset: 0000124A
+	nop ; not executed offset: 0000124B
+	nop ; not executed offset: 0000124C
+	nop ; not executed offset: 0000124D
+	nop ; not executed offset: 0000124E
+	nop ; not executed offset: 0000124F
+	nop ; not executed offset: 00001250
+	nop ; not executed offset: 00001251
+	nop ; not executed offset: 00001252
+	nop ; not executed offset: 00001253
+	nop ; not executed offset: 00001254
+	nop ; not executed offset: 00001255
+	nop ; not executed offset: 00001256
+	nop ; not executed offset: 00001257
+	nop ; not executed offset: 00001258
+	nop ; not executed offset: 00001259
+	nop ; not executed offset: 0000125A
+	nop ; not executed offset: 0000125B
+	nop ; not executed offset: 0000125C
+	nop ; not executed offset: 0000125D
+	nop ; not executed offset: 0000125E
+	nop ; not executed offset: 0000125F
+	nop ; not executed offset: 00001260
+	nop ; not executed offset: 00001261
+	nop ; not executed offset: 00001262
+	nop ; not executed offset: 00001263
+	nop ; not executed offset: 00001264
+	nop ; not executed offset: 00001265
+	nop ; not executed offset: 00001266
+	nop ; not executed offset: 00001267
+	nop ; not executed offset: 00001268
+	nop ; not executed offset: 00001269
+	nop ; not executed offset: 0000126A
+	nop ; not executed offset: 0000126B
+	nop ; not executed offset: 0000126C
+	nop ; not executed offset: 0000126D
+	nop ; not executed offset: 0000126E
+	nop ; not executed offset: 0000126F
+	nop ; not executed offset: 00001270
+	nop ; not executed offset: 00001271
+	nop ; not executed offset: 00001272
+	nop ; not executed offset: 00001273
+	nop ; not executed offset: 00001274
+	nop ; not executed offset: 00001275
+	nop ; not executed offset: 00001276
+	nop ; not executed offset: 00001277
+	nop ; not executed offset: 00001278
+	nop ; not executed offset: 00001279
+	nop ; not executed offset: 0000127A
+	nop ; not executed offset: 0000127B
+	nop ; not executed offset: 0000127C
+	nop ; not executed offset: 0000127D
+	nop ; not executed offset: 0000127E
+	nop ; not executed offset: 0000127F
+	nop ; not executed offset: 00001280
+	nop ; not executed offset: 00001281
+	nop ; not executed offset: 00001282
+	nop ; not executed offset: 00001283
+	nop ; not executed offset: 00001284
+	nop ; not executed offset: 00001285
+	nop ; not executed offset: 00001286
+	nop ; not executed offset: 00001287
+	nop ; not executed offset: 00001288
+	nop ; not executed offset: 00001289
+	nop ; not executed offset: 0000128A
+	nop ; not executed offset: 0000128B
+	nop ; not executed offset: 0000128C
+	nop ; not executed offset: 0000128D
+	nop ; not executed offset: 0000128E
+	nop ; not executed offset: 0000128F
+	nop ; not executed offset: 00001290
+	nop ; not executed offset: 00001291
+	nop ; not executed offset: 00001292
+	nop ; not executed offset: 00001293
+	nop ; not executed offset: 00001294
+	nop ; not executed offset: 00001295
+	nop ; not executed offset: 00001296
+	nop ; not executed offset: 00001297
+	nop ; not executed offset: 00001298
+	nop ; not executed offset: 00001299
+	nop ; not executed offset: 0000129A
+	nop ; not executed offset: 0000129B
+	nop ; not executed offset: 0000129C
+	nop ; not executed offset: 0000129D
+	nop ; not executed offset: 0000129E
+	nop ; not executed offset: 0000129F
+	nop ; not executed offset: 000012A0
+	nop ; not executed offset: 000012A1
+	nop ; not executed offset: 000012A2
+	nop ; not executed offset: 000012A3
+	nop ; not executed offset: 000012A4
+	nop ; not executed offset: 000012A5
+	nop ; not executed offset: 000012A6
+	nop ; not executed offset: 000012A7
+	nop ; not executed offset: 000012A8
+	nop ; not executed offset: 000012A9
+	nop ; not executed offset: 000012AA
+	nop ; not executed offset: 000012AB
+	nop ; not executed offset: 000012AC
+	nop ; not executed offset: 000012AD
+	nop ; not executed offset: 000012AE
+	nop ; not executed offset: 000012AF
+	nop ; not executed offset: 000012B0
+	nop ; not executed offset: 000012B1
+	nop ; not executed offset: 000012B2
+	nop ; not executed offset: 000012B3
+	nop ; not executed offset: 000012B4
+	nop ; not executed offset: 000012B5
+	nop ; not executed offset: 000012B6
+	nop ; not executed offset: 000012B7
+	nop ; not executed offset: 000012B8
+	nop ; not executed offset: 000012B9
+	nop ; not executed offset: 000012BA
+	nop ; not executed offset: 000012BB
+	nop ; not executed offset: 000012BC
+	nop ; not executed offset: 000012BD
+	nop ; not executed offset: 000012BE
+	nop ; not executed offset: 000012BF
+	nop ; not executed offset: 000012C0
+	nop ; not executed offset: 000012C1
+	nop ; not executed offset: 000012C2
+	nop ; not executed offset: 000012C3
+	nop ; not executed offset: 000012C4
+	nop ; not executed offset: 000012C5
+	nop ; not executed offset: 000012C6
+	nop ; not executed offset: 000012C7
+	nop ; not executed offset: 000012C8
+	nop ; not executed offset: 000012C9
+	nop ; not executed offset: 000012CA
+	nop ; not executed offset: 000012CB
+	nop ; not executed offset: 000012CC
+	nop ; not executed offset: 000012CD
+	nop ; not executed offset: 000012CE
+	nop ; not executed offset: 000012CF
+	nop ; not executed offset: 000012D0
+	nop ; not executed offset: 000012D1
+	nop ; not executed offset: 000012D2
+	nop ; not executed offset: 000012D3
+	nop ; not executed offset: 000012D4
+	nop ; not executed offset: 000012D5
+	nop ; not executed offset: 000012D6
+	nop ; not executed offset: 000012D7
+	nop ; not executed offset: 000012D8
+	nop ; not executed offset: 000012D9
+	nop ; not executed offset: 000012DA
+	nop ; not executed offset: 000012DB
+	nop ; not executed offset: 000012DC
+	nop ; not executed offset: 000012DD
+	nop ; not executed offset: 000012DE
+	nop ; not executed offset: 000012DF
+	nop ; not executed offset: 000012E0
+	nop ; not executed offset: 000012E1
+	nop ; not executed offset: 000012E2
+	nop ; not executed offset: 000012E3
+	nop ; not executed offset: 000012E4
+	nop ; not executed offset: 000012E5
+	nop ; not executed offset: 000012E6
+	nop ; not executed offset: 000012E7
+	nop ; not executed offset: 000012E8
+	nop ; not executed offset: 000012E9
+	nop ; not executed offset: 000012EA
+	nop ; not executed offset: 000012EB
+	nop ; not executed offset: 000012EC
+	nop ; not executed offset: 000012ED
+	nop ; not executed offset: 000012EE
+	nop ; not executed offset: 000012EF
+	nop ; not executed offset: 000012F0
+	nop ; not executed offset: 000012F1
+	nop ; not executed offset: 000012F2
+	nop ; not executed offset: 000012F3
+	nop ; not executed offset: 000012F4
+	nop ; not executed offset: 000012F5
+	nop ; not executed offset: 000012F6
+	nop ; not executed offset: 000012F7
+	nop ; not executed offset: 000012F8
+	nop ; not executed offset: 000012F9
+	nop ; not executed offset: 000012FA
+	nop ; not executed offset: 000012FB
+	nop ; not executed offset: 000012FC
+	nop ; not executed offset: 000012FD
+	nop ; not executed offset: 000012FE
+	nop ; not executed offset: 000012FF
+	nop ; not executed offset: 00001300
+	nop ; not executed offset: 00001301
+	nop ; not executed offset: 00001302
+	nop ; not executed offset: 00001303
+	nop ; not executed offset: 00001304
+	nop ; not executed offset: 00001305
+	nop ; not executed offset: 00001306
+	nop ; not executed offset: 00001307
+	nop ; not executed offset: 00001308
+	nop ; not executed offset: 00001309
+	nop ; not executed offset: 0000130A
+	nop ; not executed offset: 0000130B
+	nop ; not executed offset: 0000130C
+	nop ; not executed offset: 0000130D
+	nop ; not executed offset: 0000130E
+	nop ; not executed offset: 0000130F
+	nop ; not executed offset: 00001310
+	nop ; not executed offset: 00001311
+	nop ; not executed offset: 00001312
+	nop ; not executed offset: 00001313
+	nop ; not executed offset: 00001314
+	nop ; not executed offset: 00001315
+	nop ; not executed offset: 00001316
+	nop ; not executed offset: 00001317
+	nop ; not executed offset: 00001318
+	nop ; not executed offset: 00001319
+	nop ; not executed offset: 0000131A
+	nop ; not executed offset: 0000131B
+	nop ; not executed offset: 0000131C
+	nop ; not executed offset: 0000131D
+	nop ; not executed offset: 0000131E
+	nop ; not executed offset: 0000131F
+	nop ; not executed offset: 00001320
+	nop ; not executed offset: 00001321
+	nop ; not executed offset: 00001322
+	nop ; not executed offset: 00001323
+	nop ; not executed offset: 00001324
+	nop ; not executed offset: 00001325
+	nop ; not executed offset: 00001326
+	nop ; not executed offset: 00001327
+	nop ; not executed offset: 00001328
+	nop ; not executed offset: 00001329
+	nop ; not executed offset: 0000132A
+	nop ; not executed offset: 0000132B
+	nop ; not executed offset: 0000132C
+	nop ; not executed offset: 0000132D
+	nop ; not executed offset: 0000132E
+	nop ; not executed offset: 0000132F
+	nop ; not executed offset: 00001330
+	nop ; not executed offset: 00001331
+	nop ; not executed offset: 00001332
+	nop ; not executed offset: 00001333
+	nop ; not executed offset: 00001334
+	nop ; not executed offset: 00001335
+	nop ; not executed offset: 00001336
+	nop ; not executed offset: 00001337
+	nop ; not executed offset: 00001338
+	nop ; not executed offset: 00001339
+	nop ; not executed offset: 0000133A
+	nop ; not executed offset: 0000133B
+	nop ; not executed offset: 0000133C
+	nop ; not executed offset: 0000133D
+	nop ; not executed offset: 0000133E
+	nop ; not executed offset: 0000133F
+	nop ; not executed offset: 00001340
+	nop ; not executed offset: 00001341
+	nop ; not executed offset: 00001342
+	nop ; not executed offset: 00001343
+	nop ; not executed offset: 00001344
+	nop ; not executed offset: 00001345
+	nop ; not executed offset: 00001346
+	nop ; not executed offset: 00001347
+	nop ; not executed offset: 00001348
+	nop ; not executed offset: 00001349
+	nop ; not executed offset: 0000134A
+	nop ; not executed offset: 0000134B
+	nop ; not executed offset: 0000134C
+	nop ; not executed offset: 0000134D
+	nop ; not executed offset: 0000134E
+	nop ; not executed offset: 0000134F
+	nop ; not executed offset: 00001350
+	nop ; not executed offset: 00001351
+	nop ; not executed offset: 00001352
+	nop ; not executed offset: 00001353
+	nop ; not executed offset: 00001354
+	nop ; not executed offset: 00001355
+	nop ; not executed offset: 00001356
+	nop ; not executed offset: 00001357
+	nop ; not executed offset: 00001358
+	nop ; not executed offset: 00001359
+	nop ; not executed offset: 0000135A
+	nop ; not executed offset: 0000135B
+	nop ; not executed offset: 0000135C
+	nop ; not executed offset: 0000135D
+	nop ; not executed offset: 0000135E
+	nop ; not executed offset: 0000135F
+	nop ; not executed offset: 00001360
+	nop ; not executed offset: 00001361
+	nop ; not executed offset: 00001362
+	nop ; not executed offset: 00001363
+	nop ; not executed offset: 00001364
+	nop ; not executed offset: 00001365
+	nop ; not executed offset: 00001366
+	nop ; not executed offset: 00001367
+	nop ; not executed offset: 00001368
+	nop ; not executed offset: 00001369
+	nop ; not executed offset: 0000136A
+	nop ; not executed offset: 0000136B
+	nop ; not executed offset: 0000136C
+	nop ; not executed offset: 0000136D
+	nop ; not executed offset: 0000136E
+	nop ; not executed offset: 0000136F
+	nop ; not executed offset: 00001370
+	nop ; not executed offset: 00001371
+	nop ; not executed offset: 00001372
+	nop ; not executed offset: 00001373
+	nop ; not executed offset: 00001374
+	nop ; not executed offset: 00001375
+	nop ; not executed offset: 00001376
+	nop ; not executed offset: 00001377
+	nop ; not executed offset: 00001378
+	nop ; not executed offset: 00001379
+	nop ; not executed offset: 0000137A
+	nop ; not executed offset: 0000137B
+	nop ; not executed offset: 0000137C
+	nop ; not executed offset: 0000137D
+	nop ; not executed offset: 0000137E
+	nop ; not executed offset: 0000137F
+	nop ; not executed offset: 00001380
+	nop ; not executed offset: 00001381
+	nop ; not executed offset: 00001382
+	nop ; not executed offset: 00001383
+	nop ; not executed offset: 00001384
+	nop ; not executed offset: 00001385
+	nop ; not executed offset: 00001386
+	nop ; not executed offset: 00001387
+	nop ; not executed offset: 00001388
+	nop ; not executed offset: 00001389
+	nop ; not executed offset: 0000138A
+	nop ; not executed offset: 0000138B
+	nop ; not executed offset: 0000138C
+	nop ; not executed offset: 0000138D
+	nop ; not executed offset: 0000138E
+	nop ; not executed offset: 0000138F
+	nop ; not executed offset: 00001390
+	nop ; not executed offset: 00001391
+	nop ; not executed offset: 00001392
+	nop ; not executed offset: 00001393
+	nop ; not executed offset: 00001394
+	nop ; not executed offset: 00001395
+	nop ; not executed offset: 00001396
+	nop ; not executed offset: 00001397
+	nop ; not executed offset: 00001398
+	nop ; not executed offset: 00001399
+	nop ; not executed offset: 0000139A
+	nop ; not executed offset: 0000139B
+	nop ; not executed offset: 0000139C
+	nop ; not executed offset: 0000139D
+	nop ; not executed offset: 0000139E
+	nop ; not executed offset: 0000139F
+	nop ; not executed offset: 000013A0
+	nop ; not executed offset: 000013A1
+	nop ; not executed offset: 000013A2
+	nop ; not executed offset: 000013A3
+	nop ; not executed offset: 000013A4
+	nop ; not executed offset: 000013A5
+	nop ; not executed offset: 000013A6
+	nop ; not executed offset: 000013A7
+	nop ; not executed offset: 000013A8
+	nop ; not executed offset: 000013A9
+	nop ; not executed offset: 000013AA
+	nop ; not executed offset: 000013AB
+	nop ; not executed offset: 000013AC
+	nop ; not executed offset: 000013AD
+	nop ; not executed offset: 000013AE
+	nop ; not executed offset: 000013AF
+	nop ; not executed offset: 000013B0
+	nop ; not executed offset: 000013B1
+	nop ; not executed offset: 000013B2
+	nop ; not executed offset: 000013B3
+	nop ; not executed offset: 000013B4
+	nop ; not executed offset: 000013B5
+	nop ; not executed offset: 000013B6
+	nop ; not executed offset: 000013B7
+	nop ; not executed offset: 000013B8
+	nop ; not executed offset: 000013B9
+	nop ; not executed offset: 000013BA
+	nop ; not executed offset: 000013BB
+	nop ; not executed offset: 000013BC
+	nop ; not executed offset: 000013BD
+	nop ; not executed offset: 000013BE
+	nop ; not executed offset: 000013BF
+	nop ; not executed offset: 000013C0
+	nop ; not executed offset: 000013C1
+	nop ; not executed offset: 000013C2
+	nop ; not executed offset: 000013C3
+	nop ; not executed offset: 000013C4
+	nop ; not executed offset: 000013C5
+	nop ; not executed offset: 000013C6
+	nop ; not executed offset: 000013C7
+	nop ; not executed offset: 000013C8
+	nop ; not executed offset: 000013C9
+	nop ; not executed offset: 000013CA
+	nop ; not executed offset: 000013CB
+	nop ; not executed offset: 000013CC
+	nop ; not executed offset: 000013CD
+	nop ; not executed offset: 000013CE
+	nop ; not executed offset: 000013CF
+	nop ; not executed offset: 000013D0
+	nop ; not executed offset: 000013D1
+	nop ; not executed offset: 000013D2
+	nop ; not executed offset: 000013D3
+	nop ; not executed offset: 000013D4
+	nop ; not executed offset: 000013D5
+	nop ; not executed offset: 000013D6
+	nop ; not executed offset: 000013D7
+	nop ; not executed offset: 000013D8
+	nop ; not executed offset: 000013D9
+	nop ; not executed offset: 000013DA
+	nop ; not executed offset: 000013DB
+	nop ; not executed offset: 000013DC
+	nop ; not executed offset: 000013DD
+	nop ; not executed offset: 000013DE
+	nop ; not executed offset: 000013DF
+	nop ; not executed offset: 000013E0
+	nop ; not executed offset: 000013E1
+	nop ; not executed offset: 000013E2
+	nop ; not executed offset: 000013E3
+	nop ; not executed offset: 000013E4
+	nop ; not executed offset: 000013E5
+	nop ; not executed offset: 000013E6
+	nop ; not executed offset: 000013E7
+	nop ; not executed offset: 000013E8
+	nop ; not executed offset: 000013E9
+	nop ; not executed offset: 000013EA
+	nop ; not executed offset: 000013EB
+	nop ; not executed offset: 000013EC
+	nop ; not executed offset: 000013ED
+	nop ; not executed offset: 000013EE
+	nop ; not executed offset: 000013EF
+	nop ; not executed offset: 000013F0
+	nop ; not executed offset: 000013F1
+	nop ; not executed offset: 000013F2
+	nop ; not executed offset: 000013F3
+	nop ; not executed offset: 000013F4
+	nop ; not executed offset: 000013F5
+	nop ; not executed offset: 000013F6
+	nop ; not executed offset: 000013F7
+	nop ; not executed offset: 000013F8
+	nop ; not executed offset: 000013F9
+	nop ; not executed offset: 000013FA
+	nop ; not executed offset: 000013FB
+	nop ; not executed offset: 000013FC
+	nop ; not executed offset: 000013FD
+	nop ; not executed offset: 000013FE
+	nop ; not executed offset: 000013FF
+	nop ; not executed offset: 00001400
+	nop ; not executed offset: 00001401
+	nop ; not executed offset: 00001402
+	nop ; not executed offset: 00001403
+	nop ; not executed offset: 00001404
+	nop ; not executed offset: 00001405
+	nop ; not executed offset: 00001406
+	nop ; not executed offset: 00001407
+	nop ; not executed offset: 00001408
+	nop ; not executed offset: 00001409
+	nop ; not executed offset: 0000140A
+	nop ; not executed offset: 0000140B
+	nop ; not executed offset: 0000140C
+	nop ; not executed offset: 0000140D
+	nop ; not executed offset: 0000140E
+	nop ; not executed offset: 0000140F
+	nop ; not executed offset: 00001410
+	nop ; not executed offset: 00001411
+	nop ; not executed offset: 00001412
+	nop ; not executed offset: 00001413
+	nop ; not executed offset: 00001414
+	nop ; not executed offset: 00001415
+	nop ; not executed offset: 00001416
+	nop ; not executed offset: 00001417
+	nop ; not executed offset: 00001418
+	nop ; not executed offset: 00001419
+	nop ; not executed offset: 0000141A
+	nop ; not executed offset: 0000141B
+	nop ; not executed offset: 0000141C
+	nop ; not executed offset: 0000141D
+	nop ; not executed offset: 0000141E
+	nop ; not executed offset: 0000141F
+	nop ; not executed offset: 00001420
+	nop ; not executed offset: 00001421
+	nop ; not executed offset: 00001422
+	nop ; not executed offset: 00001423
+	nop ; not executed offset: 00001424
+	nop ; not executed offset: 00001425
+	nop ; not executed offset: 00001426
+	nop ; not executed offset: 00001427
+	nop ; not executed offset: 00001428
+	nop ; not executed offset: 00001429
+	nop ; not executed offset: 0000142A
+	nop ; not executed offset: 0000142B
+	nop ; not executed offset: 0000142C
+	nop ; not executed offset: 0000142D
+	nop ; not executed offset: 0000142E
+	nop ; not executed offset: 0000142F
+	nop ; not executed offset: 00001430
+	nop ; not executed offset: 00001431
+	nop ; not executed offset: 00001432
+	nop ; not executed offset: 00001433
+	nop ; not executed offset: 00001434
+	nop ; not executed offset: 00001435
+	nop ; not executed offset: 00001436
+	nop ; not executed offset: 00001437
+	nop ; not executed offset: 00001438
+	nop ; not executed offset: 00001439
+	nop ; not executed offset: 0000143A
+	nop ; not executed offset: 0000143B
+	nop ; not executed offset: 0000143C
+	nop ; not executed offset: 0000143D
+	nop ; not executed offset: 0000143E
+	nop ; not executed offset: 0000143F
+	nop ; not executed offset: 00001440
+	nop ; not executed offset: 00001441
+	nop ; not executed offset: 00001442
+	nop ; not executed offset: 00001443
+	nop ; not executed offset: 00001444
+	nop ; not executed offset: 00001445
+	nop ; not executed offset: 00001446
+	nop ; not executed offset: 00001447
+	nop ; not executed offset: 00001448
+	nop ; not executed offset: 00001449
+	nop ; not executed offset: 0000144A
+	nop ; not executed offset: 0000144B
+	nop ; not executed offset: 0000144C
+	nop ; not executed offset: 0000144D
+	nop ; not executed offset: 0000144E
+	nop ; not executed offset: 0000144F
+	nop ; not executed offset: 00001450
+	nop ; not executed offset: 00001451
+	nop ; not executed offset: 00001452
+	nop ; not executed offset: 00001453
+	nop ; not executed offset: 00001454
+	nop ; not executed offset: 00001455
+	nop ; not executed offset: 00001456
+	nop ; not executed offset: 00001457
+	nop ; not executed offset: 00001458
+	nop ; not executed offset: 00001459
+	nop ; not executed offset: 0000145A
+	nop ; not executed offset: 0000145B
+	nop ; not executed offset: 0000145C
+	nop ; not executed offset: 0000145D
+	nop ; not executed offset: 0000145E
+	nop ; not executed offset: 0000145F
+	nop ; not executed offset: 00001460
+	nop ; not executed offset: 00001461
+	nop ; not executed offset: 00001462
+	nop ; not executed offset: 00001463
+	nop ; not executed offset: 00001464
+	nop ; not executed offset: 00001465
+	nop ; not executed offset: 00001466
+	nop ; not executed offset: 00001467
+	nop ; not executed offset: 00001468
+	nop ; not executed offset: 00001469
+	nop ; not executed offset: 0000146A
+	nop ; not executed offset: 0000146B
+	nop ; not executed offset: 0000146C
+	nop ; not executed offset: 0000146D
+	nop ; not executed offset: 0000146E
+	nop ; not executed offset: 0000146F
+	nop ; not executed offset: 00001470
+	nop ; not executed offset: 00001471
+	nop ; not executed offset: 00001472
+	nop ; not executed offset: 00001473
+	nop ; not executed offset: 00001474
+	nop ; not executed offset: 00001475
+	nop ; not executed offset: 00001476
+	nop ; not executed offset: 00001477
+	nop ; not executed offset: 00001478
+	nop ; not executed offset: 00001479
+	nop ; not executed offset: 0000147A
+	nop ; not executed offset: 0000147B
+	nop ; not executed offset: 0000147C
+	nop ; not executed offset: 0000147D
+	nop ; not executed offset: 0000147E
+	nop ; not executed offset: 0000147F
+	nop ; not executed offset: 00001480
+	nop ; not executed offset: 00001481
+	nop ; not executed offset: 00001482
+	nop ; not executed offset: 00001483
+	nop ; not executed offset: 00001484
+	nop ; not executed offset: 00001485
+	nop ; not executed offset: 00001486
+	nop ; not executed offset: 00001487
+	nop ; not executed offset: 00001488
+	nop ; not executed offset: 00001489
+	nop ; not executed offset: 0000148A
+	nop ; not executed offset: 0000148B
+	nop ; not executed offset: 0000148C
+	nop ; not executed offset: 0000148D
+	nop ; not executed offset: 0000148E
+	nop ; not executed offset: 0000148F
+	nop ; not executed offset: 00001490
+	nop ; not executed offset: 00001491
+	nop ; not executed offset: 00001492
+	nop ; not executed offset: 00001493
+	nop ; not executed offset: 00001494
+	nop ; not executed offset: 00001495
+	nop ; not executed offset: 00001496
+	nop ; not executed offset: 00001497
+	nop ; not executed offset: 00001498
+	nop ; not executed offset: 00001499
+	nop ; not executed offset: 0000149A
+	nop ; not executed offset: 0000149B
+	nop ; not executed offset: 0000149C
+	nop ; not executed offset: 0000149D
+	nop ; not executed offset: 0000149E
+	nop ; not executed offset: 0000149F
+	nop ; not executed offset: 000014A0
+	nop ; not executed offset: 000014A1
+	nop ; not executed offset: 000014A2
+	nop ; not executed offset: 000014A3
+	nop ; not executed offset: 000014A4
+	nop ; not executed offset: 000014A5
+	nop ; not executed offset: 000014A6
+	nop ; not executed offset: 000014A7
+	nop ; not executed offset: 000014A8
+	nop ; not executed offset: 000014A9
+	nop ; not executed offset: 000014AA
+	nop ; not executed offset: 000014AB
+	nop ; not executed offset: 000014AC
+	nop ; not executed offset: 000014AD
+	nop ; not executed offset: 000014AE
+	nop ; not executed offset: 000014AF
+	nop ; not executed offset: 000014B0
+	nop ; not executed offset: 000014B1
+	nop ; not executed offset: 000014B2
+	nop ; not executed offset: 000014B3
+	nop ; not executed offset: 000014B4
+	nop ; not executed offset: 000014B5
+	nop ; not executed offset: 000014B6
+	nop ; not executed offset: 000014B7
+	nop ; not executed offset: 000014B8
+	nop ; not executed offset: 000014B9
+	nop ; not executed offset: 000014BA
+	nop ; not executed offset: 000014BB
+	nop ; not executed offset: 000014BC
+	nop ; not executed offset: 000014BD
+	nop ; not executed offset: 000014BE
+	nop ; not executed offset: 000014BF
+	nop ; not executed offset: 000014C0
+	nop ; not executed offset: 000014C1
+	nop ; not executed offset: 000014C2
+	nop ; not executed offset: 000014C3
+	nop ; not executed offset: 000014C4
+	nop ; not executed offset: 000014C5
+	nop ; not executed offset: 000014C6
+	nop ; not executed offset: 000014C7
+	nop ; not executed offset: 000014C8
+	nop ; not executed offset: 000014C9
+	nop ; not executed offset: 000014CA
+	nop ; not executed offset: 000014CB
+	nop ; not executed offset: 000014CC
+	nop ; not executed offset: 000014CD
+	nop ; not executed offset: 000014CE
+	nop ; not executed offset: 000014CF
+	nop ; not executed offset: 000014D0
+	nop ; not executed offset: 000014D1
+	nop ; not executed offset: 000014D2
+	nop ; not executed offset: 000014D3
+	nop ; not executed offset: 000014D4
+	nop ; not executed offset: 000014D5
+	nop ; not executed offset: 000014D6
+	nop ; not executed offset: 000014D7
+	nop ; not executed offset: 000014D8
+	nop ; not executed offset: 000014D9
+	nop ; not executed offset: 000014DA
+	nop ; not executed offset: 000014DB
+	nop ; not executed offset: 000014DC
+	nop ; not executed offset: 000014DD
+	nop ; not executed offset: 000014DE
+	nop ; not executed offset: 000014DF
+	nop ; not executed offset: 000014E0
+	nop ; not executed offset: 000014E1
+	nop ; not executed offset: 000014E2
+	nop ; not executed offset: 000014E3
+	nop ; not executed offset: 000014E4
+	nop ; not executed offset: 000014E5
+	nop ; not executed offset: 000014E6
+	nop ; not executed offset: 000014E7
+	nop ; not executed offset: 000014E8
+	nop ; not executed offset: 000014E9
+	nop ; not executed offset: 000014EA
+	nop ; not executed offset: 000014EB
+	nop ; not executed offset: 000014EC
+	nop ; not executed offset: 000014ED
+	nop ; not executed offset: 000014EE
+	nop ; not executed offset: 000014EF
+	nop ; not executed offset: 000014F0
+	nop ; not executed offset: 000014F1
+	nop ; not executed offset: 000014F2
+	nop ; not executed offset: 000014F3
+	nop ; not executed offset: 000014F4
+	nop ; not executed offset: 000014F5
+	nop ; not executed offset: 000014F6
+	nop ; not executed offset: 000014F7
+	nop ; not executed offset: 000014F8
+	nop ; not executed offset: 000014F9
+	nop ; not executed offset: 000014FA
+	nop ; not executed offset: 000014FB
+	nop ; not executed offset: 000014FC
+	nop ; not executed offset: 000014FD
+	nop ; not executed offset: 000014FE
+	nop ; not executed offset: 000014FF
+; Reached max number of instruction bytes
+
+.BANK 0000 SLOT 0
+.ORGA $00002C80
+; Called by: 0000::000004DA
+	LD   (IX+$0002),$0001 ;00002C80
+	LD   (IX+$0003),$0001 ;00002C84
+	LD   (IX+$000E),$0000 ;00002C88
+	LD   (IX+$000F),$0002 ;00002C8C
+	LD   (IX+$0006),$0078 ;00002C90
+	LD   (IX+$0009),$0058 ;00002C94
+	ld hl, $2C9E ;00002C98
+	jp $3996 ;00002C9B
+;stopped writing due to overlap with another section
+.BANK 0000 SLOT 0
+.ORGA $00002C9E
+; Called by: 0000::000004DA
+	in a, ($0001) ;00002C9E
+	and $000C ;00002CA0
+	z_UNTAKEN_JUMP_2 ;00002CA2
+	cp $000C ;00002CA4
+	jr z, LAB_0000_00002CBE ;00002CA6
+	nop ; not executed offset: 00002CA8
+	nop ; not executed offset: 00002CA9
+	nop ; not executed offset: 00002CAA
+	nop ; not executed offset: 00002CAB
+	nop ; not executed offset: 00002CAC
+	nop ; not executed offset: 00002CAD
+	nop ; not executed offset: 00002CAE
+	nop ; not executed offset: 00002CAF
+	nop ; not executed offset: 00002CB0
+	nop ; not executed offset: 00002CB1
+	nop ; not executed offset: 00002CB2
+	nop ; not executed offset: 00002CB3
+	nop ; not executed offset: 00002CB4
+	nop ; not executed offset: 00002CB5
+	nop ; not executed offset: 00002CB6
+	nop ; not executed offset: 00002CB7
+	nop ; not executed offset: 00002CB8
+	nop ; not executed offset: 00002CB9
+	nop ; not executed offset: 00002CBA
+	nop ; not executed offset: 00002CBB
+	nop ; not executed offset: 00002CBC
+	nop ; not executed offset: 00002CBD
+LAB_0000_00002CBE:
+	LD   (IX+$000E),$0000 ;00002CBE
+	LD   (IX+$0006),$0078 ;00002CC2
+	ret ;00002CC6
+;stopped writing due to overlap with another section
+.BANK 0000 SLOT 0
+.ORGA $00002CC7
+; Called by: 0000::000004DA
+	LD   (IX+$0003),$0002 ;00002CC7
+	LD   (IX+$0006),$0087 ;00002CCB
+	LD   (IX+$0009),$0070 ;00002CCF
+	ld hl, $2CD9 ;00002CD3
+	jp $3996 ;00002CD6
+;stopped writing due to overlap with another section
+.BANK 0000 SLOT 0
+.ORGA $00002CD9
+; Called by: 0000::000004DA
+	in a, ($0001) ;00002CD9
+	and $000C ;00002CDB
+	z_UNTAKEN_JUMP_2 ;00002CDD
+	cp $000C ;00002CDF
+	jr z, LAB_0000_00002CE8 ;00002CE1
+	nop ; not executed offset: 00002CE3
+	nop ; not executed offset: 00002CE4
+	nop ; not executed offset: 00002CE5
+	nop ; not executed offset: 00002CE6
+	nop ; not executed offset: 00002CE7
+LAB_0000_00002CE8:
+	LD   (IX+$0002),$0001 ;00002CE8
+	ret ;00002CEC
+	nop ; not executed offset: 00002CED
+	nop ; not executed offset: 00002CEE
+	nop ; not executed offset: 00002CEF
+	nop ; not executed offset: 00002CF0
+	nop ; not executed offset: 00002CF1
+	nop ; not executed offset: 00002CF2
+	nop ; not executed offset: 00002CF3
+	nop ; not executed offset: 00002CF4
+	nop ; not executed offset: 00002CF5
+	nop ; not executed offset: 00002CF6
+	nop ; not executed offset: 00002CF7
+	nop ; not executed offset: 00002CF8
+	nop ; not executed offset: 00002CF9
+	nop ; not executed offset: 00002CFA
+	nop ; not executed offset: 00002CFB
+	nop ; not executed offset: 00002CFC
+	nop ; not executed offset: 00002CFD
+	nop ; not executed offset: 00002CFE
+	nop ; not executed offset: 00002CFF
+	nop ; not executed offset: 00002D00
+	nop ; not executed offset: 00002D01
+	nop ; not executed offset: 00002D02
+	nop ; not executed offset: 00002D03
+	nop ; not executed offset: 00002D04
+	nop ; not executed offset: 00002D05
+	nop ; not executed offset: 00002D06
+	nop ; not executed offset: 00002D07
+	nop ; not executed offset: 00002D08
+	nop ; not executed offset: 00002D09
+	nop ; not executed offset: 00002D0A
+	nop ; not executed offset: 00002D0B
+	nop ; not executed offset: 00002D0C
+	nop ; not executed offset: 00002D0D
+	nop ; not executed offset: 00002D0E
+	nop ; not executed offset: 00002D0F
+	nop ; not executed offset: 00002D10
+	nop ; not executed offset: 00002D11
+	nop ; not executed offset: 00002D12
+	nop ; not executed offset: 00002D13
+	nop ; not executed offset: 00002D14
+	nop ; not executed offset: 00002D15
+	nop ; not executed offset: 00002D16
+	nop ; not executed offset: 00002D17
+	nop ; not executed offset: 00002D18
+	nop ; not executed offset: 00002D19
+	nop ; not executed offset: 00002D1A
+	nop ; not executed offset: 00002D1B
+	nop ; not executed offset: 00002D1C
+	nop ; not executed offset: 00002D1D
+	nop ; not executed offset: 00002D1E
+	nop ; not executed offset: 00002D1F
+	nop ; not executed offset: 00002D20
+	nop ; not executed offset: 00002D21
+	nop ; not executed offset: 00002D22
+	nop ; not executed offset: 00002D23
+	nop ; not executed offset: 00002D24
+	nop ; not executed offset: 00002D25
+	nop ; not executed offset: 00002D26
+	nop ; not executed offset: 00002D27
+	nop ; not executed offset: 00002D28
+	nop ; not executed offset: 00002D29
+	nop ; not executed offset: 00002D2A
+	nop ; not executed offset: 00002D2B
+	nop ; not executed offset: 00002D2C
+	nop ; not executed offset: 00002D2D
+	nop ; not executed offset: 00002D2E
+	nop ; not executed offset: 00002D2F
+	nop ; not executed offset: 00002D30
+	nop ; not executed offset: 00002D31
+	nop ; not executed offset: 00002D32
+	nop ; not executed offset: 00002D33
+	nop ; not executed offset: 00002D34
+	nop ; not executed offset: 00002D35
+	nop ; not executed offset: 00002D36
+	nop ; not executed offset: 00002D37
+	nop ; not executed offset: 00002D38
+	nop ; not executed offset: 00002D39
+	nop ; not executed offset: 00002D3A
+	nop ; not executed offset: 00002D3B
+	nop ; not executed offset: 00002D3C
+	nop ; not executed offset: 00002D3D
+	nop ; not executed offset: 00002D3E
+	nop ; not executed offset: 00002D3F
+	nop ; not executed offset: 00002D40
+	nop ; not executed offset: 00002D41
+	nop ; not executed offset: 00002D42
+	nop ; not executed offset: 00002D43
+	nop ; not executed offset: 00002D44
+	nop ; not executed offset: 00002D45
+	nop ; not executed offset: 00002D46
+	nop ; not executed offset: 00002D47
+	nop ; not executed offset: 00002D48
+	nop ; not executed offset: 00002D49
+	nop ; not executed offset: 00002D4A
+	nop ; not executed offset: 00002D4B
+	nop ; not executed offset: 00002D4C
+	nop ; not executed offset: 00002D4D
+	nop ; not executed offset: 00002D4E
+	nop ; not executed offset: 00002D4F
+	nop ; not executed offset: 00002D50
+	nop ; not executed offset: 00002D51
+	nop ; not executed offset: 00002D52
+	nop ; not executed offset: 00002D53
+	nop ; not executed offset: 00002D54
+	nop ; not executed offset: 00002D55
+	nop ; not executed offset: 00002D56
+	nop ; not executed offset: 00002D57
+	nop ; not executed offset: 00002D58
+	nop ; not executed offset: 00002D59
+	nop ; not executed offset: 00002D5A
+	nop ; not executed offset: 00002D5B
+	nop ; not executed offset: 00002D5C
+	nop ; not executed offset: 00002D5D
+	nop ; not executed offset: 00002D5E
+	nop ; not executed offset: 00002D5F
+	nop ; not executed offset: 00002D60
+	nop ; not executed offset: 00002D61
+	nop ; not executed offset: 00002D62
+	nop ; not executed offset: 00002D63
+	nop ; not executed offset: 00002D64
+	nop ; not executed offset: 00002D65
+	nop ; not executed offset: 00002D66
+	nop ; not executed offset: 00002D67
+	nop ; not executed offset: 00002D68
+	nop ; not executed offset: 00002D69
+	nop ; not executed offset: 00002D6A
+	nop ; not executed offset: 00002D6B
+	nop ; not executed offset: 00002D6C
+	nop ; not executed offset: 00002D6D
+	nop ; not executed offset: 00002D6E
+	nop ; not executed offset: 00002D6F
+	nop ; not executed offset: 00002D70
+	nop ; not executed offset: 00002D71
+	nop ; not executed offset: 00002D72
+	nop ; not executed offset: 00002D73
+	nop ; not executed offset: 00002D74
+	nop ; not executed offset: 00002D75
+	nop ; not executed offset: 00002D76
+	nop ; not executed offset: 00002D77
+	nop ; not executed offset: 00002D78
+	nop ; not executed offset: 00002D79
+	nop ; not executed offset: 00002D7A
+	nop ; not executed offset: 00002D7B
+	nop ; not executed offset: 00002D7C
+	nop ; not executed offset: 00002D7D
+	nop ; not executed offset: 00002D7E
+	nop ; not executed offset: 00002D7F
+	nop ; not executed offset: 00002D80
+	nop ; not executed offset: 00002D81
+	nop ; not executed offset: 00002D82
+	nop ; not executed offset: 00002D83
+	nop ; not executed offset: 00002D84
+	nop ; not executed offset: 00002D85
+	nop ; not executed offset: 00002D86
+	nop ; not executed offset: 00002D87
+	nop ; not executed offset: 00002D88
+	nop ; not executed offset: 00002D89
+	nop ; not executed offset: 00002D8A
+	nop ; not executed offset: 00002D8B
+	nop ; not executed offset: 00002D8C
+	nop ; not executed offset: 00002D8D
+	nop ; not executed offset: 00002D8E
+	nop ; not executed offset: 00002D8F
+	nop ; not executed offset: 00002D90
+	nop ; not executed offset: 00002D91
+	nop ; not executed offset: 00002D92
+	nop ; not executed offset: 00002D93
+	nop ; not executed offset: 00002D94
+	nop ; not executed offset: 00002D95
+	nop ; not executed offset: 00002D96
+	nop ; not executed offset: 00002D97
+	nop ; not executed offset: 00002D98
+	nop ; not executed offset: 00002D99
+	nop ; not executed offset: 00002D9A
+	nop ; not executed offset: 00002D9B
+	nop ; not executed offset: 00002D9C
+	nop ; not executed offset: 00002D9D
+	nop ; not executed offset: 00002D9E
+	nop ; not executed offset: 00002D9F
+	nop ; not executed offset: 00002DA0
+	nop ; not executed offset: 00002DA1
+	nop ; not executed offset: 00002DA2
+	nop ; not executed offset: 00002DA3
+	nop ; not executed offset: 00002DA4
+	nop ; not executed offset: 00002DA5
+	nop ; not executed offset: 00002DA6
+	nop ; not executed offset: 00002DA7
+	nop ; not executed offset: 00002DA8
+	nop ; not executed offset: 00002DA9
+	nop ; not executed offset: 00002DAA
+	nop ; not executed offset: 00002DAB
+	nop ; not executed offset: 00002DAC
+	nop ; not executed offset: 00002DAD
+	nop ; not executed offset: 00002DAE
+	nop ; not executed offset: 00002DAF
+	nop ; not executed offset: 00002DB0
+	nop ; not executed offset: 00002DB1
+	nop ; not executed offset: 00002DB2
+	nop ; not executed offset: 00002DB3
+	nop ; not executed offset: 00002DB4
+	nop ; not executed offset: 00002DB5
+	nop ; not executed offset: 00002DB6
+	nop ; not executed offset: 00002DB7
+	nop ; not executed offset: 00002DB8
+	nop ; not executed offset: 00002DB9
+	nop ; not executed offset: 00002DBA
+	nop ; not executed offset: 00002DBB
+	nop ; not executed offset: 00002DBC
+	nop ; not executed offset: 00002DBD
+	nop ; not executed offset: 00002DBE
+	nop ; not executed offset: 00002DBF
+	nop ; not executed offset: 00002DC0
+	nop ; not executed offset: 00002DC1
+	nop ; not executed offset: 00002DC2
+	nop ; not executed offset: 00002DC3
+	nop ; not executed offset: 00002DC4
+	nop ; not executed offset: 00002DC5
+	nop ; not executed offset: 00002DC6
+	nop ; not executed offset: 00002DC7
+	nop ; not executed offset: 00002DC8
+	nop ; not executed offset: 00002DC9
+	nop ; not executed offset: 00002DCA
+	nop ; not executed offset: 00002DCB
+	nop ; not executed offset: 00002DCC
+	nop ; not executed offset: 00002DCD
+	nop ; not executed offset: 00002DCE
+	nop ; not executed offset: 00002DCF
+	nop ; not executed offset: 00002DD0
+	nop ; not executed offset: 00002DD1
+	nop ; not executed offset: 00002DD2
+	nop ; not executed offset: 00002DD3
+	nop ; not executed offset: 00002DD4
+	nop ; not executed offset: 00002DD5
+	nop ; not executed offset: 00002DD6
+	nop ; not executed offset: 00002DD7
+	nop ; not executed offset: 00002DD8
+	nop ; not executed offset: 00002DD9
+	nop ; not executed offset: 00002DDA
+	nop ; not executed offset: 00002DDB
+	nop ; not executed offset: 00002DDC
+	nop ; not executed offset: 00002DDD
+	nop ; not executed offset: 00002DDE
+	nop ; not executed offset: 00002DDF
+	nop ; not executed offset: 00002DE0
+	nop ; not executed offset: 00002DE1
+	nop ; not executed offset: 00002DE2
+	nop ; not executed offset: 00002DE3
+	nop ; not executed offset: 00002DE4
+	nop ; not executed offset: 00002DE5
+	nop ; not executed offset: 00002DE6
+	nop ; not executed offset: 00002DE7
+	nop ; not executed offset: 00002DE8
+	nop ; not executed offset: 00002DE9
+	nop ; not executed offset: 00002DEA
+	nop ; not executed offset: 00002DEB
+	nop ; not executed offset: 00002DEC
+	nop ; not executed offset: 00002DED
+	nop ; not executed offset: 00002DEE
+	nop ; not executed offset: 00002DEF
+	nop ; not executed offset: 00002DF0
+	nop ; not executed offset: 00002DF1
+	nop ; not executed offset: 00002DF2
+	nop ; not executed offset: 00002DF3
+	nop ; not executed offset: 00002DF4
+	nop ; not executed offset: 00002DF5
+	nop ; not executed offset: 00002DF6
+	nop ; not executed offset: 00002DF7
+	nop ; not executed offset: 00002DF8
+	nop ; not executed offset: 00002DF9
+	nop ; not executed offset: 00002DFA
+	nop ; not executed offset: 00002DFB
+	nop ; not executed offset: 00002DFC
+	nop ; not executed offset: 00002DFD
+	nop ; not executed offset: 00002DFE
+	nop ; not executed offset: 00002DFF
+	nop ; not executed offset: 00002E00
+	nop ; not executed offset: 00002E01
+	nop ; not executed offset: 00002E02
+	nop ; not executed offset: 00002E03
+	nop ; not executed offset: 00002E04
+	nop ; not executed offset: 00002E05
+	nop ; not executed offset: 00002E06
+	nop ; not executed offset: 00002E07
+	nop ; not executed offset: 00002E08
+	nop ; not executed offset: 00002E09
+	nop ; not executed offset: 00002E0A
+	nop ; not executed offset: 00002E0B
+	nop ; not executed offset: 00002E0C
+	nop ; not executed offset: 00002E0D
+	nop ; not executed offset: 00002E0E
+	nop ; not executed offset: 00002E0F
+	nop ; not executed offset: 00002E10
+	nop ; not executed offset: 00002E11
+	nop ; not executed offset: 00002E12
+	nop ; not executed offset: 00002E13
+	nop ; not executed offset: 00002E14
+	nop ; not executed offset: 00002E15
+	nop ; not executed offset: 00002E16
+	nop ; not executed offset: 00002E17
+	nop ; not executed offset: 00002E18
+	nop ; not executed offset: 00002E19
+	nop ; not executed offset: 00002E1A
+	nop ; not executed offset: 00002E1B
+	nop ; not executed offset: 00002E1C
+	nop ; not executed offset: 00002E1D
+	nop ; not executed offset: 00002E1E
+	nop ; not executed offset: 00002E1F
+	nop ; not executed offset: 00002E20
+	nop ; not executed offset: 00002E21
+	nop ; not executed offset: 00002E22
+	nop ; not executed offset: 00002E23
+	nop ; not executed offset: 00002E24
+	nop ; not executed offset: 00002E25
+	nop ; not executed offset: 00002E26
+	nop ; not executed offset: 00002E27
+	nop ; not executed offset: 00002E28
+	nop ; not executed offset: 00002E29
+	nop ; not executed offset: 00002E2A
+	nop ; not executed offset: 00002E2B
+	nop ; not executed offset: 00002E2C
+	nop ; not executed offset: 00002E2D
+	nop ; not executed offset: 00002E2E
+	nop ; not executed offset: 00002E2F
+	nop ; not executed offset: 00002E30
+	nop ; not executed offset: 00002E31
+	nop ; not executed offset: 00002E32
+	nop ; not executed offset: 00002E33
+	nop ; not executed offset: 00002E34
+	nop ; not executed offset: 00002E35
+	nop ; not executed offset: 00002E36
+	nop ; not executed offset: 00002E37
+	nop ; not executed offset: 00002E38
+	nop ; not executed offset: 00002E39
+	nop ; not executed offset: 00002E3A
+	nop ; not executed offset: 00002E3B
+	nop ; not executed offset: 00002E3C
+	nop ; not executed offset: 00002E3D
+	nop ; not executed offset: 00002E3E
+	nop ; not executed offset: 00002E3F
+	nop ; not executed offset: 00002E40
+	nop ; not executed offset: 00002E41
+	nop ; not executed offset: 00002E42
+	nop ; not executed offset: 00002E43
+	nop ; not executed offset: 00002E44
+	nop ; not executed offset: 00002E45
+	nop ; not executed offset: 00002E46
+	nop ; not executed offset: 00002E47
+	nop ; not executed offset: 00002E48
+	nop ; not executed offset: 00002E49
+	nop ; not executed offset: 00002E4A
+	nop ; not executed offset: 00002E4B
+	nop ; not executed offset: 00002E4C
+	nop ; not executed offset: 00002E4D
+	nop ; not executed offset: 00002E4E
+	nop ; not executed offset: 00002E4F
+	nop ; not executed offset: 00002E50
+	nop ; not executed offset: 00002E51
+	nop ; not executed offset: 00002E52
+	nop ; not executed offset: 00002E53
+	nop ; not executed offset: 00002E54
+	nop ; not executed offset: 00002E55
+	nop ; not executed offset: 00002E56
+	nop ; not executed offset: 00002E57
+	nop ; not executed offset: 00002E58
+	nop ; not executed offset: 00002E59
+	nop ; not executed offset: 00002E5A
+	nop ; not executed offset: 00002E5B
+	nop ; not executed offset: 00002E5C
+	nop ; not executed offset: 00002E5D
+	nop ; not executed offset: 00002E5E
+	nop ; not executed offset: 00002E5F
+	nop ; not executed offset: 00002E60
+	nop ; not executed offset: 00002E61
+	nop ; not executed offset: 00002E62
+	nop ; not executed offset: 00002E63
+	nop ; not executed offset: 00002E64
+	nop ; not executed offset: 00002E65
+	nop ; not executed offset: 00002E66
+	nop ; not executed offset: 00002E67
+	nop ; not executed offset: 00002E68
+	nop ; not executed offset: 00002E69
+	nop ; not executed offset: 00002E6A
+	nop ; not executed offset: 00002E6B
+	nop ; not executed offset: 00002E6C
+	nop ; not executed offset: 00002E6D
+	nop ; not executed offset: 00002E6E
+	nop ; not executed offset: 00002E6F
+	nop ; not executed offset: 00002E70
+	nop ; not executed offset: 00002E71
+	nop ; not executed offset: 00002E72
+	nop ; not executed offset: 00002E73
+	nop ; not executed offset: 00002E74
+	nop ; not executed offset: 00002E75
+	nop ; not executed offset: 00002E76
+	nop ; not executed offset: 00002E77
+	nop ; not executed offset: 00002E78
+	nop ; not executed offset: 00002E79
+	nop ; not executed offset: 00002E7A
+	nop ; not executed offset: 00002E7B
+	nop ; not executed offset: 00002E7C
+	nop ; not executed offset: 00002E7D
+	nop ; not executed offset: 00002E7E
+	nop ; not executed offset: 00002E7F
+	nop ; not executed offset: 00002E80
+	nop ; not executed offset: 00002E81
+	nop ; not executed offset: 00002E82
+	nop ; not executed offset: 00002E83
+	nop ; not executed offset: 00002E84
+	nop ; not executed offset: 00002E85
+	nop ; not executed offset: 00002E86
+	nop ; not executed offset: 00002E87
+	nop ; not executed offset: 00002E88
+	nop ; not executed offset: 00002E89
+	nop ; not executed offset: 00002E8A
+	nop ; not executed offset: 00002E8B
+	nop ; not executed offset: 00002E8C
+	nop ; not executed offset: 00002E8D
+	nop ; not executed offset: 00002E8E
+	nop ; not executed offset: 00002E8F
+	nop ; not executed offset: 00002E90
+	nop ; not executed offset: 00002E91
+	nop ; not executed offset: 00002E92
+	nop ; not executed offset: 00002E93
+	nop ; not executed offset: 00002E94
+	nop ; not executed offset: 00002E95
+	nop ; not executed offset: 00002E96
+	nop ; not executed offset: 00002E97
+	nop ; not executed offset: 00002E98
+	nop ; not executed offset: 00002E99
+	nop ; not executed offset: 00002E9A
+	nop ; not executed offset: 00002E9B
+	nop ; not executed offset: 00002E9C
+	nop ; not executed offset: 00002E9D
+	nop ; not executed offset: 00002E9E
+	nop ; not executed offset: 00002E9F
+	nop ; not executed offset: 00002EA0
+	nop ; not executed offset: 00002EA1
+	nop ; not executed offset: 00002EA2
+	nop ; not executed offset: 00002EA3
+	nop ; not executed offset: 00002EA4
+	nop ; not executed offset: 00002EA5
+	nop ; not executed offset: 00002EA6
+	nop ; not executed offset: 00002EA7
+	nop ; not executed offset: 00002EA8
+	nop ; not executed offset: 00002EA9
+	nop ; not executed offset: 00002EAA
+	nop ; not executed offset: 00002EAB
+	nop ; not executed offset: 00002EAC
+	nop ; not executed offset: 00002EAD
+	nop ; not executed offset: 00002EAE
+	nop ; not executed offset: 00002EAF
+	nop ; not executed offset: 00002EB0
+	nop ; not executed offset: 00002EB1
+	nop ; not executed offset: 00002EB2
+	nop ; not executed offset: 00002EB3
+	nop ; not executed offset: 00002EB4
+	nop ; not executed offset: 00002EB5
+	nop ; not executed offset: 00002EB6
+	nop ; not executed offset: 00002EB7
+	nop ; not executed offset: 00002EB8
+	nop ; not executed offset: 00002EB9
+	nop ; not executed offset: 00002EBA
+	nop ; not executed offset: 00002EBB
+	nop ; not executed offset: 00002EBC
+	nop ; not executed offset: 00002EBD
+	nop ; not executed offset: 00002EBE
+	nop ; not executed offset: 00002EBF
+	nop ; not executed offset: 00002EC0
+	nop ; not executed offset: 00002EC1
+	nop ; not executed offset: 00002EC2
+	nop ; not executed offset: 00002EC3
+	nop ; not executed offset: 00002EC4
+	nop ; not executed offset: 00002EC5
+	nop ; not executed offset: 00002EC6
+	nop ; not executed offset: 00002EC7
+	nop ; not executed offset: 00002EC8
+	nop ; not executed offset: 00002EC9
+	nop ; not executed offset: 00002ECA
+	nop ; not executed offset: 00002ECB
+	nop ; not executed offset: 00002ECC
+	nop ; not executed offset: 00002ECD
+	nop ; not executed offset: 00002ECE
+	nop ; not executed offset: 00002ECF
+	nop ; not executed offset: 00002ED0
+	nop ; not executed offset: 00002ED1
+	nop ; not executed offset: 00002ED2
+	nop ; not executed offset: 00002ED3
+	nop ; not executed offset: 00002ED4
+	nop ; not executed offset: 00002ED5
+	nop ; not executed offset: 00002ED6
+	nop ; not executed offset: 00002ED7
+	nop ; not executed offset: 00002ED8
+	nop ; not executed offset: 00002ED9
+	nop ; not executed offset: 00002EDA
+	nop ; not executed offset: 00002EDB
+	nop ; not executed offset: 00002EDC
+	nop ; not executed offset: 00002EDD
+	nop ; not executed offset: 00002EDE
+	nop ; not executed offset: 00002EDF
+	nop ; not executed offset: 00002EE0
+	nop ; not executed offset: 00002EE1
+	nop ; not executed offset: 00002EE2
+	nop ; not executed offset: 00002EE3
+	nop ; not executed offset: 00002EE4
+	nop ; not executed offset: 00002EE5
+	nop ; not executed offset: 00002EE6
+	nop ; not executed offset: 00002EE7
+	nop ; not executed offset: 00002EE8
+	nop ; not executed offset: 00002EE9
+	nop ; not executed offset: 00002EEA
+	nop ; not executed offset: 00002EEB
+	nop ; not executed offset: 00002EEC
+	nop ; not executed offset: 00002EED
+	nop ; not executed offset: 00002EEE
+	nop ; not executed offset: 00002EEF
+	nop ; not executed offset: 00002EF0
+	nop ; not executed offset: 00002EF1
+	nop ; not executed offset: 00002EF2
+	nop ; not executed offset: 00002EF3
+	nop ; not executed offset: 00002EF4
+	nop ; not executed offset: 00002EF5
+	nop ; not executed offset: 00002EF6
+	nop ; not executed offset: 00002EF7
+	nop ; not executed offset: 00002EF8
+	nop ; not executed offset: 00002EF9
+	nop ; not executed offset: 00002EFA
+	nop ; not executed offset: 00002EFB
+	nop ; not executed offset: 00002EFC
+	nop ; not executed offset: 00002EFD
+	nop ; not executed offset: 00002EFE
+	nop ; not executed offset: 00002EFF
+	nop ; not executed offset: 00002F00
+	nop ; not executed offset: 00002F01
+	nop ; not executed offset: 00002F02
+	nop ; not executed offset: 00002F03
+	nop ; not executed offset: 00002F04
+	nop ; not executed offset: 00002F05
+	nop ; not executed offset: 00002F06
+	nop ; not executed offset: 00002F07
+	nop ; not executed offset: 00002F08
+	nop ; not executed offset: 00002F09
+	nop ; not executed offset: 00002F0A
+	nop ; not executed offset: 00002F0B
+	nop ; not executed offset: 00002F0C
+	nop ; not executed offset: 00002F0D
+	nop ; not executed offset: 00002F0E
+	nop ; not executed offset: 00002F0F
+	nop ; not executed offset: 00002F10
+	nop ; not executed offset: 00002F11
+	nop ; not executed offset: 00002F12
+	nop ; not executed offset: 00002F13
+	nop ; not executed offset: 00002F14
+	nop ; not executed offset: 00002F15
+	nop ; not executed offset: 00002F16
+	nop ; not executed offset: 00002F17
+	nop ; not executed offset: 00002F18
+	nop ; not executed offset: 00002F19
+	nop ; not executed offset: 00002F1A
+	nop ; not executed offset: 00002F1B
+	nop ; not executed offset: 00002F1C
+	nop ; not executed offset: 00002F1D
+	nop ; not executed offset: 00002F1E
+	nop ; not executed offset: 00002F1F
+	nop ; not executed offset: 00002F20
+	nop ; not executed offset: 00002F21
+	nop ; not executed offset: 00002F22
+	nop ; not executed offset: 00002F23
+	nop ; not executed offset: 00002F24
+	nop ; not executed offset: 00002F25
+	nop ; not executed offset: 00002F26
+	nop ; not executed offset: 00002F27
+	nop ; not executed offset: 00002F28
+	nop ; not executed offset: 00002F29
+	nop ; not executed offset: 00002F2A
+	nop ; not executed offset: 00002F2B
+	nop ; not executed offset: 00002F2C
+	nop ; not executed offset: 00002F2D
+	nop ; not executed offset: 00002F2E
+	nop ; not executed offset: 00002F2F
+	nop ; not executed offset: 00002F30
+	nop ; not executed offset: 00002F31
+	nop ; not executed offset: 00002F32
+	nop ; not executed offset: 00002F33
+	nop ; not executed offset: 00002F34
+	nop ; not executed offset: 00002F35
+	nop ; not executed offset: 00002F36
+	nop ; not executed offset: 00002F37
+	nop ; not executed offset: 00002F38
+	nop ; not executed offset: 00002F39
+	nop ; not executed offset: 00002F3A
+	nop ; not executed offset: 00002F3B
+	nop ; not executed offset: 00002F3C
+	nop ; not executed offset: 00002F3D
+	nop ; not executed offset: 00002F3E
+	nop ; not executed offset: 00002F3F
+	nop ; not executed offset: 00002F40
+	nop ; not executed offset: 00002F41
+	nop ; not executed offset: 00002F42
+	nop ; not executed offset: 00002F43
+	nop ; not executed offset: 00002F44
+	nop ; not executed offset: 00002F45
+	nop ; not executed offset: 00002F46
+	nop ; not executed offset: 00002F47
+	nop ; not executed offset: 00002F48
+	nop ; not executed offset: 00002F49
+	nop ; not executed offset: 00002F4A
+	nop ; not executed offset: 00002F4B
+	nop ; not executed offset: 00002F4C
+	nop ; not executed offset: 00002F4D
+	nop ; not executed offset: 00002F4E
+	nop ; not executed offset: 00002F4F
+	nop ; not executed offset: 00002F50
+	nop ; not executed offset: 00002F51
+	nop ; not executed offset: 00002F52
+	nop ; not executed offset: 00002F53
+	nop ; not executed offset: 00002F54
+	nop ; not executed offset: 00002F55
+	nop ; not executed offset: 00002F56
+	nop ; not executed offset: 00002F57
+	nop ; not executed offset: 00002F58
+	nop ; not executed offset: 00002F59
+	nop ; not executed offset: 00002F5A
+	nop ; not executed offset: 00002F5B
+	nop ; not executed offset: 00002F5C
+	nop ; not executed offset: 00002F5D
+	nop ; not executed offset: 00002F5E
+	nop ; not executed offset: 00002F5F
+	nop ; not executed offset: 00002F60
+	nop ; not executed offset: 00002F61
+	nop ; not executed offset: 00002F62
+	nop ; not executed offset: 00002F63
+	nop ; not executed offset: 00002F64
+	nop ; not executed offset: 00002F65
+	nop ; not executed offset: 00002F66
+	nop ; not executed offset: 00002F67
+	nop ; not executed offset: 00002F68
+	nop ; not executed offset: 00002F69
+	nop ; not executed offset: 00002F6A
+	nop ; not executed offset: 00002F6B
+	nop ; not executed offset: 00002F6C
+	nop ; not executed offset: 00002F6D
+	nop ; not executed offset: 00002F6E
+	nop ; not executed offset: 00002F6F
+	nop ; not executed offset: 00002F70
+	nop ; not executed offset: 00002F71
+	nop ; not executed offset: 00002F72
+	nop ; not executed offset: 00002F73
+	nop ; not executed offset: 00002F74
+	nop ; not executed offset: 00002F75
+	nop ; not executed offset: 00002F76
+	nop ; not executed offset: 00002F77
+	nop ; not executed offset: 00002F78
+	nop ; not executed offset: 00002F79
+	nop ; not executed offset: 00002F7A
+	nop ; not executed offset: 00002F7B
+	nop ; not executed offset: 00002F7C
+	nop ; not executed offset: 00002F7D
+	nop ; not executed offset: 00002F7E
+	nop ; not executed offset: 00002F7F
+	nop ; not executed offset: 00002F80
+	nop ; not executed offset: 00002F81
+	nop ; not executed offset: 00002F82
+	nop ; not executed offset: 00002F83
+	nop ; not executed offset: 00002F84
+	nop ; not executed offset: 00002F85
+	nop ; not executed offset: 00002F86
+	nop ; not executed offset: 00002F87
+	nop ; not executed offset: 00002F88
+	nop ; not executed offset: 00002F89
+	nop ; not executed offset: 00002F8A
+	nop ; not executed offset: 00002F8B
+	nop ; not executed offset: 00002F8C
+	nop ; not executed offset: 00002F8D
+	nop ; not executed offset: 00002F8E
+	nop ; not executed offset: 00002F8F
+	nop ; not executed offset: 00002F90
+	nop ; not executed offset: 00002F91
+	nop ; not executed offset: 00002F92
+	nop ; not executed offset: 00002F93
+	nop ; not executed offset: 00002F94
+	nop ; not executed offset: 00002F95
+	nop ; not executed offset: 00002F96
+	nop ; not executed offset: 00002F97
+	nop ; not executed offset: 00002F98
+	nop ; not executed offset: 00002F99
+	nop ; not executed offset: 00002F9A
+	nop ; not executed offset: 00002F9B
+	nop ; not executed offset: 00002F9C
+	nop ; not executed offset: 00002F9D
+	nop ; not executed offset: 00002F9E
+	nop ; not executed offset: 00002F9F
+	nop ; not executed offset: 00002FA0
+	nop ; not executed offset: 00002FA1
+	nop ; not executed offset: 00002FA2
+	nop ; not executed offset: 00002FA3
+	nop ; not executed offset: 00002FA4
+	nop ; not executed offset: 00002FA5
+	nop ; not executed offset: 00002FA6
+	nop ; not executed offset: 00002FA7
+	nop ; not executed offset: 00002FA8
+	nop ; not executed offset: 00002FA9
+	nop ; not executed offset: 00002FAA
+	nop ; not executed offset: 00002FAB
+	nop ; not executed offset: 00002FAC
+	nop ; not executed offset: 00002FAD
+	nop ; not executed offset: 00002FAE
+	nop ; not executed offset: 00002FAF
+	nop ; not executed offset: 00002FB0
+	nop ; not executed offset: 00002FB1
+	nop ; not executed offset: 00002FB2
+	nop ; not executed offset: 00002FB3
+	nop ; not executed offset: 00002FB4
+	nop ; not executed offset: 00002FB5
+	nop ; not executed offset: 00002FB6
+	nop ; not executed offset: 00002FB7
+	nop ; not executed offset: 00002FB8
+	nop ; not executed offset: 00002FB9
+	nop ; not executed offset: 00002FBA
+	nop ; not executed offset: 00002FBB
+	nop ; not executed offset: 00002FBC
+	nop ; not executed offset: 00002FBD
+	nop ; not executed offset: 00002FBE
+	nop ; not executed offset: 00002FBF
+	nop ; not executed offset: 00002FC0
+	nop ; not executed offset: 00002FC1
+	nop ; not executed offset: 00002FC2
+	nop ; not executed offset: 00002FC3
+	nop ; not executed offset: 00002FC4
+	nop ; not executed offset: 00002FC5
+	nop ; not executed offset: 00002FC6
+	nop ; not executed offset: 00002FC7
+	nop ; not executed offset: 00002FC8
+	nop ; not executed offset: 00002FC9
+	nop ; not executed offset: 00002FCA
+	nop ; not executed offset: 00002FCB
+	nop ; not executed offset: 00002FCC
+	nop ; not executed offset: 00002FCD
+	nop ; not executed offset: 00002FCE
+	nop ; not executed offset: 00002FCF
+	nop ; not executed offset: 00002FD0
+	nop ; not executed offset: 00002FD1
+	nop ; not executed offset: 00002FD2
+	nop ; not executed offset: 00002FD3
+	nop ; not executed offset: 00002FD4
+	nop ; not executed offset: 00002FD5
+	nop ; not executed offset: 00002FD6
+	nop ; not executed offset: 00002FD7
+	nop ; not executed offset: 00002FD8
+	nop ; not executed offset: 00002FD9
+	nop ; not executed offset: 00002FDA
+	nop ; not executed offset: 00002FDB
+	nop ; not executed offset: 00002FDC
+	nop ; not executed offset: 00002FDD
+	nop ; not executed offset: 00002FDE
+	nop ; not executed offset: 00002FDF
+	nop ; not executed offset: 00002FE0
+	nop ; not executed offset: 00002FE1
+	nop ; not executed offset: 00002FE2
+	nop ; not executed offset: 00002FE3
+	nop ; not executed offset: 00002FE4
+	nop ; not executed offset: 00002FE5
+	nop ; not executed offset: 00002FE6
+	nop ; not executed offset: 00002FE7
+	nop ; not executed offset: 00002FE8
+	nop ; not executed offset: 00002FE9
+	nop ; not executed offset: 00002FEA
+	nop ; not executed offset: 00002FEB
+	nop ; not executed offset: 00002FEC
+	nop ; not executed offset: 00002FED
+	nop ; not executed offset: 00002FEE
+	nop ; not executed offset: 00002FEF
+	nop ; not executed offset: 00002FF0
+	nop ; not executed offset: 00002FF1
+	nop ; not executed offset: 00002FF2
+	nop ; not executed offset: 00002FF3
+	nop ; not executed offset: 00002FF4
+	nop ; not executed offset: 00002FF5
+	nop ; not executed offset: 00002FF6
+	nop ; not executed offset: 00002FF7
+	nop ; not executed offset: 00002FF8
+	nop ; not executed offset: 00002FF9
+	nop ; not executed offset: 00002FFA
+	nop ; not executed offset: 00002FFB
+	nop ; not executed offset: 00002FFC
+	nop ; not executed offset: 00002FFD
+	nop ; not executed offset: 00002FFE
+	nop ; not executed offset: 00002FFF
+	nop ; not executed offset: 00003000
+	nop ; not executed offset: 00003001
+	nop ; not executed offset: 00003002
+	nop ; not executed offset: 00003003
+	nop ; not executed offset: 00003004
+	nop ; not executed offset: 00003005
+	nop ; not executed offset: 00003006
+	nop ; not executed offset: 00003007
+	nop ; not executed offset: 00003008
+	nop ; not executed offset: 00003009
+	nop ; not executed offset: 0000300A
+	nop ; not executed offset: 0000300B
+	nop ; not executed offset: 0000300C
+	nop ; not executed offset: 0000300D
+	nop ; not executed offset: 0000300E
+	nop ; not executed offset: 0000300F
+	nop ; not executed offset: 00003010
+	nop ; not executed offset: 00003011
+	nop ; not executed offset: 00003012
+	nop ; not executed offset: 00003013
+	nop ; not executed offset: 00003014
+	nop ; not executed offset: 00003015
+	nop ; not executed offset: 00003016
+	nop ; not executed offset: 00003017
+	nop ; not executed offset: 00003018
+	nop ; not executed offset: 00003019
+	nop ; not executed offset: 0000301A
+	nop ; not executed offset: 0000301B
+	nop ; not executed offset: 0000301C
+	nop ; not executed offset: 0000301D
+	nop ; not executed offset: 0000301E
+	nop ; not executed offset: 0000301F
+	nop ; not executed offset: 00003020
+	nop ; not executed offset: 00003021
+	nop ; not executed offset: 00003022
+	nop ; not executed offset: 00003023
+	nop ; not executed offset: 00003024
+	nop ; not executed offset: 00003025
+	nop ; not executed offset: 00003026
+	nop ; not executed offset: 00003027
+	nop ; not executed offset: 00003028
+	nop ; not executed offset: 00003029
+	nop ; not executed offset: 0000302A
+	nop ; not executed offset: 0000302B
+	nop ; not executed offset: 0000302C
+	nop ; not executed offset: 0000302D
+	nop ; not executed offset: 0000302E
+	nop ; not executed offset: 0000302F
+	nop ; not executed offset: 00003030
+	nop ; not executed offset: 00003031
+	nop ; not executed offset: 00003032
+	nop ; not executed offset: 00003033
+	nop ; not executed offset: 00003034
+	nop ; not executed offset: 00003035
+	nop ; not executed offset: 00003036
+	nop ; not executed offset: 00003037
+	nop ; not executed offset: 00003038
+	nop ; not executed offset: 00003039
+	nop ; not executed offset: 0000303A
+	nop ; not executed offset: 0000303B
+	nop ; not executed offset: 0000303C
+	nop ; not executed offset: 0000303D
+	nop ; not executed offset: 0000303E
+	nop ; not executed offset: 0000303F
+	nop ; not executed offset: 00003040
+	nop ; not executed offset: 00003041
+	nop ; not executed offset: 00003042
+	nop ; not executed offset: 00003043
+	nop ; not executed offset: 00003044
+	nop ; not executed offset: 00003045
+	nop ; not executed offset: 00003046
+	nop ; not executed offset: 00003047
+	nop ; not executed offset: 00003048
+	nop ; not executed offset: 00003049
+	nop ; not executed offset: 0000304A
+	nop ; not executed offset: 0000304B
+	nop ; not executed offset: 0000304C
+	nop ; not executed offset: 0000304D
+	nop ; not executed offset: 0000304E
+	nop ; not executed offset: 0000304F
+	nop ; not executed offset: 00003050
+	nop ; not executed offset: 00003051
+	nop ; not executed offset: 00003052
+	nop ; not executed offset: 00003053
+	nop ; not executed offset: 00003054
+	nop ; not executed offset: 00003055
+	nop ; not executed offset: 00003056
+	nop ; not executed offset: 00003057
+	nop ; not executed offset: 00003058
+	nop ; not executed offset: 00003059
+	nop ; not executed offset: 0000305A
+	nop ; not executed offset: 0000305B
+	nop ; not executed offset: 0000305C
+	nop ; not executed offset: 0000305D
+	nop ; not executed offset: 0000305E
+	nop ; not executed offset: 0000305F
+	nop ; not executed offset: 00003060
+	nop ; not executed offset: 00003061
+	nop ; not executed offset: 00003062
+	nop ; not executed offset: 00003063
+	nop ; not executed offset: 00003064
+	nop ; not executed offset: 00003065
+	nop ; not executed offset: 00003066
+	nop ; not executed offset: 00003067
+	nop ; not executed offset: 00003068
+	nop ; not executed offset: 00003069
+	nop ; not executed offset: 0000306A
+	nop ; not executed offset: 0000306B
+	nop ; not executed offset: 0000306C
+	nop ; not executed offset: 0000306D
+	nop ; not executed offset: 0000306E
+	nop ; not executed offset: 0000306F
+	nop ; not executed offset: 00003070
+	nop ; not executed offset: 00003071
+	nop ; not executed offset: 00003072
+	nop ; not executed offset: 00003073
+	nop ; not executed offset: 00003074
+	nop ; not executed offset: 00003075
+	nop ; not executed offset: 00003076
+	nop ; not executed offset: 00003077
+	nop ; not executed offset: 00003078
+	nop ; not executed offset: 00003079
+	nop ; not executed offset: 0000307A
+	nop ; not executed offset: 0000307B
+	nop ; not executed offset: 0000307C
+	nop ; not executed offset: 0000307D
+	nop ; not executed offset: 0000307E
+	nop ; not executed offset: 0000307F
+	nop ; not executed offset: 00003080
+	nop ; not executed offset: 00003081
+	nop ; not executed offset: 00003082
+	nop ; not executed offset: 00003083
+	nop ; not executed offset: 00003084
+	nop ; not executed offset: 00003085
+	nop ; not executed offset: 00003086
+	nop ; not executed offset: 00003087
+	nop ; not executed offset: 00003088
+	nop ; not executed offset: 00003089
+	nop ; not executed offset: 0000308A
+	nop ; not executed offset: 0000308B
+	nop ; not executed offset: 0000308C
+	nop ; not executed offset: 0000308D
+	nop ; not executed offset: 0000308E
+	nop ; not executed offset: 0000308F
+	nop ; not executed offset: 00003090
+	nop ; not executed offset: 00003091
+	nop ; not executed offset: 00003092
+	nop ; not executed offset: 00003093
+	nop ; not executed offset: 00003094
+	nop ; not executed offset: 00003095
+	nop ; not executed offset: 00003096
+	nop ; not executed offset: 00003097
+	nop ; not executed offset: 00003098
+	nop ; not executed offset: 00003099
+	nop ; not executed offset: 0000309A
+	nop ; not executed offset: 0000309B
+	nop ; not executed offset: 0000309C
+	nop ; not executed offset: 0000309D
+	nop ; not executed offset: 0000309E
+	nop ; not executed offset: 0000309F
+	nop ; not executed offset: 000030A0
+	nop ; not executed offset: 000030A1
+	nop ; not executed offset: 000030A2
+	nop ; not executed offset: 000030A3
+	nop ; not executed offset: 000030A4
+	nop ; not executed offset: 000030A5
+	nop ; not executed offset: 000030A6
+	nop ; not executed offset: 000030A7
+	nop ; not executed offset: 000030A8
+	nop ; not executed offset: 000030A9
+	nop ; not executed offset: 000030AA
+	nop ; not executed offset: 000030AB
+	nop ; not executed offset: 000030AC
+	nop ; not executed offset: 000030AD
+	nop ; not executed offset: 000030AE
+	nop ; not executed offset: 000030AF
+	nop ; not executed offset: 000030B0
+	nop ; not executed offset: 000030B1
+	nop ; not executed offset: 000030B2
+	nop ; not executed offset: 000030B3
+	nop ; not executed offset: 000030B4
+	nop ; not executed offset: 000030B5
+	nop ; not executed offset: 000030B6
+	nop ; not executed offset: 000030B7
+	nop ; not executed offset: 000030B8
+	nop ; not executed offset: 000030B9
+	nop ; not executed offset: 000030BA
+	nop ; not executed offset: 000030BB
+	nop ; not executed offset: 000030BC
+	nop ; not executed offset: 000030BD
+	nop ; not executed offset: 000030BE
+	nop ; not executed offset: 000030BF
+	nop ; not executed offset: 000030C0
+	nop ; not executed offset: 000030C1
+	nop ; not executed offset: 000030C2
+	nop ; not executed offset: 000030C3
+	nop ; not executed offset: 000030C4
+	nop ; not executed offset: 000030C5
+	nop ; not executed offset: 000030C6
+	nop ; not executed offset: 000030C7
+	nop ; not executed offset: 000030C8
+	nop ; not executed offset: 000030C9
+	nop ; not executed offset: 000030CA
+	nop ; not executed offset: 000030CB
+	nop ; not executed offset: 000030CC
+	nop ; not executed offset: 000030CD
+	nop ; not executed offset: 000030CE
+	nop ; not executed offset: 000030CF
+	nop ; not executed offset: 000030D0
+	nop ; not executed offset: 000030D1
+	nop ; not executed offset: 000030D2
+	nop ; not executed offset: 000030D3
+	nop ; not executed offset: 000030D4
+	nop ; not executed offset: 000030D5
+	nop ; not executed offset: 000030D6
+	nop ; not executed offset: 000030D7
+	nop ; not executed offset: 000030D8
+	nop ; not executed offset: 000030D9
+	nop ; not executed offset: 000030DA
+	nop ; not executed offset: 000030DB
+	nop ; not executed offset: 000030DC
+	nop ; not executed offset: 000030DD
+	nop ; not executed offset: 000030DE
+	nop ; not executed offset: 000030DF
+	nop ; not executed offset: 000030E0
+	nop ; not executed offset: 000030E1
+	nop ; not executed offset: 000030E2
+	nop ; not executed offset: 000030E3
+	nop ; not executed offset: 000030E4
+	nop ; not executed offset: 000030E5
+	nop ; not executed offset: 000030E6
+	nop ; not executed offset: 000030E7
+	nop ; not executed offset: 000030E8
+	nop ; not executed offset: 000030E9
+	nop ; not executed offset: 000030EA
+	nop ; not executed offset: 000030EB
+	nop ; not executed offset: 000030EC
+	nop ; not executed offset: 000030ED
+	nop ; not executed offset: 000030EE
+	nop ; not executed offset: 000030EF
+	nop ; not executed offset: 000030F0
+	nop ; not executed offset: 000030F1
+	nop ; not executed offset: 000030F2
+	nop ; not executed offset: 000030F3
+	nop ; not executed offset: 000030F4
+	nop ; not executed offset: 000030F5
+	nop ; not executed offset: 000030F6
+	nop ; not executed offset: 000030F7
+	nop ; not executed offset: 000030F8
+	nop ; not executed offset: 000030F9
+	nop ; not executed offset: 000030FA
+	nop ; not executed offset: 000030FB
+	nop ; not executed offset: 000030FC
+	nop ; not executed offset: 000030FD
+	nop ; not executed offset: 000030FE
+	nop ; not executed offset: 000030FF
+	nop ; not executed offset: 00003100
+	nop ; not executed offset: 00003101
+	nop ; not executed offset: 00003102
+	nop ; not executed offset: 00003103
+	nop ; not executed offset: 00003104
+	nop ; not executed offset: 00003105
+	nop ; not executed offset: 00003106
+	nop ; not executed offset: 00003107
+	nop ; not executed offset: 00003108
+	nop ; not executed offset: 00003109
+	nop ; not executed offset: 0000310A
+	nop ; not executed offset: 0000310B
+	nop ; not executed offset: 0000310C
+	nop ; not executed offset: 0000310D
+	nop ; not executed offset: 0000310E
+	nop ; not executed offset: 0000310F
+	nop ; not executed offset: 00003110
+	nop ; not executed offset: 00003111
+	nop ; not executed offset: 00003112
+	nop ; not executed offset: 00003113
+	nop ; not executed offset: 00003114
+	nop ; not executed offset: 00003115
+	nop ; not executed offset: 00003116
+	nop ; not executed offset: 00003117
+	nop ; not executed offset: 00003118
+	nop ; not executed offset: 00003119
+	nop ; not executed offset: 0000311A
+	nop ; not executed offset: 0000311B
+	nop ; not executed offset: 0000311C
+	nop ; not executed offset: 0000311D
+	nop ; not executed offset: 0000311E
+	nop ; not executed offset: 0000311F
+	nop ; not executed offset: 00003120
+	nop ; not executed offset: 00003121
+	nop ; not executed offset: 00003122
+	nop ; not executed offset: 00003123
+	nop ; not executed offset: 00003124
+	nop ; not executed offset: 00003125
+; Reached max number of instruction bytes
+
+.BANK 0000 SLOT 0
+.ORGA $00003996
+; Called by: 0000::00002C9B
+; Called by: 0000::00002CD6
+	LD   (IX+$0000),L ;00003996
+	LD   (IX+$0001),H ;00003999
+	ret ;0000399C
+	nop ; not executed offset: 0000399D
+	nop ; not executed offset: 0000399E
+	nop ; not executed offset: 0000399F
+	nop ; not executed offset: 000039A0
+	nop ; not executed offset: 000039A1
+	nop ; not executed offset: 000039A2
+	nop ; not executed offset: 000039A3
+	nop ; not executed offset: 000039A4
+	nop ; not executed offset: 000039A5
+	nop ; not executed offset: 000039A6
+	nop ; not executed offset: 000039A7
+	nop ; not executed offset: 000039A8
+	nop ; not executed offset: 000039A9
+	nop ; not executed offset: 000039AA
+	nop ; not executed offset: 000039AB
+	nop ; not executed offset: 000039AC
+	nop ; not executed offset: 000039AD
+	nop ; not executed offset: 000039AE
+	nop ; not executed offset: 000039AF
+	nop ; not executed offset: 000039B0
+	nop ; not executed offset: 000039B1
+	nop ; not executed offset: 000039B2
+	nop ; not executed offset: 000039B3
+	nop ; not executed offset: 000039B4
+	nop ; not executed offset: 000039B5
+	nop ; not executed offset: 000039B6
+	nop ; not executed offset: 000039B7
+	nop ; not executed offset: 000039B8
+	nop ; not executed offset: 000039B9
+	nop ; not executed offset: 000039BA
+	nop ; not executed offset: 000039BB
+	nop ; not executed offset: 000039BC
+	nop ; not executed offset: 000039BD
+	nop ; not executed offset: 000039BE
+	nop ; not executed offset: 000039BF
+	nop ; not executed offset: 000039C0
+	nop ; not executed offset: 000039C1
+	nop ; not executed offset: 000039C2
+	nop ; not executed offset: 000039C3
+	nop ; not executed offset: 000039C4
+	nop ; not executed offset: 000039C5
+	nop ; not executed offset: 000039C6
+	nop ; not executed offset: 000039C7
+	nop ; not executed offset: 000039C8
+	nop ; not executed offset: 000039C9
+	nop ; not executed offset: 000039CA
+	nop ; not executed offset: 000039CB
+	nop ; not executed offset: 000039CC
+	nop ; not executed offset: 000039CD
+	nop ; not executed offset: 000039CE
+	nop ; not executed offset: 000039CF
+	nop ; not executed offset: 000039D0
+	nop ; not executed offset: 000039D1
+	nop ; not executed offset: 000039D2
+	nop ; not executed offset: 000039D3
+	nop ; not executed offset: 000039D4
+	nop ; not executed offset: 000039D5
+	nop ; not executed offset: 000039D6
+	nop ; not executed offset: 000039D7
+	nop ; not executed offset: 000039D8
+	nop ; not executed offset: 000039D9
+	nop ; not executed offset: 000039DA
+	nop ; not executed offset: 000039DB
+	nop ; not executed offset: 000039DC
+	nop ; not executed offset: 000039DD
+	nop ; not executed offset: 000039DE
+	nop ; not executed offset: 000039DF
+	nop ; not executed offset: 000039E0
+	nop ; not executed offset: 000039E1
+	nop ; not executed offset: 000039E2
+	nop ; not executed offset: 000039E3
+	nop ; not executed offset: 000039E4
+	nop ; not executed offset: 000039E5
+	nop ; not executed offset: 000039E6
+	nop ; not executed offset: 000039E7
+	nop ; not executed offset: 000039E8
+	nop ; not executed offset: 000039E9
+	nop ; not executed offset: 000039EA
+	nop ; not executed offset: 000039EB
+	nop ; not executed offset: 000039EC
+	nop ; not executed offset: 000039ED
+	nop ; not executed offset: 000039EE
+	nop ; not executed offset: 000039EF
+	nop ; not executed offset: 000039F0
+	nop ; not executed offset: 000039F1
+	nop ; not executed offset: 000039F2
+	nop ; not executed offset: 000039F3
+	nop ; not executed offset: 000039F4
+	nop ; not executed offset: 000039F5
+	nop ; not executed offset: 000039F6
+	nop ; not executed offset: 000039F7
+	nop ; not executed offset: 000039F8
+	nop ; not executed offset: 000039F9
+	nop ; not executed offset: 000039FA
+	nop ; not executed offset: 000039FB
+	nop ; not executed offset: 000039FC
+	nop ; not executed offset: 000039FD
+	nop ; not executed offset: 000039FE
+	nop ; not executed offset: 000039FF
+	nop ; not executed offset: 00003A00
+	nop ; not executed offset: 00003A01
+	nop ; not executed offset: 00003A02
+	nop ; not executed offset: 00003A03
+	nop ; not executed offset: 00003A04
+	nop ; not executed offset: 00003A05
+	nop ; not executed offset: 00003A06
+	nop ; not executed offset: 00003A07
+	nop ; not executed offset: 00003A08
+	nop ; not executed offset: 00003A09
+	nop ; not executed offset: 00003A0A
+	nop ; not executed offset: 00003A0B
+	nop ; not executed offset: 00003A0C
+	nop ; not executed offset: 00003A0D
+	nop ; not executed offset: 00003A0E
+	nop ; not executed offset: 00003A0F
+	nop ; not executed offset: 00003A10
+	nop ; not executed offset: 00003A11
+	nop ; not executed offset: 00003A12
+	nop ; not executed offset: 00003A13
+	nop ; not executed offset: 00003A14
+	nop ; not executed offset: 00003A15
+	nop ; not executed offset: 00003A16
+	nop ; not executed offset: 00003A17
+	nop ; not executed offset: 00003A18
+	nop ; not executed offset: 00003A19
+	nop ; not executed offset: 00003A1A
+	nop ; not executed offset: 00003A1B
+	nop ; not executed offset: 00003A1C
+	nop ; not executed offset: 00003A1D
+	nop ; not executed offset: 00003A1E
+	nop ; not executed offset: 00003A1F
+	nop ; not executed offset: 00003A20
+	nop ; not executed offset: 00003A21
+	nop ; not executed offset: 00003A22
+	nop ; not executed offset: 00003A23
+	nop ; not executed offset: 00003A24
+	nop ; not executed offset: 00003A25
+	nop ; not executed offset: 00003A26
+	nop ; not executed offset: 00003A27
+	nop ; not executed offset: 00003A28
+	nop ; not executed offset: 00003A29
+	nop ; not executed offset: 00003A2A
+	nop ; not executed offset: 00003A2B
+	nop ; not executed offset: 00003A2C
+	nop ; not executed offset: 00003A2D
+	nop ; not executed offset: 00003A2E
+	nop ; not executed offset: 00003A2F
+	nop ; not executed offset: 00003A30
+	nop ; not executed offset: 00003A31
+	nop ; not executed offset: 00003A32
+	nop ; not executed offset: 00003A33
+	nop ; not executed offset: 00003A34
+	nop ; not executed offset: 00003A35
+	nop ; not executed offset: 00003A36
+	nop ; not executed offset: 00003A37
+	nop ; not executed offset: 00003A38
+	nop ; not executed offset: 00003A39
+	nop ; not executed offset: 00003A3A
+	nop ; not executed offset: 00003A3B
+	nop ; not executed offset: 00003A3C
+	nop ; not executed offset: 00003A3D
+	nop ; not executed offset: 00003A3E
+	nop ; not executed offset: 00003A3F
+	nop ; not executed offset: 00003A40
+	nop ; not executed offset: 00003A41
+	nop ; not executed offset: 00003A42
+	nop ; not executed offset: 00003A43
+	nop ; not executed offset: 00003A44
+	nop ; not executed offset: 00003A45
+	nop ; not executed offset: 00003A46
+	nop ; not executed offset: 00003A47
+	nop ; not executed offset: 00003A48
+	nop ; not executed offset: 00003A49
+	nop ; not executed offset: 00003A4A
+	nop ; not executed offset: 00003A4B
+	nop ; not executed offset: 00003A4C
+	nop ; not executed offset: 00003A4D
+	nop ; not executed offset: 00003A4E
+	nop ; not executed offset: 00003A4F
+	nop ; not executed offset: 00003A50
+	nop ; not executed offset: 00003A51
+	nop ; not executed offset: 00003A52
+	nop ; not executed offset: 00003A53
+	nop ; not executed offset: 00003A54
+	nop ; not executed offset: 00003A55
+	nop ; not executed offset: 00003A56
+	nop ; not executed offset: 00003A57
+	nop ; not executed offset: 00003A58
+	nop ; not executed offset: 00003A59
+	nop ; not executed offset: 00003A5A
+	nop ; not executed offset: 00003A5B
+	nop ; not executed offset: 00003A5C
+	nop ; not executed offset: 00003A5D
+	nop ; not executed offset: 00003A5E
+	nop ; not executed offset: 00003A5F
+	nop ; not executed offset: 00003A60
+	nop ; not executed offset: 00003A61
+	nop ; not executed offset: 00003A62
+	nop ; not executed offset: 00003A63
+	nop ; not executed offset: 00003A64
+	nop ; not executed offset: 00003A65
+	nop ; not executed offset: 00003A66
+	nop ; not executed offset: 00003A67
+	nop ; not executed offset: 00003A68
+	nop ; not executed offset: 00003A69
+	nop ; not executed offset: 00003A6A
+	nop ; not executed offset: 00003A6B
+	nop ; not executed offset: 00003A6C
+	nop ; not executed offset: 00003A6D
+	nop ; not executed offset: 00003A6E
+	nop ; not executed offset: 00003A6F
+	nop ; not executed offset: 00003A70
+	nop ; not executed offset: 00003A71
+	nop ; not executed offset: 00003A72
+	nop ; not executed offset: 00003A73
+	nop ; not executed offset: 00003A74
+	nop ; not executed offset: 00003A75
+	nop ; not executed offset: 00003A76
+	nop ; not executed offset: 00003A77
+	nop ; not executed offset: 00003A78
+	nop ; not executed offset: 00003A79
+	nop ; not executed offset: 00003A7A
+	nop ; not executed offset: 00003A7B
+	nop ; not executed offset: 00003A7C
+	nop ; not executed offset: 00003A7D
+	nop ; not executed offset: 00003A7E
+	nop ; not executed offset: 00003A7F
+	nop ; not executed offset: 00003A80
+	nop ; not executed offset: 00003A81
+	nop ; not executed offset: 00003A82
+	nop ; not executed offset: 00003A83
+	nop ; not executed offset: 00003A84
+	nop ; not executed offset: 00003A85
+	nop ; not executed offset: 00003A86
+	nop ; not executed offset: 00003A87
+	nop ; not executed offset: 00003A88
+	nop ; not executed offset: 00003A89
+	nop ; not executed offset: 00003A8A
+	nop ; not executed offset: 00003A8B
+	nop ; not executed offset: 00003A8C
+	nop ; not executed offset: 00003A8D
+	nop ; not executed offset: 00003A8E
+	nop ; not executed offset: 00003A8F
+	nop ; not executed offset: 00003A90
+	nop ; not executed offset: 00003A91
+	nop ; not executed offset: 00003A92
+	nop ; not executed offset: 00003A93
+	nop ; not executed offset: 00003A94
+	nop ; not executed offset: 00003A95
+	nop ; not executed offset: 00003A96
+	nop ; not executed offset: 00003A97
+	nop ; not executed offset: 00003A98
+	nop ; not executed offset: 00003A99
+	nop ; not executed offset: 00003A9A
+	nop ; not executed offset: 00003A9B
+	nop ; not executed offset: 00003A9C
+	nop ; not executed offset: 00003A9D
+	nop ; not executed offset: 00003A9E
+	nop ; not executed offset: 00003A9F
+	nop ; not executed offset: 00003AA0
+	nop ; not executed offset: 00003AA1
+	nop ; not executed offset: 00003AA2
+	nop ; not executed offset: 00003AA3
+	nop ; not executed offset: 00003AA4
+	nop ; not executed offset: 00003AA5
+	nop ; not executed offset: 00003AA6
+	nop ; not executed offset: 00003AA7
+	nop ; not executed offset: 00003AA8
+	nop ; not executed offset: 00003AA9
+	nop ; not executed offset: 00003AAA
+	nop ; not executed offset: 00003AAB
+	nop ; not executed offset: 00003AAC
+	nop ; not executed offset: 00003AAD
+	nop ; not executed offset: 00003AAE
+	nop ; not executed offset: 00003AAF
+	nop ; not executed offset: 00003AB0
+	nop ; not executed offset: 00003AB1
+	nop ; not executed offset: 00003AB2
+	nop ; not executed offset: 00003AB3
+	nop ; not executed offset: 00003AB4
+	nop ; not executed offset: 00003AB5
+	nop ; not executed offset: 00003AB6
+	nop ; not executed offset: 00003AB7
+	nop ; not executed offset: 00003AB8
+	nop ; not executed offset: 00003AB9
+	nop ; not executed offset: 00003ABA
+	nop ; not executed offset: 00003ABB
+	nop ; not executed offset: 00003ABC
+	nop ; not executed offset: 00003ABD
+	nop ; not executed offset: 00003ABE
+	nop ; not executed offset: 00003ABF
+	nop ; not executed offset: 00003AC0
+	nop ; not executed offset: 00003AC1
+	nop ; not executed offset: 00003AC2
+	nop ; not executed offset: 00003AC3
+	nop ; not executed offset: 00003AC4
+	nop ; not executed offset: 00003AC5
+	nop ; not executed offset: 00003AC6
+	nop ; not executed offset: 00003AC7
+	nop ; not executed offset: 00003AC8
+	nop ; not executed offset: 00003AC9
+	nop ; not executed offset: 00003ACA
+	nop ; not executed offset: 00003ACB
+	nop ; not executed offset: 00003ACC
+	nop ; not executed offset: 00003ACD
+	nop ; not executed offset: 00003ACE
+	nop ; not executed offset: 00003ACF
+	nop ; not executed offset: 00003AD0
+	nop ; not executed offset: 00003AD1
+	nop ; not executed offset: 00003AD2
+	nop ; not executed offset: 00003AD3
+	nop ; not executed offset: 00003AD4
+	nop ; not executed offset: 00003AD5
+	nop ; not executed offset: 00003AD6
+	nop ; not executed offset: 00003AD7
+	nop ; not executed offset: 00003AD8
+	nop ; not executed offset: 00003AD9
+	nop ; not executed offset: 00003ADA
+	nop ; not executed offset: 00003ADB
+	nop ; not executed offset: 00003ADC
+	nop ; not executed offset: 00003ADD
+	nop ; not executed offset: 00003ADE
+	nop ; not executed offset: 00003ADF
+	nop ; not executed offset: 00003AE0
+	nop ; not executed offset: 00003AE1
+	nop ; not executed offset: 00003AE2
+	nop ; not executed offset: 00003AE3
+	nop ; not executed offset: 00003AE4
+	nop ; not executed offset: 00003AE5
+	nop ; not executed offset: 00003AE6
+	nop ; not executed offset: 00003AE7
+	nop ; not executed offset: 00003AE8
+	nop ; not executed offset: 00003AE9
+	nop ; not executed offset: 00003AEA
+	nop ; not executed offset: 00003AEB
+	nop ; not executed offset: 00003AEC
+	nop ; not executed offset: 00003AED
+	nop ; not executed offset: 00003AEE
+	nop ; not executed offset: 00003AEF
+	nop ; not executed offset: 00003AF0
+	nop ; not executed offset: 00003AF1
+	nop ; not executed offset: 00003AF2
+	nop ; not executed offset: 00003AF3
+	nop ; not executed offset: 00003AF4
+	nop ; not executed offset: 00003AF5
+	nop ; not executed offset: 00003AF6
+	nop ; not executed offset: 00003AF7
+	nop ; not executed offset: 00003AF8
+	nop ; not executed offset: 00003AF9
+	nop ; not executed offset: 00003AFA
+	nop ; not executed offset: 00003AFB
+	nop ; not executed offset: 00003AFC
+	nop ; not executed offset: 00003AFD
+	nop ; not executed offset: 00003AFE
+	nop ; not executed offset: 00003AFF
+	nop ; not executed offset: 00003B00
+	nop ; not executed offset: 00003B01
+	nop ; not executed offset: 00003B02
+	nop ; not executed offset: 00003B03
+	nop ; not executed offset: 00003B04
+	nop ; not executed offset: 00003B05
+	nop ; not executed offset: 00003B06
+	nop ; not executed offset: 00003B07
+	nop ; not executed offset: 00003B08
+	nop ; not executed offset: 00003B09
+	nop ; not executed offset: 00003B0A
+	nop ; not executed offset: 00003B0B
+	nop ; not executed offset: 00003B0C
+	nop ; not executed offset: 00003B0D
+	nop ; not executed offset: 00003B0E
+	nop ; not executed offset: 00003B0F
+	nop ; not executed offset: 00003B10
+	nop ; not executed offset: 00003B11
+	nop ; not executed offset: 00003B12
+	nop ; not executed offset: 00003B13
+	nop ; not executed offset: 00003B14
+	nop ; not executed offset: 00003B15
+	nop ; not executed offset: 00003B16
+	nop ; not executed offset: 00003B17
+	nop ; not executed offset: 00003B18
+	nop ; not executed offset: 00003B19
+	nop ; not executed offset: 00003B1A
+	nop ; not executed offset: 00003B1B
+	nop ; not executed offset: 00003B1C
+	nop ; not executed offset: 00003B1D
+	nop ; not executed offset: 00003B1E
+	nop ; not executed offset: 00003B1F
+	nop ; not executed offset: 00003B20
+	nop ; not executed offset: 00003B21
+	nop ; not executed offset: 00003B22
+	nop ; not executed offset: 00003B23
+	nop ; not executed offset: 00003B24
+	nop ; not executed offset: 00003B25
+	nop ; not executed offset: 00003B26
+	nop ; not executed offset: 00003B27
+	nop ; not executed offset: 00003B28
+	nop ; not executed offset: 00003B29
+	nop ; not executed offset: 00003B2A
+	nop ; not executed offset: 00003B2B
+	nop ; not executed offset: 00003B2C
+	nop ; not executed offset: 00003B2D
+	nop ; not executed offset: 00003B2E
+	nop ; not executed offset: 00003B2F
+	nop ; not executed offset: 00003B30
+	nop ; not executed offset: 00003B31
+	nop ; not executed offset: 00003B32
+	nop ; not executed offset: 00003B33
+	nop ; not executed offset: 00003B34
+	nop ; not executed offset: 00003B35
+	nop ; not executed offset: 00003B36
+	nop ; not executed offset: 00003B37
+	nop ; not executed offset: 00003B38
+	nop ; not executed offset: 00003B39
+	nop ; not executed offset: 00003B3A
+	nop ; not executed offset: 00003B3B
+	nop ; not executed offset: 00003B3C
+	nop ; not executed offset: 00003B3D
+	nop ; not executed offset: 00003B3E
+	nop ; not executed offset: 00003B3F
+	nop ; not executed offset: 00003B40
+	nop ; not executed offset: 00003B41
+	nop ; not executed offset: 00003B42
+	nop ; not executed offset: 00003B43
+	nop ; not executed offset: 00003B44
+	nop ; not executed offset: 00003B45
+	nop ; not executed offset: 00003B46
+	nop ; not executed offset: 00003B47
+	nop ; not executed offset: 00003B48
+	nop ; not executed offset: 00003B49
+	nop ; not executed offset: 00003B4A
+	nop ; not executed offset: 00003B4B
+	nop ; not executed offset: 00003B4C
+	nop ; not executed offset: 00003B4D
+	nop ; not executed offset: 00003B4E
+	nop ; not executed offset: 00003B4F
+	nop ; not executed offset: 00003B50
+	nop ; not executed offset: 00003B51
+	nop ; not executed offset: 00003B52
+	nop ; not executed offset: 00003B53
+	nop ; not executed offset: 00003B54
+	nop ; not executed offset: 00003B55
+	nop ; not executed offset: 00003B56
+	nop ; not executed offset: 00003B57
+	nop ; not executed offset: 00003B58
+	nop ; not executed offset: 00003B59
+	nop ; not executed offset: 00003B5A
+	nop ; not executed offset: 00003B5B
+	nop ; not executed offset: 00003B5C
+	nop ; not executed offset: 00003B5D
+	nop ; not executed offset: 00003B5E
+	nop ; not executed offset: 00003B5F
+	nop ; not executed offset: 00003B60
+	nop ; not executed offset: 00003B61
+	nop ; not executed offset: 00003B62
+	nop ; not executed offset: 00003B63
+	nop ; not executed offset: 00003B64
+	nop ; not executed offset: 00003B65
+	nop ; not executed offset: 00003B66
+	nop ; not executed offset: 00003B67
+	nop ; not executed offset: 00003B68
+	nop ; not executed offset: 00003B69
+	nop ; not executed offset: 00003B6A
+	nop ; not executed offset: 00003B6B
+	nop ; not executed offset: 00003B6C
+	nop ; not executed offset: 00003B6D
+	nop ; not executed offset: 00003B6E
+	nop ; not executed offset: 00003B6F
+	nop ; not executed offset: 00003B70
+	nop ; not executed offset: 00003B71
+	nop ; not executed offset: 00003B72
+	nop ; not executed offset: 00003B73
+	nop ; not executed offset: 00003B74
+	nop ; not executed offset: 00003B75
+	nop ; not executed offset: 00003B76
+	nop ; not executed offset: 00003B77
+	nop ; not executed offset: 00003B78
+	nop ; not executed offset: 00003B79
+	nop ; not executed offset: 00003B7A
+	nop ; not executed offset: 00003B7B
+	nop ; not executed offset: 00003B7C
+	nop ; not executed offset: 00003B7D
+	nop ; not executed offset: 00003B7E
+	nop ; not executed offset: 00003B7F
+	nop ; not executed offset: 00003B80
+	nop ; not executed offset: 00003B81
+	nop ; not executed offset: 00003B82
+	nop ; not executed offset: 00003B83
+	nop ; not executed offset: 00003B84
+	nop ; not executed offset: 00003B85
+	nop ; not executed offset: 00003B86
+	nop ; not executed offset: 00003B87
+	nop ; not executed offset: 00003B88
+	nop ; not executed offset: 00003B89
+	nop ; not executed offset: 00003B8A
+	nop ; not executed offset: 00003B8B
+	nop ; not executed offset: 00003B8C
+	nop ; not executed offset: 00003B8D
+	nop ; not executed offset: 00003B8E
+	nop ; not executed offset: 00003B8F
+	nop ; not executed offset: 00003B90
+	nop ; not executed offset: 00003B91
+	nop ; not executed offset: 00003B92
+	nop ; not executed offset: 00003B93
+	nop ; not executed offset: 00003B94
+	nop ; not executed offset: 00003B95
+	nop ; not executed offset: 00003B96
+	nop ; not executed offset: 00003B97
+	nop ; not executed offset: 00003B98
+	nop ; not executed offset: 00003B99
+	nop ; not executed offset: 00003B9A
+	nop ; not executed offset: 00003B9B
+	nop ; not executed offset: 00003B9C
+	nop ; not executed offset: 00003B9D
+	nop ; not executed offset: 00003B9E
+	nop ; not executed offset: 00003B9F
+	nop ; not executed offset: 00003BA0
+	nop ; not executed offset: 00003BA1
+	nop ; not executed offset: 00003BA2
+	nop ; not executed offset: 00003BA3
+	nop ; not executed offset: 00003BA4
+	nop ; not executed offset: 00003BA5
+	nop ; not executed offset: 00003BA6
+	nop ; not executed offset: 00003BA7
+	nop ; not executed offset: 00003BA8
+	nop ; not executed offset: 00003BA9
+	nop ; not executed offset: 00003BAA
+	nop ; not executed offset: 00003BAB
+	nop ; not executed offset: 00003BAC
+	nop ; not executed offset: 00003BAD
+	nop ; not executed offset: 00003BAE
+	nop ; not executed offset: 00003BAF
+	nop ; not executed offset: 00003BB0
+	nop ; not executed offset: 00003BB1
+	nop ; not executed offset: 00003BB2
+	nop ; not executed offset: 00003BB3
+	nop ; not executed offset: 00003BB4
+	nop ; not executed offset: 00003BB5
+	nop ; not executed offset: 00003BB6
+	nop ; not executed offset: 00003BB7
+	nop ; not executed offset: 00003BB8
+	nop ; not executed offset: 00003BB9
+	nop ; not executed offset: 00003BBA
+	nop ; not executed offset: 00003BBB
+	nop ; not executed offset: 00003BBC
+	nop ; not executed offset: 00003BBD
+	nop ; not executed offset: 00003BBE
+	nop ; not executed offset: 00003BBF
+	nop ; not executed offset: 00003BC0
+	nop ; not executed offset: 00003BC1
+	nop ; not executed offset: 00003BC2
+	nop ; not executed offset: 00003BC3
+	nop ; not executed offset: 00003BC4
+	nop ; not executed offset: 00003BC5
+	nop ; not executed offset: 00003BC6
+	nop ; not executed offset: 00003BC7
+	nop ; not executed offset: 00003BC8
+	nop ; not executed offset: 00003BC9
+	nop ; not executed offset: 00003BCA
+	nop ; not executed offset: 00003BCB
+	nop ; not executed offset: 00003BCC
+	nop ; not executed offset: 00003BCD
+	nop ; not executed offset: 00003BCE
+	nop ; not executed offset: 00003BCF
+	nop ; not executed offset: 00003BD0
+	nop ; not executed offset: 00003BD1
+	nop ; not executed offset: 00003BD2
+	nop ; not executed offset: 00003BD3
+	nop ; not executed offset: 00003BD4
+	nop ; not executed offset: 00003BD5
+	nop ; not executed offset: 00003BD6
+	nop ; not executed offset: 00003BD7
+	nop ; not executed offset: 00003BD8
+	nop ; not executed offset: 00003BD9
+	nop ; not executed offset: 00003BDA
+	nop ; not executed offset: 00003BDB
+	nop ; not executed offset: 00003BDC
+	nop ; not executed offset: 00003BDD
+	nop ; not executed offset: 00003BDE
+	nop ; not executed offset: 00003BDF
+	nop ; not executed offset: 00003BE0
+	nop ; not executed offset: 00003BE1
+	nop ; not executed offset: 00003BE2
+	nop ; not executed offset: 00003BE3
+	nop ; not executed offset: 00003BE4
+	nop ; not executed offset: 00003BE5
+	nop ; not executed offset: 00003BE6
+	nop ; not executed offset: 00003BE7
+	nop ; not executed offset: 00003BE8
+	nop ; not executed offset: 00003BE9
+	nop ; not executed offset: 00003BEA
+	nop ; not executed offset: 00003BEB
+	nop ; not executed offset: 00003BEC
+	nop ; not executed offset: 00003BED
+	nop ; not executed offset: 00003BEE
+	nop ; not executed offset: 00003BEF
+	nop ; not executed offset: 00003BF0
+	nop ; not executed offset: 00003BF1
+	nop ; not executed offset: 00003BF2
+	nop ; not executed offset: 00003BF3
+	nop ; not executed offset: 00003BF4
+	nop ; not executed offset: 00003BF5
+	nop ; not executed offset: 00003BF6
+	nop ; not executed offset: 00003BF7
+	nop ; not executed offset: 00003BF8
+	nop ; not executed offset: 00003BF9
+	nop ; not executed offset: 00003BFA
+	nop ; not executed offset: 00003BFB
+	nop ; not executed offset: 00003BFC
+	nop ; not executed offset: 00003BFD
+	nop ; not executed offset: 00003BFE
+	nop ; not executed offset: 00003BFF
+	nop ; not executed offset: 00003C00
+	nop ; not executed offset: 00003C01
+	nop ; not executed offset: 00003C02
+	nop ; not executed offset: 00003C03
+	nop ; not executed offset: 00003C04
+	nop ; not executed offset: 00003C05
+	nop ; not executed offset: 00003C06
+	nop ; not executed offset: 00003C07
+	nop ; not executed offset: 00003C08
+	nop ; not executed offset: 00003C09
+	nop ; not executed offset: 00003C0A
+	nop ; not executed offset: 00003C0B
+	nop ; not executed offset: 00003C0C
+	nop ; not executed offset: 00003C0D
+	nop ; not executed offset: 00003C0E
+	nop ; not executed offset: 00003C0F
+	nop ; not executed offset: 00003C10
+	nop ; not executed offset: 00003C11
+	nop ; not executed offset: 00003C12
+	nop ; not executed offset: 00003C13
+	nop ; not executed offset: 00003C14
+	nop ; not executed offset: 00003C15
+	nop ; not executed offset: 00003C16
+	nop ; not executed offset: 00003C17
+	nop ; not executed offset: 00003C18
+	nop ; not executed offset: 00003C19
+	nop ; not executed offset: 00003C1A
+	nop ; not executed offset: 00003C1B
+	nop ; not executed offset: 00003C1C
+	nop ; not executed offset: 00003C1D
+	nop ; not executed offset: 00003C1E
+	nop ; not executed offset: 00003C1F
+	nop ; not executed offset: 00003C20
+	nop ; not executed offset: 00003C21
+	nop ; not executed offset: 00003C22
+	nop ; not executed offset: 00003C23
+	nop ; not executed offset: 00003C24
+	nop ; not executed offset: 00003C25
+	nop ; not executed offset: 00003C26
+	nop ; not executed offset: 00003C27
+	nop ; not executed offset: 00003C28
+	nop ; not executed offset: 00003C29
+	nop ; not executed offset: 00003C2A
+	nop ; not executed offset: 00003C2B
+	nop ; not executed offset: 00003C2C
+	nop ; not executed offset: 00003C2D
+	nop ; not executed offset: 00003C2E
+	nop ; not executed offset: 00003C2F
+	nop ; not executed offset: 00003C30
+	nop ; not executed offset: 00003C31
+	nop ; not executed offset: 00003C32
+	nop ; not executed offset: 00003C33
+	nop ; not executed offset: 00003C34
+	nop ; not executed offset: 00003C35
+	nop ; not executed offset: 00003C36
+	nop ; not executed offset: 00003C37
+	nop ; not executed offset: 00003C38
+	nop ; not executed offset: 00003C39
+	nop ; not executed offset: 00003C3A
+	nop ; not executed offset: 00003C3B
+	nop ; not executed offset: 00003C3C
+	nop ; not executed offset: 00003C3D
+	nop ; not executed offset: 00003C3E
+	nop ; not executed offset: 00003C3F
+	nop ; not executed offset: 00003C40
+	nop ; not executed offset: 00003C41
+	nop ; not executed offset: 00003C42
+	nop ; not executed offset: 00003C43
+	nop ; not executed offset: 00003C44
+	nop ; not executed offset: 00003C45
+	nop ; not executed offset: 00003C46
+	nop ; not executed offset: 00003C47
+	nop ; not executed offset: 00003C48
+	nop ; not executed offset: 00003C49
+	nop ; not executed offset: 00003C4A
+	nop ; not executed offset: 00003C4B
+	nop ; not executed offset: 00003C4C
+	nop ; not executed offset: 00003C4D
+	nop ; not executed offset: 00003C4E
+	nop ; not executed offset: 00003C4F
+	nop ; not executed offset: 00003C50
+	nop ; not executed offset: 00003C51
+	nop ; not executed offset: 00003C52
+	nop ; not executed offset: 00003C53
+	nop ; not executed offset: 00003C54
+	nop ; not executed offset: 00003C55
+	nop ; not executed offset: 00003C56
+	nop ; not executed offset: 00003C57
+	nop ; not executed offset: 00003C58
+	nop ; not executed offset: 00003C59
+	nop ; not executed offset: 00003C5A
+	nop ; not executed offset: 00003C5B
+	nop ; not executed offset: 00003C5C
+	nop ; not executed offset: 00003C5D
+	nop ; not executed offset: 00003C5E
+	nop ; not executed offset: 00003C5F
+	nop ; not executed offset: 00003C60
+	nop ; not executed offset: 00003C61
+	nop ; not executed offset: 00003C62
+	nop ; not executed offset: 00003C63
+	nop ; not executed offset: 00003C64
+	nop ; not executed offset: 00003C65
+	nop ; not executed offset: 00003C66
+	nop ; not executed offset: 00003C67
+	nop ; not executed offset: 00003C68
+	nop ; not executed offset: 00003C69
+	nop ; not executed offset: 00003C6A
+	nop ; not executed offset: 00003C6B
+	nop ; not executed offset: 00003C6C
+	nop ; not executed offset: 00003C6D
+	nop ; not executed offset: 00003C6E
+	nop ; not executed offset: 00003C6F
+	nop ; not executed offset: 00003C70
+	nop ; not executed offset: 00003C71
+	nop ; not executed offset: 00003C72
+	nop ; not executed offset: 00003C73
+	nop ; not executed offset: 00003C74
+	nop ; not executed offset: 00003C75
+	nop ; not executed offset: 00003C76
+	nop ; not executed offset: 00003C77
+	nop ; not executed offset: 00003C78
+	nop ; not executed offset: 00003C79
+	nop ; not executed offset: 00003C7A
+	nop ; not executed offset: 00003C7B
+	nop ; not executed offset: 00003C7C
+	nop ; not executed offset: 00003C7D
+	nop ; not executed offset: 00003C7E
+	nop ; not executed offset: 00003C7F
+	nop ; not executed offset: 00003C80
+	nop ; not executed offset: 00003C81
+	nop ; not executed offset: 00003C82
+	nop ; not executed offset: 00003C83
+	nop ; not executed offset: 00003C84
+	nop ; not executed offset: 00003C85
+	nop ; not executed offset: 00003C86
+	nop ; not executed offset: 00003C87
+	nop ; not executed offset: 00003C88
+	nop ; not executed offset: 00003C89
+	nop ; not executed offset: 00003C8A
+	nop ; not executed offset: 00003C8B
+	nop ; not executed offset: 00003C8C
+	nop ; not executed offset: 00003C8D
+	nop ; not executed offset: 00003C8E
+	nop ; not executed offset: 00003C8F
+	nop ; not executed offset: 00003C90
+	nop ; not executed offset: 00003C91
+	nop ; not executed offset: 00003C92
+	nop ; not executed offset: 00003C93
+	nop ; not executed offset: 00003C94
+	nop ; not executed offset: 00003C95
+	nop ; not executed offset: 00003C96
+	nop ; not executed offset: 00003C97
+	nop ; not executed offset: 00003C98
+	nop ; not executed offset: 00003C99
+	nop ; not executed offset: 00003C9A
+	nop ; not executed offset: 00003C9B
+	nop ; not executed offset: 00003C9C
+	nop ; not executed offset: 00003C9D
+	nop ; not executed offset: 00003C9E
+	nop ; not executed offset: 00003C9F
+	nop ; not executed offset: 00003CA0
+	nop ; not executed offset: 00003CA1
+	nop ; not executed offset: 00003CA2
+	nop ; not executed offset: 00003CA3
+	nop ; not executed offset: 00003CA4
+	nop ; not executed offset: 00003CA5
+	nop ; not executed offset: 00003CA6
+	nop ; not executed offset: 00003CA7
+	nop ; not executed offset: 00003CA8
+	nop ; not executed offset: 00003CA9
+	nop ; not executed offset: 00003CAA
+	nop ; not executed offset: 00003CAB
+	nop ; not executed offset: 00003CAC
+	nop ; not executed offset: 00003CAD
+	nop ; not executed offset: 00003CAE
+	nop ; not executed offset: 00003CAF
+	nop ; not executed offset: 00003CB0
+	nop ; not executed offset: 00003CB1
+	nop ; not executed offset: 00003CB2
+	nop ; not executed offset: 00003CB3
+	nop ; not executed offset: 00003CB4
+	nop ; not executed offset: 00003CB5
+	nop ; not executed offset: 00003CB6
+	nop ; not executed offset: 00003CB7
+	nop ; not executed offset: 00003CB8
+	nop ; not executed offset: 00003CB9
+	nop ; not executed offset: 00003CBA
+	nop ; not executed offset: 00003CBB
+	nop ; not executed offset: 00003CBC
+	nop ; not executed offset: 00003CBD
+	nop ; not executed offset: 00003CBE
+	nop ; not executed offset: 00003CBF
+	nop ; not executed offset: 00003CC0
+	nop ; not executed offset: 00003CC1
+	nop ; not executed offset: 00003CC2
+	nop ; not executed offset: 00003CC3
+	nop ; not executed offset: 00003CC4
+	nop ; not executed offset: 00003CC5
+	nop ; not executed offset: 00003CC6
+	nop ; not executed offset: 00003CC7
+	nop ; not executed offset: 00003CC8
+	nop ; not executed offset: 00003CC9
+	nop ; not executed offset: 00003CCA
+	nop ; not executed offset: 00003CCB
+	nop ; not executed offset: 00003CCC
+	nop ; not executed offset: 00003CCD
+	nop ; not executed offset: 00003CCE
+	nop ; not executed offset: 00003CCF
+	nop ; not executed offset: 00003CD0
+	nop ; not executed offset: 00003CD1
+	nop ; not executed offset: 00003CD2
+	nop ; not executed offset: 00003CD3
+	nop ; not executed offset: 00003CD4
+	nop ; not executed offset: 00003CD5
+	nop ; not executed offset: 00003CD6
+	nop ; not executed offset: 00003CD7
+	nop ; not executed offset: 00003CD8
+	nop ; not executed offset: 00003CD9
+	nop ; not executed offset: 00003CDA
+	nop ; not executed offset: 00003CDB
+	nop ; not executed offset: 00003CDC
+	nop ; not executed offset: 00003CDD
+	nop ; not executed offset: 00003CDE
+	nop ; not executed offset: 00003CDF
+	nop ; not executed offset: 00003CE0
+	nop ; not executed offset: 00003CE1
+	nop ; not executed offset: 00003CE2
+	nop ; not executed offset: 00003CE3
+	nop ; not executed offset: 00003CE4
+	nop ; not executed offset: 00003CE5
+	nop ; not executed offset: 00003CE6
+	nop ; not executed offset: 00003CE7
+	nop ; not executed offset: 00003CE8
+	nop ; not executed offset: 00003CE9
+	nop ; not executed offset: 00003CEA
+	nop ; not executed offset: 00003CEB
+	nop ; not executed offset: 00003CEC
+	nop ; not executed offset: 00003CED
+	nop ; not executed offset: 00003CEE
+	nop ; not executed offset: 00003CEF
+	nop ; not executed offset: 00003CF0
+	nop ; not executed offset: 00003CF1
+	nop ; not executed offset: 00003CF2
+	nop ; not executed offset: 00003CF3
+	nop ; not executed offset: 00003CF4
+	nop ; not executed offset: 00003CF5
+	nop ; not executed offset: 00003CF6
+	nop ; not executed offset: 00003CF7
+	nop ; not executed offset: 00003CF8
+	nop ; not executed offset: 00003CF9
+	nop ; not executed offset: 00003CFA
+	nop ; not executed offset: 00003CFB
+	nop ; not executed offset: 00003CFC
+	nop ; not executed offset: 00003CFD
+	nop ; not executed offset: 00003CFE
+	nop ; not executed offset: 00003CFF
+	nop ; not executed offset: 00003D00
+	nop ; not executed offset: 00003D01
+	nop ; not executed offset: 00003D02
+	nop ; not executed offset: 00003D03
+	nop ; not executed offset: 00003D04
+	nop ; not executed offset: 00003D05
+	nop ; not executed offset: 00003D06
+	nop ; not executed offset: 00003D07
+	nop ; not executed offset: 00003D08
+	nop ; not executed offset: 00003D09
+	nop ; not executed offset: 00003D0A
+	nop ; not executed offset: 00003D0B
+	nop ; not executed offset: 00003D0C
+	nop ; not executed offset: 00003D0D
+	nop ; not executed offset: 00003D0E
+	nop ; not executed offset: 00003D0F
+	nop ; not executed offset: 00003D10
+	nop ; not executed offset: 00003D11
+	nop ; not executed offset: 00003D12
+	nop ; not executed offset: 00003D13
+	nop ; not executed offset: 00003D14
+	nop ; not executed offset: 00003D15
+	nop ; not executed offset: 00003D16
+	nop ; not executed offset: 00003D17
+	nop ; not executed offset: 00003D18
+	nop ; not executed offset: 00003D19
+	nop ; not executed offset: 00003D1A
+	nop ; not executed offset: 00003D1B
+	nop ; not executed offset: 00003D1C
+	nop ; not executed offset: 00003D1D
+	nop ; not executed offset: 00003D1E
+	nop ; not executed offset: 00003D1F
+	nop ; not executed offset: 00003D20
+	nop ; not executed offset: 00003D21
+	nop ; not executed offset: 00003D22
+	nop ; not executed offset: 00003D23
+	nop ; not executed offset: 00003D24
+	nop ; not executed offset: 00003D25
+	nop ; not executed offset: 00003D26
+	nop ; not executed offset: 00003D27
+	nop ; not executed offset: 00003D28
+	nop ; not executed offset: 00003D29
+	nop ; not executed offset: 00003D2A
+	nop ; not executed offset: 00003D2B
+	nop ; not executed offset: 00003D2C
+;stopped writing due to overlap with another section
 
 
 ;;;;;;;;;;;
@@ -1282,13 +4562,13 @@ LAB_0001_000062E8:
 	call $63E8 ;000062F1
 	LD IX,$DD40 ;000062F4
 	bit 7, [ix+0] ;000062F8
-	z_UNTAKEN_JUMP_3 ;000062FC
+	call nz, $676D ;z_UNTAKEN_JUMP_3 ;000062FC
 	LD IX,$DD70 ;000062FF
 	bit 7, [ix+0] ;00006303
-	z_UNTAKEN_JUMP_3 ;00006307
+	call nz, $676D ;z_UNTAKEN_JUMP_3 ;00006307
 	LD IX,$DDA0 ;0000630A
 	bit 7, [ix+0] ;0000630E
-	z_UNTAKEN_JUMP_3 ;00006312
+	call nz, $676D ;z_UNTAKEN_JUMP_3 ;00006312
 	LD IX,$DDD0 ;00006315
 	bit 7, [ix+0] ;00006319
 	z_UNTAKEN_JUMP_3 ;0000631D
@@ -1375,500 +4655,57 @@ LAB_0001_000062E8:
 	nop ; not executed offset: 00006476
 	nop ; not executed offset: 00006477
 	nop ; not executed offset: 00006478
-	nop ; not executed offset: 00006479
-	nop ; not executed offset: 0000647A
-	nop ; not executed offset: 0000647B
-	nop ; not executed offset: 0000647C
-	nop ; not executed offset: 0000647D
-	nop ; not executed offset: 0000647E
-	nop ; not executed offset: 0000647F
-	nop ; not executed offset: 00006480
-	nop ; not executed offset: 00006481
-	nop ; not executed offset: 00006482
-	nop ; not executed offset: 00006483
-	nop ; not executed offset: 00006484
-	nop ; not executed offset: 00006485
-	nop ; not executed offset: 00006486
-	nop ; not executed offset: 00006487
-	nop ; not executed offset: 00006488
-	nop ; not executed offset: 00006489
-	nop ; not executed offset: 0000648A
-	nop ; not executed offset: 0000648B
-	nop ; not executed offset: 0000648C
-	nop ; not executed offset: 0000648D
-	nop ; not executed offset: 0000648E
-	nop ; not executed offset: 0000648F
-	nop ; not executed offset: 00006490
-	nop ; not executed offset: 00006491
-	nop ; not executed offset: 00006492
-	nop ; not executed offset: 00006493
-	nop ; not executed offset: 00006494
-	nop ; not executed offset: 00006495
-	nop ; not executed offset: 00006496
-	nop ; not executed offset: 00006497
-	nop ; not executed offset: 00006498
-	nop ; not executed offset: 00006499
-	nop ; not executed offset: 0000649A
-	nop ; not executed offset: 0000649B
-	nop ; not executed offset: 0000649C
-	nop ; not executed offset: 0000649D
-	nop ; not executed offset: 0000649E
-	nop ; not executed offset: 0000649F
-	nop ; not executed offset: 000064A0
-	nop ; not executed offset: 000064A1
-	nop ; not executed offset: 000064A2
-	nop ; not executed offset: 000064A3
-	nop ; not executed offset: 000064A4
-	nop ; not executed offset: 000064A5
-	nop ; not executed offset: 000064A6
-	nop ; not executed offset: 000064A7
-	nop ; not executed offset: 000064A8
-	nop ; not executed offset: 000064A9
-	nop ; not executed offset: 000064AA
-	nop ; not executed offset: 000064AB
-	nop ; not executed offset: 000064AC
-	nop ; not executed offset: 000064AD
-	nop ; not executed offset: 000064AE
-	nop ; not executed offset: 000064AF
-	nop ; not executed offset: 000064B0
-	nop ; not executed offset: 000064B1
-	nop ; not executed offset: 000064B2
-	nop ; not executed offset: 000064B3
-	nop ; not executed offset: 000064B4
-	nop ; not executed offset: 000064B5
-	nop ; not executed offset: 000064B6
-	nop ; not executed offset: 000064B7
-	nop ; not executed offset: 000064B8
-	nop ; not executed offset: 000064B9
-	nop ; not executed offset: 000064BA
-	nop ; not executed offset: 000064BB
-	nop ; not executed offset: 000064BC
-	nop ; not executed offset: 000064BD
-	nop ; not executed offset: 000064BE
-	nop ; not executed offset: 000064BF
-	nop ; not executed offset: 000064C0
-	nop ; not executed offset: 000064C1
-	nop ; not executed offset: 000064C2
-	nop ; not executed offset: 000064C3
-	nop ; not executed offset: 000064C4
-	nop ; not executed offset: 000064C5
-	nop ; not executed offset: 000064C6
-	nop ; not executed offset: 000064C7
-	nop ; not executed offset: 000064C8
-	nop ; not executed offset: 000064C9
-	nop ; not executed offset: 000064CA
-	nop ; not executed offset: 000064CB
-	nop ; not executed offset: 000064CC
-	nop ; not executed offset: 000064CD
-	nop ; not executed offset: 000064CE
-	nop ; not executed offset: 000064CF
-	nop ; not executed offset: 000064D0
-	nop ; not executed offset: 000064D1
-	nop ; not executed offset: 000064D2
-	nop ; not executed offset: 000064D3
-	nop ; not executed offset: 000064D4
-	nop ; not executed offset: 000064D5
-	nop ; not executed offset: 000064D6
-	nop ; not executed offset: 000064D7
-	nop ; not executed offset: 000064D8
-	nop ; not executed offset: 000064D9
-	nop ; not executed offset: 000064DA
-	nop ; not executed offset: 000064DB
-	nop ; not executed offset: 000064DC
-	nop ; not executed offset: 000064DD
-	nop ; not executed offset: 000064DE
-	nop ; not executed offset: 000064DF
-	nop ; not executed offset: 000064E0
-	nop ; not executed offset: 000064E1
-	nop ; not executed offset: 000064E2
-	nop ; not executed offset: 000064E3
-	nop ; not executed offset: 000064E4
-	nop ; not executed offset: 000064E5
-	nop ; not executed offset: 000064E6
-	nop ; not executed offset: 000064E7
-	nop ; not executed offset: 000064E8
-	nop ; not executed offset: 000064E9
-	nop ; not executed offset: 000064EA
-	nop ; not executed offset: 000064EB
-	nop ; not executed offset: 000064EC
-	nop ; not executed offset: 000064ED
-	nop ; not executed offset: 000064EE
-	nop ; not executed offset: 000064EF
-	nop ; not executed offset: 000064F0
-	nop ; not executed offset: 000064F1
-	nop ; not executed offset: 000064F2
-	nop ; not executed offset: 000064F3
-	nop ; not executed offset: 000064F4
-	nop ; not executed offset: 000064F5
-	nop ; not executed offset: 000064F6
-	nop ; not executed offset: 000064F7
-	nop ; not executed offset: 000064F8
-	nop ; not executed offset: 000064F9
-	nop ; not executed offset: 000064FA
-	nop ; not executed offset: 000064FB
-	nop ; not executed offset: 000064FC
-	nop ; not executed offset: 000064FD
-	nop ; not executed offset: 000064FE
-	nop ; not executed offset: 000064FF
-	nop ; not executed offset: 00006500
-	nop ; not executed offset: 00006501
-	nop ; not executed offset: 00006502
-	nop ; not executed offset: 00006503
-	nop ; not executed offset: 00006504
-	nop ; not executed offset: 00006505
-	nop ; not executed offset: 00006506
-	nop ; not executed offset: 00006507
-	nop ; not executed offset: 00006508
-	nop ; not executed offset: 00006509
-	nop ; not executed offset: 0000650A
-	nop ; not executed offset: 0000650B
-	nop ; not executed offset: 0000650C
-	nop ; not executed offset: 0000650D
-	nop ; not executed offset: 0000650E
-	nop ; not executed offset: 0000650F
-	nop ; not executed offset: 00006510
-	nop ; not executed offset: 00006511
-	nop ; not executed offset: 00006512
-	nop ; not executed offset: 00006513
-	nop ; not executed offset: 00006514
-	nop ; not executed offset: 00006515
-	nop ; not executed offset: 00006516
-	nop ; not executed offset: 00006517
-	nop ; not executed offset: 00006518
-	nop ; not executed offset: 00006519
-	nop ; not executed offset: 0000651A
-	nop ; not executed offset: 0000651B
-	nop ; not executed offset: 0000651C
-	nop ; not executed offset: 0000651D
-	nop ; not executed offset: 0000651E
-	nop ; not executed offset: 0000651F
-	nop ; not executed offset: 00006520
-	nop ; not executed offset: 00006521
-	nop ; not executed offset: 00006522
-	nop ; not executed offset: 00006523
-	nop ; not executed offset: 00006524
-	nop ; not executed offset: 00006525
-	nop ; not executed offset: 00006526
-	nop ; not executed offset: 00006527
-	nop ; not executed offset: 00006528
-	nop ; not executed offset: 00006529
-	nop ; not executed offset: 0000652A
-	nop ; not executed offset: 0000652B
-	nop ; not executed offset: 0000652C
-	nop ; not executed offset: 0000652D
-	nop ; not executed offset: 0000652E
-	nop ; not executed offset: 0000652F
-	nop ; not executed offset: 00006530
-	nop ; not executed offset: 00006531
-	nop ; not executed offset: 00006532
-	nop ; not executed offset: 00006533
-	nop ; not executed offset: 00006534
-	nop ; not executed offset: 00006535
-	nop ; not executed offset: 00006536
-	nop ; not executed offset: 00006537
-	nop ; not executed offset: 00006538
-	nop ; not executed offset: 00006539
-	nop ; not executed offset: 0000653A
-	nop ; not executed offset: 0000653B
-	nop ; not executed offset: 0000653C
-	nop ; not executed offset: 0000653D
-	nop ; not executed offset: 0000653E
-	nop ; not executed offset: 0000653F
-	nop ; not executed offset: 00006540
-	nop ; not executed offset: 00006541
-	nop ; not executed offset: 00006542
-	nop ; not executed offset: 00006543
-	nop ; not executed offset: 00006544
-	nop ; not executed offset: 00006545
-	nop ; not executed offset: 00006546
-	nop ; not executed offset: 00006547
-	nop ; not executed offset: 00006548
-	nop ; not executed offset: 00006549
-	nop ; not executed offset: 0000654A
-	nop ; not executed offset: 0000654B
-	nop ; not executed offset: 0000654C
-	nop ; not executed offset: 0000654D
-	nop ; not executed offset: 0000654E
-	nop ; not executed offset: 0000654F
-	nop ; not executed offset: 00006550
-	nop ; not executed offset: 00006551
-	nop ; not executed offset: 00006552
-	nop ; not executed offset: 00006553
-	nop ; not executed offset: 00006554
-	nop ; not executed offset: 00006555
-	nop ; not executed offset: 00006556
-	nop ; not executed offset: 00006557
-	nop ; not executed offset: 00006558
-	nop ; not executed offset: 00006559
-	nop ; not executed offset: 0000655A
-	nop ; not executed offset: 0000655B
-	nop ; not executed offset: 0000655C
-	nop ; not executed offset: 0000655D
-	nop ; not executed offset: 0000655E
-	nop ; not executed offset: 0000655F
-	nop ; not executed offset: 00006560
-	nop ; not executed offset: 00006561
-	nop ; not executed offset: 00006562
-	nop ; not executed offset: 00006563
-	nop ; not executed offset: 00006564
-	nop ; not executed offset: 00006565
-	nop ; not executed offset: 00006566
-	nop ; not executed offset: 00006567
-	nop ; not executed offset: 00006568
-	nop ; not executed offset: 00006569
-	nop ; not executed offset: 0000656A
-	nop ; not executed offset: 0000656B
-	nop ; not executed offset: 0000656C
-	nop ; not executed offset: 0000656D
-	nop ; not executed offset: 0000656E
-	nop ; not executed offset: 0000656F
-	nop ; not executed offset: 00006570
-	nop ; not executed offset: 00006571
-	nop ; not executed offset: 00006572
-	nop ; not executed offset: 00006573
-	nop ; not executed offset: 00006574
-	nop ; not executed offset: 00006575
-	nop ; not executed offset: 00006576
-	nop ; not executed offset: 00006577
-	nop ; not executed offset: 00006578
-	nop ; not executed offset: 00006579
-	nop ; not executed offset: 0000657A
-	nop ; not executed offset: 0000657B
-	nop ; not executed offset: 0000657C
-	nop ; not executed offset: 0000657D
-	nop ; not executed offset: 0000657E
-	nop ; not executed offset: 0000657F
-	nop ; not executed offset: 00006580
-	nop ; not executed offset: 00006581
-	nop ; not executed offset: 00006582
-	nop ; not executed offset: 00006583
-	nop ; not executed offset: 00006584
-	nop ; not executed offset: 00006585
-	nop ; not executed offset: 00006586
-	nop ; not executed offset: 00006587
-	nop ; not executed offset: 00006588
-	nop ; not executed offset: 00006589
-	nop ; not executed offset: 0000658A
-	nop ; not executed offset: 0000658B
-	nop ; not executed offset: 0000658C
-	nop ; not executed offset: 0000658D
-	nop ; not executed offset: 0000658E
-	nop ; not executed offset: 0000658F
-	nop ; not executed offset: 00006590
-	nop ; not executed offset: 00006591
-	nop ; not executed offset: 00006592
-	nop ; not executed offset: 00006593
-	nop ; not executed offset: 00006594
-	nop ; not executed offset: 00006595
-	nop ; not executed offset: 00006596
-	nop ; not executed offset: 00006597
-	nop ; not executed offset: 00006598
-	nop ; not executed offset: 00006599
-	nop ; not executed offset: 0000659A
-	nop ; not executed offset: 0000659B
-	nop ; not executed offset: 0000659C
-	nop ; not executed offset: 0000659D
-	nop ; not executed offset: 0000659E
-	nop ; not executed offset: 0000659F
-	nop ; not executed offset: 000065A0
-	nop ; not executed offset: 000065A1
-	nop ; not executed offset: 000065A2
-	nop ; not executed offset: 000065A3
-	nop ; not executed offset: 000065A4
-	nop ; not executed offset: 000065A5
-	nop ; not executed offset: 000065A6
-	nop ; not executed offset: 000065A7
-	nop ; not executed offset: 000065A8
-	nop ; not executed offset: 000065A9
-	nop ; not executed offset: 000065AA
-	nop ; not executed offset: 000065AB
-	nop ; not executed offset: 000065AC
-	nop ; not executed offset: 000065AD
-	nop ; not executed offset: 000065AE
-	nop ; not executed offset: 000065AF
-	nop ; not executed offset: 000065B0
-	nop ; not executed offset: 000065B1
-	nop ; not executed offset: 000065B2
-	nop ; not executed offset: 000065B3
-	nop ; not executed offset: 000065B4
-	nop ; not executed offset: 000065B5
-	nop ; not executed offset: 000065B6
-	nop ; not executed offset: 000065B7
-	nop ; not executed offset: 000065B8
-	nop ; not executed offset: 000065B9
-	nop ; not executed offset: 000065BA
-	nop ; not executed offset: 000065BB
-	nop ; not executed offset: 000065BC
-	nop ; not executed offset: 000065BD
-	nop ; not executed offset: 000065BE
-	nop ; not executed offset: 000065BF
-	nop ; not executed offset: 000065C0
-	nop ; not executed offset: 000065C1
-	nop ; not executed offset: 000065C2
-	nop ; not executed offset: 000065C3
-	nop ; not executed offset: 000065C4
-	nop ; not executed offset: 000065C5
-	nop ; not executed offset: 000065C6
-	nop ; not executed offset: 000065C7
-	nop ; not executed offset: 000065C8
-	nop ; not executed offset: 000065C9
-	nop ; not executed offset: 000065CA
-	nop ; not executed offset: 000065CB
-	nop ; not executed offset: 000065CC
-	nop ; not executed offset: 000065CD
-	nop ; not executed offset: 000065CE
-	nop ; not executed offset: 000065CF
-	nop ; not executed offset: 000065D0
-	nop ; not executed offset: 000065D1
-	nop ; not executed offset: 000065D2
-	nop ; not executed offset: 000065D3
-	nop ; not executed offset: 000065D4
-	nop ; not executed offset: 000065D5
-	nop ; not executed offset: 000065D6
-	nop ; not executed offset: 000065D7
-	nop ; not executed offset: 000065D8
-	nop ; not executed offset: 000065D9
-	nop ; not executed offset: 000065DA
-	nop ; not executed offset: 000065DB
-	nop ; not executed offset: 000065DC
-	nop ; not executed offset: 000065DD
-	nop ; not executed offset: 000065DE
-	nop ; not executed offset: 000065DF
-	nop ; not executed offset: 000065E0
-	nop ; not executed offset: 000065E1
-	nop ; not executed offset: 000065E2
-	nop ; not executed offset: 000065E3
-	nop ; not executed offset: 000065E4
-	nop ; not executed offset: 000065E5
-	nop ; not executed offset: 000065E6
-	nop ; not executed offset: 000065E7
-	nop ; not executed offset: 000065E8
-	nop ; not executed offset: 000065E9
-	nop ; not executed offset: 000065EA
-	nop ; not executed offset: 000065EB
-	nop ; not executed offset: 000065EC
-	nop ; not executed offset: 000065ED
-	nop ; not executed offset: 000065EE
-	nop ; not executed offset: 000065EF
-	nop ; not executed offset: 000065F0
-	nop ; not executed offset: 000065F1
-	nop ; not executed offset: 000065F2
-	nop ; not executed offset: 000065F3
-	nop ; not executed offset: 000065F4
-	nop ; not executed offset: 000065F5
-	nop ; not executed offset: 000065F6
-	nop ; not executed offset: 000065F7
-	nop ; not executed offset: 000065F8
-	nop ; not executed offset: 000065F9
-	nop ; not executed offset: 000065FA
-	nop ; not executed offset: 000065FB
-	nop ; not executed offset: 000065FC
-	nop ; not executed offset: 000065FD
-	nop ; not executed offset: 000065FE
-	nop ; not executed offset: 000065FF
-	nop ; not executed offset: 00006600
-	nop ; not executed offset: 00006601
-	nop ; not executed offset: 00006602
-	nop ; not executed offset: 00006603
-	nop ; not executed offset: 00006604
-	nop ; not executed offset: 00006605
-	nop ; not executed offset: 00006606
-	nop ; not executed offset: 00006607
-	nop ; not executed offset: 00006608
-	nop ; not executed offset: 00006609
-	nop ; not executed offset: 0000660A
-	nop ; not executed offset: 0000660B
-	nop ; not executed offset: 0000660C
-	nop ; not executed offset: 0000660D
-	nop ; not executed offset: 0000660E
-	nop ; not executed offset: 0000660F
-	nop ; not executed offset: 00006610
-	nop ; not executed offset: 00006611
-	nop ; not executed offset: 00006612
-	nop ; not executed offset: 00006613
-	nop ; not executed offset: 00006614
-	nop ; not executed offset: 00006615
-	nop ; not executed offset: 00006616
-	nop ; not executed offset: 00006617
-	nop ; not executed offset: 00006618
-	nop ; not executed offset: 00006619
-	nop ; not executed offset: 0000661A
-	nop ; not executed offset: 0000661B
-	nop ; not executed offset: 0000661C
-	nop ; not executed offset: 0000661D
-	nop ; not executed offset: 0000661E
-	nop ; not executed offset: 0000661F
-	nop ; not executed offset: 00006620
-	nop ; not executed offset: 00006621
-	nop ; not executed offset: 00006622
-	nop ; not executed offset: 00006623
-	nop ; not executed offset: 00006624
-	nop ; not executed offset: 00006625
-	nop ; not executed offset: 00006626
-	nop ; not executed offset: 00006627
-	nop ; not executed offset: 00006628
-	nop ; not executed offset: 00006629
-	nop ; not executed offset: 0000662A
-	nop ; not executed offset: 0000662B
-	nop ; not executed offset: 0000662C
-	nop ; not executed offset: 0000662D
-	nop ; not executed offset: 0000662E
-	nop ; not executed offset: 0000662F
-	nop ; not executed offset: 00006630
-	nop ; not executed offset: 00006631
-	nop ; not executed offset: 00006632
-	nop ; not executed offset: 00006633
-	nop ; not executed offset: 00006634
-	nop ; not executed offset: 00006635
-	nop ; not executed offset: 00006636
-	nop ; not executed offset: 00006637
-	nop ; not executed offset: 00006638
-	nop ; not executed offset: 00006639
-	nop ; not executed offset: 0000663A
-	nop ; not executed offset: 0000663B
-	nop ; not executed offset: 0000663C
-	nop ; not executed offset: 0000663D
-	nop ; not executed offset: 0000663E
-	nop ; not executed offset: 0000663F
-	nop ; not executed offset: 00006640
-	nop ; not executed offset: 00006641
-	nop ; not executed offset: 00006642
-	nop ; not executed offset: 00006643
-	nop ; not executed offset: 00006644
-	nop ; not executed offset: 00006645
-	nop ; not executed offset: 00006646
-	nop ; not executed offset: 00006647
-	nop ; not executed offset: 00006648
-	nop ; not executed offset: 00006649
-	nop ; not executed offset: 0000664A
-	nop ; not executed offset: 0000664B
-	nop ; not executed offset: 0000664C
-	nop ; not executed offset: 0000664D
-	nop ; not executed offset: 0000664E
-	nop ; not executed offset: 0000664F
-	nop ; not executed offset: 00006650
-	nop ; not executed offset: 00006651
-	nop ; not executed offset: 00006652
-	nop ; not executed offset: 00006653
-	nop ; not executed offset: 00006654
-	nop ; not executed offset: 00006655
-	nop ; not executed offset: 00006656
-	nop ; not executed offset: 00006657
-	nop ; not executed offset: 00006658
-	nop ; not executed offset: 00006659
-	nop ; not executed offset: 0000665A
-	nop ; not executed offset: 0000665B
-	nop ; not executed offset: 0000665C
-	nop ; not executed offset: 0000665D
-	nop ; not executed offset: 0000665E
-	nop ; not executed offset: 0000665F
-	nop ; not executed offset: 00006660
-	nop ; not executed offset: 00006661
-	nop ; not executed offset: 00006662
-	nop ; not executed offset: 00006663
-	nop ; not executed offset: 00006664
-	nop ; not executed offset: 00006665
-	nop ; not executed offset: 00006666
+;stopped writing due to overlap with another section
+.BANK 0001 SLOT 1
+.ORGA $00006604
+; Called by: 0001::00006812
+	ld a, (de) ;00006604
+	inc de ;00006605
+	cp $00E0 ;00006606
+	jp nc, $67FD ;z_UNTAKEN_JUMP_3 ;00006608
+	bit 3, [ix+0] ;0000660B
+	z_UNTAKEN_JUMP_3 ;0000660F
+	cp $0080 ;00006612
+	jr c, LAB_0001_0000663A ;z_UNTAKEN_JUMP_2 ;00006614
+	z_UNTAKEN_JUMP_2 ;00006616
+	ex af, af' ;00006618
+	LD   A,(IX+$001D) ;00006619
+	and $007F ;0000661C
+	LD   (IX+$001D),A ;0000661E
+	ex af, af' ;00006621
+	call $66C0 ;00006622
+	LD   (IX+$000B),L ;00006625
+	LD   (IX+$000C),H ;00006628
+	ld a, (de) ;0000662B
+	inc de ;0000662C
+	or a ;0000662D
+	jp p, $663A ;z_UNTAKEN_JUMP_3 ;0000662E
+	LD   A,(IX+$000D) ;00006631
+	LD   (IX+$000A),A ;00006634
+	dec de ;00006637
+	jr LAB_0001_00006643 ;00006638
+;stopped writing due to overlap with another section
+.BANK 0001 SLOT 1
+.ORGA $0000663A
+; Called by: 0001::00006631
+LAB_0001_0000663A:
+	call $66D7 ;0000663A
+	LD   (IX+$000A),A ;0000663D
+	LD   (IX+$000D),A ;00006640
+LAB_0001_00006643:
+	LD   (IX+$0003),E ;00006643
+	LD   (IX+$0004),D ;00006646
+	bit 1, [ix+0] ;00006649
+	ret nz ;0000664D
+	bit 6, [ix+0] ;0000664E
+	z_UNTAKEN_JUMP_2 ;00006652
+	res 5, [ix+0] ;00006654
+	LD   A,(IX+$000F) ;00006658
+	LD   (IX+$000E),A ;0000665B
+	xor a ;0000665E
+	LD   (IX+$0015),A ;0000665F
+	bit 7, [ix+7] ;00006662
+	ret nz ;00006666
 	nop ; not executed offset: 00006667
 	nop ; not executed offset: 00006668
 	nop ; not executed offset: 00006669
@@ -1912,15 +4749,182 @@ LAB_0001_000062E8:
 .BANK 0001 SLOT 1
 .ORGA $0000668E
 ; Called by: 0001::000063F0
-	push hl ;0000668E
-	push bc ;0000668F
-	push de ;00006690
-	ld hl, $DD03 ;00006691
-	ld de, $DD04 ;00006694
-	ld bc, $018C ;00006697
-	ld (hl), $0000 ;0000669A
-	LDIR ;0000669C
-	pop de ;0000669E
-	pop bc ;0000669F
-	pop hl ;000066A0
+; Called by: 0001::00006405
+; Address Also defined as function
+.BANK 0001 SLOT 1
+.ORGA $000067B1
+; Called by: 0001::000067B0
+	ld e, a ;000067B1
+	add hl, de ;000067B2
+	LD   A,(IX+$0001) ;000067B3
+	cp $00E0 ;000067B6
+	jr nz, LAB_0001_000067BC ;000067B8
+	nop ; not executed offset: 000067BA
+	nop ; not executed offset: 000067BB
+LAB_0001_000067BC:
+	ld c, a ;000067BC
+	ld a, l ;000067BD
+	and $000F ;000067BE
+	or c ;000067C0
+	out ($007F), a ;000067C1
+	ld a, l ;000067C3
+	and $00F0 ;000067C4
+	or h ;000067C6
+	rrca ;000067C7
+	rrca ;000067C8
+	rrca ;000067C9
+	rrca ;000067CA
+	out ($007F), a ;000067CB
+	call $6542 ;000067CD
+	bit 2, [ix+0] ;000067D0
+	ret nz ;000067D4
+	bit 4, [ix+0] ;000067D5
+	ret nz ;000067D9
+	ADD  A,(IX+$0008) ;000067DA
+	bit 4, a ;000067DD
+	jr z, LAB_0001_000067E3 ;000067DF
+	nop ; not executed offset: 000067E1
+	nop ; not executed offset: 000067E2
+LAB_0001_000067E3:
+	OR   (IX+$0001) ;000067E3
+	and a, $0010 ;000067E6
+	out ($007F), a ;000067E8
+	ret ;000067EA
+	nop ; not executed offset: 000067EB
+	nop ; not executed offset: 000067EC
+	nop ; not executed offset: 000067ED
+	nop ; not executed offset: 000067EE
+	nop ; not executed offset: 000067EF
+	nop ; not executed offset: 000067F0
+	nop ; not executed offset: 000067F1
+	nop ; not executed offset: 000067F2
+	nop ; not executed offset: 000067F3
+	nop ; not executed offset: 000067F4
+	nop ; not executed offset: 000067F5
+	nop ; not executed offset: 000067F6
+	nop ; not executed offset: 000067F7
+	nop ; not executed offset: 000067F8
+	nop ; not executed offset: 000067F9
+	nop ; not executed offset: 000067FA
+	nop ; not executed offset: 000067FB
+	nop ; not executed offset: 000067FC
+;stopped writing due to overlap with another section
+.BANK 0001 SLOT 1
+.ORGA $000067FD
+; Called by: 0001::0000660B
+	ld hl, $6811 ;000067FD
+	push hl ;00006800
+	sub $00E0 ;00006801
+	ld hl, $6815 ;00006803
+	add a, a ;00006806
+	ld c, a ;00006807
+	ld b, $0000 ;00006808
+	add hl, bc ;0000680A
+	ld c, (hl) ;0000680B
+	inc hl ;0000680C
+	ld h, (hl) ;0000680D
+	ld l, c ;0000680E
+	ld a, (de) ;0000680F
+	jp (hl) ;00006810
+	inc de ;00006811
+	jp $6604 ;00006812
+;stopped writing due to overlap with another section
+.BANK 0001 SLOT 1
+.ORGA $0000698C
+; Called by: 0001::00006810
+	LD   (IX+$0010),E ;0000698C
+	LD   (IX+$0011),D ;0000698F
+	LD   (IX+$0006),$0080 ;00006992
+	inc de ;00006996
+	inc de ;00006997
+	inc de ;00006998
+	ret ;00006999
+;stopped writing due to overlap with another section
+.BANK 0001 SLOT 1
+.ORGA $0000699A
+; Called by: 0001::00006810
+	set 1, [ix+0] ;0000699A
+	dec de ;0000699E
+	ret ;0000699F
+	nop ; not executed offset: 000069A0
+	nop ; not executed offset: 000069A1
+	nop ; not executed offset: 000069A2
+	nop ; not executed offset: 000069A3
+	nop ; not executed offset: 000069A4
+;stopped writing due to overlap with another section
+.BANK 0001 SLOT 1
+.ORGA $000069A5
+; Called by: 0001::00006810
+	LD   (IX+$0007),$0080 ;000069A5
+	LD   (IX+$001F),$00FF ;000069A9
+	push de ;000069AD
+	PUSH IX ;000069AE
+	pop hl ;000069B0
+	ld b, $0000 ;000069B1
+	ld c, $0020 ;000069B3
+	add hl, bc ;000069B5
+	ex de, hl ;000069B6
+	LDI ;000069B7
+	LDI ;000069B9
+	LDI ;000069BB
+	LDI ;000069BD
+	LDI ;000069BF
+	pop de ;000069C1
+	inc de ;000069C2
+	inc de ;000069C3
+	inc de ;000069C4
+	inc de ;000069C5
+	ret ;000069C6
+	nop ; not executed offset: 000069C7
+	nop ; not executed offset: 000069C8
+	nop ; not executed offset: 000069C9
+	nop ; not executed offset: 000069CA
+	nop ; not executed offset: 000069CB
+	nop ; not executed offset: 000069CC
+	nop ; not executed offset: 000069CD
+	nop ; not executed offset: 000069CE
+	nop ; not executed offset: 000069CF
+	nop ; not executed offset: 000069D0
+	nop ; not executed offset: 000069D1
+	nop ; not executed offset: 000069D2
+	nop ; not executed offset: 000069D3
+	nop ; not executed offset: 000069D4
+	nop ; not executed offset: 000069D5
+	nop ; not executed offset: 000069D6
+	nop ; not executed offset: 000069D7
+	nop ; not executed offset: 000069D8
+	nop ; not executed offset: 000069D9
+	nop ; not executed offset: 000069DA
+	nop ; not executed offset: 000069DB
+	nop ; not executed offset: 000069DC
+	nop ; not executed offset: 000069DD
+	nop ; not executed offset: 000069DE
+	nop ; not executed offset: 000069DF
+	nop ; not executed offset: 000069E0
+	nop ; not executed offset: 000069E1
+	nop ; not executed offset: 000069E2
+	nop ; not executed offset: 000069E3
+	nop ; not executed offset: 000069E4
+	nop ; not executed offset: 000069E5
+	nop ; not executed offset: 000069E6
+	nop ; not executed offset: 000069E7
+	nop ; not executed offset: 000069E8
+	nop ; not executed offset: 000069E9
+	nop ; not executed offset: 000069EA
+	nop ; not executed offset: 000069EB
+	nop ; not executed offset: 000069EC
+	nop ; not executed offset: 000069ED
+	nop ; not executed offset: 000069EE
+	nop ; not executed offset: 000069EF
+	nop ; not executed offset: 000069F0
+	nop ; not executed offset: 000069F1
+	nop ; not executed offset: 000069F2
+	nop ; not executed offset: 000069F3
+	nop ; not executed offset: 000069F4
+	nop ; not executed offset: 000069F5
+	nop ; not executed offset: 000069F6
+	nop ; not executed offset: 000069F7
+	nop ; not executed offset: 000069F8
+	nop ; not executed offset: 000069F9
+	nop ; not executed offset: 000069FA
 ;stopped writing due to overlap with another section

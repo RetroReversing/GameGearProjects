@@ -8,42 +8,24 @@
 LAB_0001_0000640A:
 	sub $0081 ;0000640A
 	ret m ;0000640C
-	nop ; not executed offset: 0000640D
-	nop ; not executed offset: 0000640E
-	nop ; not executed offset: 0000640F
-	nop ; not executed offset: 00006410
-	nop ; not executed offset: 00006411
-	nop ; not executed offset: 00006412
-	nop ; not executed offset: 00006413
-	nop ; not executed offset: 00006414
-	nop ; not executed offset: 00006415
-	nop ; not executed offset: 00006416
-	nop ; not executed offset: 00006417
-	nop ; not executed offset: 00006418
-	nop ; not executed offset: 00006419
-	nop ; not executed offset: 0000641A
-	nop ; not executed offset: 0000641B
-	nop ; not executed offset: 0000641C
-	nop ; not executed offset: 0000641D
-	nop ; not executed offset: 0000641E
-	nop ; not executed offset: 0000641F
-	nop ; not executed offset: 00006420
-	nop ; not executed offset: 00006421
-	nop ; not executed offset: 00006422
-	nop ; not executed offset: 00006423
-	nop ; not executed offset: 00006424
-	nop ; not executed offset: 00006425
-	nop ; not executed offset: 00006426
-	nop ; not executed offset: 00006427
-	nop ; not executed offset: 00006428
-	nop ; not executed offset: 00006429
-	nop ; not executed offset: 0000642A
-	nop ; not executed offset: 0000642B
-	nop ; not executed offset: 0000642C
-	nop ; not executed offset: 0000642D
-	nop ; not executed offset: 0000642E
-	nop ; not executed offset: 0000642F
-	nop ; not executed offset: 00006430
+	ex af, af' ;0000640D
+	call $668E ;0000640E
+	ex af, af' ;00006411
+	ld hl, $6A23 ;00006412
+	ld c, a ;00006415
+	ex af, af' ;00006416
+	call $66D2 ;00006417
+	ld ($DD01), a ;0000641A
+	ld ($DD02), a ;0000641D
+	ex af, af' ;00006420
+	ld hl, $6A2A ;00006421
+	call $66C8 ;00006424
+	ld b, (hl) ;00006427
+	inc hl ;00006428
+	ld de, $DD40 ;00006429
+LAB_0001_0000642C:
+	call $6479 ;0000642C
+	djnz LAB_0001_0000642C ;z_UNTAKEN_JUMP_2 ;0000642F
 ;stopped writing due to overlap with another section
 
 
